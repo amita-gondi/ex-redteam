@@ -2,6 +2,8 @@
 
 > **AIUC-internal. Private repo only.** Everything here is AIUC/Extrapolate internal: task designs, hidden task cards, desk verdicts and method drafts. Do not make the repo public, fork it publicly or share it outside the team without Amita's approval (bar F4).
 
+**New here? Start with [GETTING_STARTED.md](GETTING_STARTED.md)**: prerequisites, adding your task, `bin/redteam` commands, gates, DO NOT list, worked example and known gaps.
+
 ## Purpose
 A task-agnostic home for red-teaming RL research tasks against saturation by a strong frontier researcher (a ~10T model with 12 h; assumption). It holds:
 - one method: the attacker prompt, rollout spec, evidence grounding rule, kill thresholds and verdict schema;
@@ -30,7 +32,10 @@ method/      attacker_prompt.md, rollout_spec.md (canonical pairing set), spec_n
 config/      runner.yaml (screen -> anchored re-score -> red team; canary/panel OFF) + README.md
 tasks/       _template/ (card.md, grader.md, sota_sources.md); T02..T18 = v4 FIX packets; D01..D32 = hidden task cards
 runs/        <task_id>/<date>/<run_kind>/run.yaml (+ copied record); _program/ = cross-task summaries; INDEX.tsv
-tools/       import_runs.py (how the records were imported; read-only on sources)
+tools/       import_runs.py (how the records were imported; read-only on sources),
+             wording_check.py (boilerplate check), independence_check.py (post-hoc red-team blindness check)
+bin/         redteam: thin wrapper; one desk stage for one task via codex exec (--dry-run supported)
+method/prompts/  _common.md + screen.md, anchored_rescore.md, redteam.md (task-agnostic stage prompts)
 ```
 
 `run_kind` is one of:

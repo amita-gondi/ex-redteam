@@ -8,6 +8,12 @@ pairings:   # canonical set, settled by Amita Nov 21 2026; exact pins OPEN (bar 
   - {id: P2, model: "Gemini 4 Argon", harness: "Antigravity"}
   - {id: P3, model: "Qwen 3.8 Max", harness: "Qwen Code"}
   - {id: P4, model: "GPT-6.2 Sol", harness: "Codex"}
+desk_agent:   # used by bin/redteam for the desk stages (screen, anchored_rescore, redteam)
+  cli: codex
+  model: gpt-6.1-sol          # historical: every imported desk run used gpt-6.1-sol at effort high; set your own model access
+  reasoning_effort: high
+  web_search: true            # codex --search
+  sandbox: workspace-write
 compute: {gpu: false, max_concurrent_desk_sessions: 4, stall_minutes: 15, max_resumes: 4}
 evidence_rule: method/evidence_grounding_rule.md
 schema: method/verdict_schema.yaml
@@ -41,3 +47,8 @@ gates:
   canary: OFF   # requires Amita GO
   panel: OFF    # requires Amita GO
   publish_or_share: OFF   # requires Amita GO (bar F4)
+# bin/redteam refuses canary/panel unless the gate above is ON *and* a matching record below
+# has all of who/when/source filled in (source = link or quote of Amita's GO). Leave empty.
+gate_go_records:
+  canary: {who: "", when: "", source: ""}
+  panel:  {who: "", when: "", source: ""}

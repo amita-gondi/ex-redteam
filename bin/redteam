@@ -1,0 +1,206 @@
+#!/usr/bin/env python3
+"""bin/redteam: a thin wrapper that runs ONE desk stage for ONE task through the Codex CLI.
+
+  bin/redteam <task_id> <stage> [--dry-run] [--date YYYY-MM-DD] [--model M] [--effort E] [--prior PATH] [--force]
+
+Stages: screen | anchored_rescore | redteam  (CPU / desk only)
+        canary | panel                       (rollout stages: refused while their gate is OFF)
+
+What it does, and nothing more:
+  1. renders method/prompts/<stage>.md (+ method/prompts/_common.md) with the task's paths;
+  2. runs `codex --search exec -m <model> -c model_reasoning_effort=<effort> ...` with the
+     model/effort from config/runner.yaml (desk_agent), output under runs/<task>/<date>/<stage>/;
+  3. writes run.yaml (status, model, prompt hash, record fields parsed from the report).
+--dry-run prints the rendered prompt and the exact command, and writes nothing.
+
+What it does NOT do: stall watching, auto-resume, parallel batches, aggregation, URL checks.
+Verdicts it records are LLM desk judgements (ESTIMATED), not measurements.
+"""
+import argparse, datetime, hashlib, os, re, shlex, subprocess, sys
+
+try:
+    import yaml
+except ImportError:
+    sys.exit("bin/redteam needs PyYAML: python3 -m pip install --user pyyaml")
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DESK = ("screen", "anchored_rescore", "redteam")
+GATED = ("canary", "panel")
+OUTFILE = {"screen": "screen_card.md", "anchored_rescore": "audit_card.md", "redteam": "redteam.md"}
+RECORD = {"screen": "## Screen record", "anchored_rescore": "## Audit record", "redteam": "## Verdict record"}
+VERDICT_KEY = {"screen": "verdict", "anchored_rescore": "anchored_verdict", "redteam": "verdict"}
+OUTCOME = {"PASS-SCREEN": "ADVANCE", "HOLDS": "ADVANCE", "CONDITIONAL": "FIX", "FIX": "FIX", "CUT": "CUT"}
+
+
+def die(msg, code=2):
+    print(f"bin/redteam: {msg}", file=sys.stderr)
+    sys.exit(code)
+
+
+def is_on(v):
+    return v is True or str(v).strip().upper() in ("ON", "TRUE", "YES")
+
+
+def check_gate(cfg, stage):
+    gate = (cfg.get("gates") or {}).get(stage)
+    rec = (cfg.get("gate_go_records") or {}).get(stage) or {}
+    missing = [k for k in ("who", "when", "source") if not str(rec.get(k) or "").strip()]
+    if not is_on(gate):
+        die(f"REFUSED: stage '{stage}' is gated and gates.{stage} is OFF in config/runner.yaml. "
+            f"Rollout stages need Amita's GO; flip the gate AND fill gate_go_records.{stage} (who/when/source).", 3)
+    if missing:
+        die(f"REFUSED: gates.{stage} is ON but gate_go_records.{stage} is missing {missing}. "
+            "Record Amita's GO (who, when, link/quote) before any rollout.", 3)
+    die(f"gate '{stage}' is ON with a GO recorded, but this wrapper does not run rollouts. "
+        "Follow method/rollout_spec.md by hand.", 4)
+
+
+def latest_screen(task):
+    root = os.path.join(REPO, "runs", task)
+    hits = []
+    if os.path.isdir(root):
+        for d in sorted(os.listdir(root)):
+            p = os.path.join(root, d, "screen", "screen_card.md")
+            if os.path.isfile(p):
+                hits.append(p)
+    return hits[-1] if hits else None
+
+
+def parse_record(path, heading):
+    if not os.path.isfile(path):
+        return {}
+    txt = open(path, encoding="utf-8").read()
+    if heading not in txt:
+        return {}
+    out = {}
+    for line in txt.split(heading, 1)[1].splitlines():
+        m = re.match(r"^\s*([a-z0-9_]+):\s*(.*?)\s*$", line)
+        if m:
+            out[m.group(1)] = m.group(2)
+        elif line.startswith("## "):
+            break
+    return out
+
+
+def git_head():
+    try:
+        return subprocess.run(["git", "-C", REPO, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() or "none"
+    except OSError:
+        return "none"
+
+
+def write_run_yaml(path, data):
+    hdr = "# Written by bin/redteam. Desk verdicts are ESTIMATED LLM judgements, UNMEASURED by rollouts.\n"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(hdr)
+        yaml.safe_dump(data, f, sort_keys=False, allow_unicode=True)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("task_id")
+    ap.add_argument("stage", choices=DESK + GATED)
+    ap.add_argument("--dry-run", action="store_true", help="print prompt + command; call nothing, write nothing")
+    ap.add_argument("--date", default=datetime.date.today().isoformat())
+    ap.add_argument("--model", help="override desk_agent.model")
+    ap.add_argument("--effort", help="override desk_agent.reasoning_effort")
+    ap.add_argument("--prior", help="anchored_rescore: path to the screen card to re-score (default: latest runs/<task>/*/screen/)")
+    ap.add_argument("--force", action="store_true", help="run even if the output dir already has DONE.txt")
+    a = ap.parse_args()
+
+    cfg = yaml.safe_load(open(os.path.join(REPO, "config", "runner.yaml"), encoding="utf-8"))
+    if a.stage in GATED:
+        check_gate(cfg, a.stage)
+    if (cfg.get("compute") or {}).get("gpu"):
+        die("config compute.gpu is true; desk stages are CPU-only. Set it back to false.")
+    if not re.fullmatch(r"[A-Za-z0-9_\-]+", a.task_id) or a.task_id.startswith("_"):
+        die(f"bad task id '{a.task_id}'")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", a.date):
+        die("--date must be YYYY-MM-DD")
+
+    task_dir = f"tasks/{a.task_id}"
+    if not os.path.isfile(os.path.join(REPO, task_dir, "card.md")):
+        die(f"{task_dir}/card.md not found (copy tasks/_template/ first)")
+    for f in ("grader.md", "sota_sources.md"):
+        if not os.path.isfile(os.path.join(REPO, task_dir, f)):
+            print(f"WARN: {task_dir}/{f} missing; the prompt tells the agent to say so", file=sys.stderr)
+
+    desk = cfg.get("desk_agent") or {}
+    model = a.model or desk.get("model")
+    effort = a.effort or desk.get("reasoning_effort")
+    if not model or not effort:
+        die("set desk_agent.model and desk_agent.reasoning_effort in config/runner.yaml (or --model/--effort)")
+
+    out_rel = f"runs/{a.task_id}/{a.date}/{a.stage}"
+    out_abs = os.path.join(REPO, out_rel)
+
+    prior = "n/a"
+    if a.stage == "anchored_rescore":
+        p = a.prior or latest_screen(a.task_id)
+        if not p or not os.path.isfile(p):
+            die(f"no screen card found for {a.task_id}; run the screen stage first or pass --prior")
+        prior = os.path.relpath(os.path.abspath(p), REPO)
+
+    tpl = open(os.path.join(REPO, "method", "prompts", f"{a.stage}.md"), encoding="utf-8").read()
+    common = open(os.path.join(REPO, "method", "prompts", "_common.md"), encoding="utf-8").read()
+    prompt = tpl.replace("{{COMMON}}", common)
+    subs = {"TASK_ID": a.task_id, "TASK_DIR": task_dir, "OUT_DIR": out_rel, "DATE": a.date, "REPO": REPO,
+            "STAGE": a.stage, "PRIOR_SCREEN": prior, "METHOD_VERSION": git_head()[:12]}
+    for k, v in subs.items():
+        prompt = prompt.replace("{{" + k + "}}", v)
+    left = sorted(set(re.findall(r"\{\{[A-Z_]+\}\}", prompt)))
+    if left:
+        die(f"unrendered placeholders: {left}")
+    psha = hashlib.sha256(prompt.encode()).hexdigest()
+
+    cmd = [desk.get("cli", "codex")]
+    if desk.get("web_search", True):
+        cmd.append("--search")
+    cmd += ["exec", "-m", model, "-c", f"model_reasoning_effort={effort}", "--skip-git-repo-check",
+            "-s", desk.get("sandbox", "workspace-write"), "-C", REPO, "--json",
+            "-o", f"{out_rel}/last_message.md", "PROMPT_TEXT"]
+
+    if a.dry_run:
+        print("=" * 30 + f" RENDERED PROMPT ({a.task_id} / {a.stage}, sha256 {psha[:16]}) " + "=" * 30)
+        print(prompt)
+        print("=" * 30 + " COMMAND (not executed; --dry-run) " + "=" * 30)
+        shown = shlex.join(cmd[:-1]) + f' "$(cat {out_rel}/prompt.md)"'
+        print(f"cd {shlex.quote(REPO)} && {shown} > {out_rel}/codex_events.jsonl 2> {out_rel}/codex.log")
+        print(f"would create: {out_rel}/{{prompt.md,run.yaml,{OUTFILE[a.stage]},last_message.md,codex_events.jsonl,codex.log}}")
+        print("dry-run: nothing written, codex not called")
+        return 0
+
+    if os.path.isfile(os.path.join(out_abs, "DONE.txt")) and not a.force:
+        die(f"{out_rel}/DONE.txt exists; use another --date or --force")
+    os.makedirs(out_abs, exist_ok=True)
+    open(os.path.join(out_abs, "prompt.md"), "w", encoding="utf-8").write(prompt)
+    started = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    run = {"label": "ESTIMATED desk verdict, UNMEASURED", "visibility": "AIUC-internal (private repo only)",
+           "task_id": a.task_id, "stage": a.stage, "date": a.date, "status": "IN-PROGRESS",
+           "desk_agent": {"cli": cmd[0], "model": model, "reasoning_effort": effort, "web_search": "--search" in cmd},
+           "prompt_sha256": psha, "repo_commit": git_head(), "prior_screen": prior,
+           "started": started, "finished": None, "exit_code": None, "report": f"{out_rel}/{OUTFILE[a.stage]}",
+           "stage_verdict": None, "outcome": None, "record": {}}
+    write_run_yaml(os.path.join(out_abs, "run.yaml"), run)
+
+    cmd[-1] = prompt
+    with open(os.path.join(out_abs, "codex_events.jsonl"), "w") as so, open(os.path.join(out_abs, "codex.log"), "w") as se:
+        rc = subprocess.run(cmd, cwd=REPO, stdout=so, stderr=se).returncode
+
+    rec = parse_record(os.path.join(out_abs, OUTFILE[a.stage]), RECORD[a.stage])
+    v = rec.get(VERDICT_KEY[a.stage]) or rec.get("verdict")
+    v = (v or "").split("|")[0].strip() or None
+    run.update({"finished": datetime.datetime.now().astimezone().isoformat(timespec="seconds"), "exit_code": rc,
+                "status": "COMPLETE" if (rc == 0 and rec and v) else "INCOMPLETE",
+                "stage_verdict": v, "outcome": OUTCOME.get(v or "", "UNKNOWN"), "record": rec})
+    if a.stage == "redteam":
+        chk = subprocess.run([sys.executable, os.path.join(REPO, "tools", "independence_check.py"),
+                              os.path.join(out_abs, "codex_events.jsonl")], capture_output=True, text=True)
+        run["independence_check"] = (chk.stdout.strip().splitlines()[0].replace(out_abs, out_rel) if chk.stdout.strip() else "not run")
+    write_run_yaml(os.path.join(out_abs, "run.yaml"), run)
+    print(f"{out_rel}: status={run['status']} verdict={v} outcome={run['outcome']} exit={rc}")
+    return 0 if run["status"] == "COMPLETE" else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
