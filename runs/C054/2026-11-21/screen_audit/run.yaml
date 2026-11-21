@@ -1,0 +1,43 @@
+task_id: "C054"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.62
+  single_range: "0.43-0.77"
+  bo4: 0.73
+  pass4: 0.76
+  ub95: 0.77
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "ChartAgent TIR, Qwen3VL-235B, 2025; ChartAgent visual tools, GPT-4o, 2025"
+  gap_to_attack: "autonomous causal retrieval-to-continuation integration"
+  subfield_sota_ref: "ChartQA 89.61 average, Boran Wang et al., 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.57
+  bo4: 0.66
+  pass4: 0.53
+  ub95: 0.73
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Evaluate protocol-dependent cross-figure causal reconciliation after a complete visual extraction floor."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C054.md"
+    sha256: "d9fbe74a9aa21142fee00697c5cb9755cadb71a72a1fdc6fb9044ab6a4251ff3"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

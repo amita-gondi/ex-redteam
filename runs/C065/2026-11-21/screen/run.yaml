@@ -1,0 +1,32 @@
+task_id: "C065"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.9
+  single_range: "0.77-0.97"
+  bo4: 0.95
+  pass4: 0.99
+  ub95: 0.99
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Preserve rotary frequency semantics through low-precision initialization"
+author_verdict: "CUT"
+kill_reason: "precise compact inputs and regeneration remove the supposed precision tradeoff"
+duplicate_of: "04B MODERATE; 05B MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C065.md"
+    sha256: "dfdbacddd1bf50f636e41e728d8d7a97e8f50369685f70fc45ffafdd9d8df97a"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

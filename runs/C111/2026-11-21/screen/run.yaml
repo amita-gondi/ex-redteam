@@ -1,0 +1,32 @@
+task_id: "C111"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.85
+  single_range: "0.67-0.95"
+  bo4: 0.91
+  pass4: 0.99
+  ub95: 0.98
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Make lossless training faster, then test whether the saved time is useful"
+author_verdict: "CUT"
+kill_reason: "compatible engine plus equal time retuning directly solves the objective"
+duplicate_of: "05B MODERATE; FIX T02 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C111.md"
+    sha256: "b0f2fa7d500834447cc5b702d966c1d5710857c71a1d5b5da8b8a9d32f54bb35"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

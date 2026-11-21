@@ -1,0 +1,32 @@
+task_id: "C071"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.8
+  single_range: "0.61-0.92"
+  bo4: 0.88
+  pass4: 0.98
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Recover preference information lost to truncation"
+author_verdict: "CUT"
+kill_reason: "intact context allocation and contrast-aware preprocessing cover most gain"
+duplicate_of: "01A WEAK; T06 MODERATE; T14 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C071.md"
+    sha256: "255c75630648b5097c4910f7022e0316ec2bbe719e5328f2960d5215bff1770b"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

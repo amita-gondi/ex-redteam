@@ -1,0 +1,2 @@
+/workspace/hidden_task_cards_v4/00_index.md  sha256=9e4ffb2844e800052e21835d4232cea999eedd746f46f2a6494af345ecc2b4a0
+/workspace/hidden_task_cards_v4/VALIDATION.md  sha256=2ddf5381fddb062fd3120aadd26004ca037ed31f42789b7907081e84ab83ea27

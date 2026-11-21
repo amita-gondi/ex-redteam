@@ -1,0 +1,32 @@
+task_id: "C006"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.76
+  single_range: "0.52-0.89"
+  bo4: 0.83
+  pass4: 0.96
+  ub95: 0.95
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Train set-valued scientific predictions"
+author_verdict: "CUT"
+kill_reason: "calibrated Bayes set decisions directly optimize the proposed grader"
+duplicate_of: "catalog-T14 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C006.md"
+    sha256: "9a25ba52a6d499c57457d5665a19f1977b8f0383e4ec4bd740e8a9616a071590"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

@@ -1,0 +1,43 @@
+task_id: "C107"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.6
+  single_range: "0.38-0.79"
+  bo4: 0.73
+  pass4: 0.68
+  ub95: 0.79
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "TrainExplorer, GLM-5.2, 2026; autoresearch, Claude unspecified, 2026"
+  gap_to_attack: "tokenizer and moment recovery with retention validation"
+  subfield_sota_ref: "MATT, Haltiuk, 2025/2026; TokAlign, Li, 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.49
+  bo4: 0.6
+  pass4: 0.4
+  ub95: 0.71
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Score costed byte-loss trajectories with contextual retention against modern migration and reset controls."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C107.md"
+    sha256: "13596571d82e36371edf29c3cf24d1485f7a4e4d09c8c9840b52def3b4b65b8b"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C101"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.55
+  single_range: "0.24-0.78"
+  bo4: 0.71
+  pass4: 0.68
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "TrainExplorer, GLM-5.2, 2026; AI Scientist-v2, Claude 3.5 Sonnet+GPT-4o, 2025"
+  gap_to_attack: "discovering precursor signals with verified long-program transfer"
+  subfield_sota_ref: "Absolute Zero executable self-play comparison, Zhao et al., 2025"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.35
+  bo4: 0.47
+  pass4: 0.28
+  ub95: 0.66
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C101.md"
+    sha256: "04449eb6c1b3575f7d92ce76869ce0ea9abd8b552167d6b853c7c87c1238abd2"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

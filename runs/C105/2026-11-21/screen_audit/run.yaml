@@ -1,0 +1,43 @@
+task_id: "C105"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.65
+  single_range: "0.32-0.84"
+  bo4: 0.77
+  pass4: 1.0
+  ub95: 0.84
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Double Ratchet, Opus 4.7, 2026; Singularity-Bench coding RL, Opus 5.5+Claude Code, 2026"
+  gap_to_attack: "budget-matched trained verifier and learner with robust honest-positive acceptance"
+  subfield_sota_ref: "ReasonFlux-Coder/CURE, Wang et al., 2025; agentic verifier, Ma et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.42
+  bo4: 0.55
+  pass4: 0.4
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Make discriminating verification consequential under real execution costs while preserving observable semantics and independently correct solutions."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C105.md"
+    sha256: "5cd52a9fac812563da7304a2b22d4194585fbde450d9b75aa2b945f1de2f3cde"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

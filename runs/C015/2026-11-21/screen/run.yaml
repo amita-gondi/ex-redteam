@@ -1,0 +1,32 @@
+task_id: "C015"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.58
+  single_range: "0.35-0.79"
+  bo4: 0.68
+  pass4: 0.72
+  ub95: 0.85
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Learn a grader whose abstention triggers useful data collection"
+author_verdict: "CUT"
+kill_reason: "iterative cost-aware diverse acquisition addresses induced drift"
+duplicate_of: "v3-01B MODERATE; D26 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C015.md"
+    sha256: "357819975d69e6b8cdda31b528c176273624ab7cd09d2895f19bb9373b6407c3"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

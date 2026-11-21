@@ -1,0 +1,32 @@
+task_id: "C112"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.45
+  single_range: "0.26-0.65"
+  bo4: 0.55
+  pass4: 0.33
+  ub95: 0.72
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Recover scientific images while learning a better acquisition policy"
+author_verdict: "CONDITIONAL"
+kill_reason: "none"
+duplicate_of: "T10 MODERATE; FIX T11 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C112.md"
+    sha256: "84653a6b51e8a6fc0c56fa5a9b407d285bdc708134d2ecacb8e15399add69f88"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

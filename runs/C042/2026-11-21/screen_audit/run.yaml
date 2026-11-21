@@ -1,0 +1,43 @@
+task_id: "C042"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.45
+  single_range: "0.25-0.69"
+  bo4: 0.57
+  pass4: 0.48
+  ub95: 0.69
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PostTrainBench Lite, GPT-6.2 Astra, 2026; PaperBench Science, GPT-6 Astra, 2026"
+  gap_to_attack: "No autonomous delayed complementary-expert selection result"
+  subfield_sota_ref: "DES-MoE, Li, 2025; compositional sparsity, Zhao, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.42
+  bo4: 0.54
+  pass4: 0.45
+  ub95: 0.66
+  verdict: "CONDITIONAL"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Validate probe-identifiable complementary precursors that compete under a feasible fixed retention capacity."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C042.md"
+    sha256: "608d75be54260e635f3e3b7987e36939ba26a8e2179b7baed59adf1c9ce5bf65"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

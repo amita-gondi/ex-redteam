@@ -1,0 +1,43 @@
+task_id: "C023"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.7
+  single_range: "0.51-0.76"
+  bo4: 0.76
+  pass4: 1.0
+  ub95: 0.76
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "KernelAgent, Opus 4.5 case study, 2026; AlphaEvolve, Gemini Flash/Pro, 2025"
+  gap_to_attack: "cost-aware cross-host replication and final patch selection"
+  subfield_sota_ref: "portable LLM kernel autotuning, Ringlein, 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.5
+  bo4: 0.58
+  pass4: 0.45
+  ub95: 0.63
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Select deployment experiments by diagnosing observable bottleneck changes across coupled pipeline and kernel patches."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C023.md"
+    sha256: "6850575c00e4d6bdec868f4bf90a913883fa96951004604450d5056213b415da"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

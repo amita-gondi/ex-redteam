@@ -1,0 +1,43 @@
+task_id: "C103"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.44
+  single_range: "0.24-0.68"
+  bo4: 0.55
+  pass4: 0.48
+  ub95: 0.68
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "TrainExplorer, GLM-5.2, 2026; PaperBench Science, GPT-6 Astra, 2026"
+  gap_to_attack: "autonomous privacy evaluator construction and counterfactual relational deletion"
+  subfield_sota_ref: "smoothness-enhanced robust unlearning, Fan et al., 2025; multi-hop comparator, Qian et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.34
+  bo4: 0.46
+  pass4: 0.34
+  ub95: 0.64
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Fix replay economics and require independently validated relational deletion with a feasible retained-utility control."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C103.md"
+    sha256: "8bf08a926d9b42f5cec15b1f59efb42460d8a7b1b217301504b3bdbdf6402216"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

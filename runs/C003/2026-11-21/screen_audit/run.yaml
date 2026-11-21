@@ -1,0 +1,43 @@
+task_id: "C003"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.63
+  single_range: "0.45-0.82"
+  bo4: 0.76
+  pass4: 0.76
+  ub95: 0.82
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "MLE-bench, o1-preview AIDE, 2024; PaperBench, o1 IterativeAgent, 2025"
+  gap_to_attack: "Validate geometry-selective training without losing legitimate text grounding"
+  subfield_sota_ref: "Spatial-data fine-tuning of Qwen3-VL-4B, Li SpaceCast-Bench, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.48
+  bo4: 0.59
+  pass4: 0.4
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Select training pairs for interacting text-to-entity binding and geometric composition after marginal bias balancing is supplied."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C003.md"
+    sha256: "7e1117f58f323665d30850a8cd713342abd22e734455a8c40119723edf8e041f"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

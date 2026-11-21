@@ -1,0 +1,32 @@
+task_id: "D06"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.8
+  bo4: 0.74
+  pass4: 0.79
+  ub95: 0.96
+  strongest_attack: "ESTIMATED 0.66 (ESTIMATED 0.41–0.89)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "real unique-support interactions; complete replacement and lookahead baselines; persistent measured ledger; native strata and anchors"
+kill_reason: "lawful portfolio may eliminate repair-specific reserve"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D06_independent.md"
+    sha256: "4923a1ad88418c8d0ba5fe3f77943e41a03b0fba73dce02e61082b5ba34557b7"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

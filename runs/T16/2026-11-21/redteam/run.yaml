@@ -1,0 +1,26 @@
+task_id: "T16"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.59
+  desk_R_source: 0.46
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "10"
+kill_reason: "History-responsive independent cross-play can be meaningful if laws are supported/identifiable after full population baselines."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T16_independent.md"
+    sha256: "1e0d81fb7b0e2f85e8146473019d4fffac9f51c7deef446989b1fd68caeac694"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

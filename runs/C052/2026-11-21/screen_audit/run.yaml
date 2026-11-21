@@ -1,0 +1,43 @@
+task_id: "C052"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.61
+  single_range: "0.39-0.78"
+  bo4: 0.73
+  pass4: 1.0
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "LEAD-RL, Qwen3.6-35B-A3B and Ling-3-Flash, 2026; PaperBench, Claude 3.5 Sonnet BasicAgent, 2025"
+  gap_to_attack: "unaided joint campaign utility calibration within twelve hours"
+  subfield_sota_ref: "coordinated delegation accuracy-cost improvement, Wu et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.46
+  bo4: 0.6
+  pass4: 0.85
+  ub95: 0.65
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Calibrate complementary shared evidence against a combined allocation floor and a feasible bounded control."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C052.md"
+    sha256: "bc201b59d9ad8f7be667e8e660b35cc11d0984a377920709cb120bd49b4912df"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C024"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.46
+  single_range: "0.31-0.61"
+  bo4: 0.55
+  pass4: 0.13
+  ub95: 0.6
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "A-MEM, GPT-4o-mini, 2025; AIDE2, Opus 4.7 outer/Gemini 3 Flash inner, 2026"
+  gap_to_attack: "prospective retention at equal total storage followed by real learning"
+  subfield_sota_ref: "faithful compression LLMLingua-2 2024; linked memory A-MEM 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.46
+  bo4: 0.55
+  pass4: 0.13
+  ub95: 0.6
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Freeze a feasible all-storage scientific handoff and test prospective uncertainty retention against packed-table and graph memories."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C024.md"
+    sha256: "00eec78f7993104e8d44705dc2c6c70964a901a5e3597c750c03ba3c67b417cf"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

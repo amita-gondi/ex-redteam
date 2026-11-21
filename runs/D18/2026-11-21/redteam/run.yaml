@@ -1,0 +1,32 @@
+task_id: "D18"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.83
+  bo4: 0.74
+  pass4: 0.75
+  ub95: 0.94
+  strongest_attack: "ESTIMATED 0.65 (ESTIMATED 0.39–0.87)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "static record and scheduler ABI; complete reachability controls; matched support-learning ablations; native ceiling and target isolation"
+kill_reason: "balanced backward support may erase abstraction reserve"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D18_independent.md"
+    sha256: "e3d12c6cd92a1160efe2e744bf4173188e0b0e9b4c21ed83e311c7fa74bc35e2"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

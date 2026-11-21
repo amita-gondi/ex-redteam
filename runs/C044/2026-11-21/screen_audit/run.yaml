@@ -1,0 +1,43 @@
+task_id: "C044"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "ADVANCE"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.43
+  single_range: "0.24-0.67"
+  bo4: 0.55
+  pass4: 0.48
+  ub95: 0.67
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "autoresearch, Claude unspecified, 2026; PaperBench, o1 IterativeAgent, 2025"
+  gap_to_attack: "Immediate HPO does not validate delayed code-editability rankings"
+  subfield_sota_ref: "Norm-Anchor Scaling, Liu, 2026; WILD evaluation, Yang, 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.38
+  bo4: 0.49
+  pass4: 0.34
+  ub95: 0.62
+  verdict: "PASS-SCREEN"
+  binding_line: "none"
+  flip: "CONDITIONAL->PASS-SCREEN"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "NOT-NEEDED"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C044.md"
+    sha256: "854329825043a720da9e1d80f6a8f776061a1f9cd4d77eda65bda43ddbce32e2"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

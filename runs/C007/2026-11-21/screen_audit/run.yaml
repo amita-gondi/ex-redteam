@@ -1,0 +1,43 @@
+task_id: "C007"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.54
+  single_range: "0.38-0.79"
+  bo4: 0.74
+  pass4: 0.87
+  ub95: 0.79
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PostTrainBench Lite, GPT-6.2 Astra internal training agent, 2026; SlopCodeBench, Opus 4.6 Claude Code, 2026"
+  gap_to_attack: "Discover a validity-aware loss that preserves dependent repairs through subsequent updates"
+  subfield_sota_ref: "Code/test interaction training, Wang CURE, 2025; dependent-sequence optimum unidentified"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.42
+  bo4: 0.51
+  pass4: 0.43
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Expose validity fully and require objective-driven repair of shared abstractions across later program compositions."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C007.md"
+    sha256: "1ed0a43f363932e52ce29718bbef9d1e076a32071c268e51ff16b75229de3f25"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,32 @@
+task_id: "C051"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.73
+  single_range: "0.57-0.86"
+  bo4: 0.81
+  pass4: 0.96
+  ub95: 0.94
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Search with retriever training that changes evidence reachability"
+author_verdict: "CUT"
+kill_reason: "immutable hybrid retrieval bypasses adaptive evidence suppression"
+duplicate_of: "T20 MODERATE; 07B WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C051.md"
+    sha256: "f9d0c6605e72c9c10a1e1c6086626b27221387844082d51143cb4c7d058d2431"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

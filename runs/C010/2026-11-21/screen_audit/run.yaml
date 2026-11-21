@@ -1,0 +1,43 @@
+task_id: "C010"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.43
+  single_range: "0.22-0.73"
+  bo4: 0.57
+  pass4: 0.22
+  ub95: 0.73
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "MLGym, o1-preview SWE-Agent, 2025; RE-Bench, Claude 3.5 Sonnet and o1-preview METR scaffold, 2024/2025"
+  gap_to_attack: "Select sufficient past contact evidence before its delayed correction arrives under a real replay-byte cap"
+  subfield_sota_ref: "Manipulation corrections Luo HIL-SERL 2024/2025; sample selection Deng E2HiL 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.41
+  bo4: 0.57
+  pass4: 0.43
+  ub95: 0.64
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Establish real byte pressure and observable long-range correction dependencies that a feasible prospective causal buffer can retain."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C010.md"
+    sha256: "0594d50451ab5869d3ee1dd26a36027bfee53917e7fecc85878c10ad75a9d364"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

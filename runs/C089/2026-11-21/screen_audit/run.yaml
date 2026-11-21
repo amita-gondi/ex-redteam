@@ -1,0 +1,43 @@
+task_id: "C089"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "ADVANCE"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.43
+  single_range: "0.22-0.70"
+  bo4: 0.58
+  pass4: 0.48
+  ub95: 0.7
+evidence:
+  attack_basis: "ASSUMED"
+  demonstrated_ref: "TrainExplorer, GLM-5.2, 2026; PaperBench, o1 IterativeAgent, 2025"
+  gap_to_attack: "curriculum-only escape of new causal proxy traps unshown"
+  subfield_sota_ref: "no matched curriculum SOTA verified; GRAFT adjacent mitigation, Hu, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.35
+  bo4: 0.46
+  pass4: 0.28
+  ub95: 0.62
+  verdict: "PASS-SCREEN"
+  binding_line: "none"
+  flip: "CUT->PASS-SCREEN"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "CUT->CONDITIONAL"
+redesign_status: "NOT-NEEDED"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C089.md"
+    sha256: "ef170666a3b43452dd6c7013f3b41d3d89e8fc532c68a8e68bfc4a9fade5e75e"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

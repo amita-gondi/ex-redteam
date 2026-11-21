@@ -1,0 +1,32 @@
+task_id: "C121"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.74
+  single_range: "0.52-0.89"
+  bo4: 0.82
+  pass4: 0.95
+  ub95: 0.94
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "An agent that builds its own small falsifiable research benchmark"
+author_verdict: "CUT"
+kill_reason: "representative complete checks and sequential promotion solve weak self benchmark"
+duplicate_of: "D24 MODERATE; T03 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C121.md"
+    sha256: "f42bc1446375ae282bcee70f0e75698d2877c5405e49ad87e44a7e272fcb5b27"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

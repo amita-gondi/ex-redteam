@@ -1,0 +1,32 @@
+task_id: "C088"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.73
+  single_range: "0.53-0.88"
+  bo4: 0.82
+  pass4: 0.94
+  ub95: 0.95
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Graceful failure when fallback itself has opportunity cost"
+author_verdict: "CUT"
+kill_reason: "state conditioned value learning and planner demonstrations price fallback"
+duplicate_of: "catalog T14 MODERATE; catalog T15 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C088.md"
+    sha256: "1da370bd854f875cea03b4db939f12d4a4a515a295b68d6cbf35e0b6b07ad0e5"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

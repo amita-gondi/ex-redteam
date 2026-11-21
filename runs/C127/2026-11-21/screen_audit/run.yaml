@@ -1,0 +1,43 @@
+task_id: "C127"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "ADVANCE"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.42
+  single_range: "0.24-0.68"
+  bo4: 0.55
+  pass4: 0.43
+  ub95: 0.68
+evidence:
+  attack_basis: "ASSUMED"
+  demonstrated_ref: "TrainExplorer GLM-5.2 2026; PaperBench o1 IterativeAgent 2025"
+  gap_to_attack: "generating causal bridge curricula that improve a continually trained researcher"
+  subfield_sota_ref: "Agent Lightning Luo 2025; controlled AgentCL streams Shu 2026; matched SOTA unverified"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.34
+  bo4: 0.45
+  pass4: 0.28
+  ub95: 0.63
+  verdict: "PASS-SCREEN"
+  binding_line: "none"
+  flip: "CONDITIONAL->PASS-SCREEN"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "NOT-NEEDED"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C127.md"
+    sha256: "af15747435b94d676b54c579cdc4ee93316d0c0ccf2896c087f827127568aa81"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

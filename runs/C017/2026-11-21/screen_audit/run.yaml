@@ -1,0 +1,43 @@
+task_id: "C017"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.73
+  single_range: "0.52-0.86"
+  bo4: 0.82
+  pass4: 1.0
+  ub95: 0.86
+evidence:
+  attack_basis: "DEMONSTRATED-AGENT"
+  demonstrated_ref: "ServerBench, Opus 5.5 Claude Code, 2026; Singularity-Bench serving, Opus 5.5 Claude Code, 2026; InferenceBench, Sonnet 4.6 Claude Code, 2026"
+  gap_to_attack: "exact tokens and fixed offered-load burst feedback"
+  subfield_sota_ref: "tool-aware placement, TAO, 2026; uncertain-SLO goodput, JITServe, 2026"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.64
+  bo4: 0.76
+  pass4: 1.0
+  ub95: 0.81
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Jointly schedule observable tool queues and inference state where dispatch changes downstream demand and cache value."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C017.md"
+    sha256: "d43fa279cd6885ba4905bead175772acd7db2a407f1d3d3fa7ca692979d3c204"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

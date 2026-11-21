@@ -1,0 +1,29 @@
+task_id: "W01"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "weakness-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.57
+  single_range: "0.37-0.76"
+  bo4: 0.66
+  pass4: 0.72
+  ub95: 0.82
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+kill_reason: "retained vocabulary plus model-aware transfer and continuation exceeds repeated-search bar"
+duplicate_of: "C107 MODERATE; T02 MODERATE; T08 MODERATE; T07 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/weakness_tasks_saturation_screen/cards/W01.md"
+    sha256: "dd1a79e88dc9d8359c8bba1bc732408e7714a98ed49c64a119d0ae0f3edfb30a"
+  - path: "/workspace/weakness_tasks_saturation_screen/screen.tsv"
+    sha256: "81a63741cedf895d5b56cb89739e0ad26628a98196f10e6f1b7b38cbb77486b8"

@@ -1,0 +1,32 @@
+task_id: "C096"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.47
+  single_range: "0.25-0.65"
+  bo4: 0.57
+  pass4: 0.28
+  ub95: 0.72
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Discover an image representation that retains violated constraints"
+author_verdict: "CONDITIONAL"
+kill_reason: "byte cap must defeat lossless sparse symbol encoding while retaining feasible control"
+duplicate_of: "catalog T11 MODERATE; FIX T11 MODERATE; catalog T21 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C096.md"
+    sha256: "460e9e683c2d2bc03a8cc502b06147c27c380b8576958457366650ddad66cd74"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

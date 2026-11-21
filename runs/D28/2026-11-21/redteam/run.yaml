@@ -1,0 +1,32 @@
+task_id: "D28"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.76
+  bo4: 0.7
+  pass4: 0.77
+  ub95: 0.93
+  strongest_attack: "ESTIMATED 0.63 (0.38–0.87)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "corrected starter provenance; training-only feedback ABI; history identifiability; complete imitation floor; outcome and ceiling anchors"
+kill_reason: "privileged recovery imitation may subsume feedback learning"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D28_independent.md"
+    sha256: "7e37faf3a1f17d5c576e4c40bbc0fdb58d63525257be4ff41241a5cf4d9afedc"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

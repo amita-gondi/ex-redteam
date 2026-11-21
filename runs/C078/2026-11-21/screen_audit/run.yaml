@@ -1,0 +1,43 @@
+task_id: "C078"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.61
+  single_range: "0.43-0.75"
+  bo4: 0.71
+  pass4: 1.0
+  ub95: 0.75
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "CudaForge, o3, 2025; Singularity-Bench serving, Opus 5.5 Claude Code, 2026"
+  gap_to_attack: "delayed ownership-transfer correctness after rotary mutation"
+  subfield_sota_ref: "PagedAttention cache sharing, Kwon et al., 2023; hybrid agent engine, Zhou et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.53
+  bo4: 0.62
+  pass4: 0.53
+  ub95: 0.69
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Start with repaired stores and optimize explicit speculative ownership transactions above mature copy-on-write baselines."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C078.md"
+    sha256: "9973040bc8d66aa39359ae6689f4ec0d9bff403ba02542941b74fb0a20eed34c"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

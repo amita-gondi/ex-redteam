@@ -1,0 +1,32 @@
+task_id: "C009"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.8
+  single_range: "0.60-0.92"
+  bo4: 0.87
+  pass4: 0.98
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Optimizer state for episodically reactivated modules"
+author_verdict: "CUT"
+kill_reason: "small joint clock-decay-reset search repairs the main failure"
+duplicate_of: "v3-04A WEAK; FIX-T09 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C009.md"
+    sha256: "db3336de87bd23c7a45e331a74a6fd27985085d01d7026d67178202af30b5c85"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

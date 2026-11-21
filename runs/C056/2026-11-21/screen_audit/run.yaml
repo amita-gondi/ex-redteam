@@ -1,0 +1,43 @@
+task_id: "C056"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.47
+  single_range: "0.29-0.66"
+  bo4: 0.58
+  pass4: 0.48
+  ub95: 0.66
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "KernelAgent, model unspecified, 2026; SWE-smith, SWE-agent-LM-32B, 2025"
+  gap_to_attack: "learned probing transfers through a fixed researcher to real ML repairs"
+  subfield_sota_ref: "KernelBench fast rates 100/100/92, CUDA Agent Dai et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.37
+  bo4: 0.47
+  pass4: 0.22
+  ub95: 0.67
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Freeze charged executable inspection and demonstrate causal downstream gains over exhaustive tracing."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C056.md"
+    sha256: "329fa6340db1d397147a02ec1eab6fb67cd52be56193ef0bf324f12f1d3f9fce"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

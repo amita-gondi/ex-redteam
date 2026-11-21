@@ -1,0 +1,43 @@
+task_id: "C055"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.56
+  single_range: "0.31-0.76"
+  bo4: 0.71
+  pass4: 0.72
+  ub95: 0.76
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Sara lenz, Claude Opus 4.8, 2026; autoresearch report, Claude unspecified, 2026"
+  gap_to_attack: "transferable retirement policy construction and live validation"
+  subfield_sota_ref: "surrogate-augmented agent optimization, Brunzema et al., 2026"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.4
+  bo4: 0.58
+  pass4: 0.53
+  ub95: 0.69
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C055.md"
+    sha256: "cdf08d1f0b1f7eaafb1ebee7bf6d366e893b64dad7aea8947fa9f520aae42d6e"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

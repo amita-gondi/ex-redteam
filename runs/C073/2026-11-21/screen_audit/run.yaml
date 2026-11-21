@@ -1,0 +1,43 @@
+task_id: "C073"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.53
+  single_range: "0.35-0.67"
+  bo4: 0.63
+  pass4: 0.76
+  ub95: 0.67
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "KernelAgent, unspecified backbone, 2026; CUDA Agent, specialized agentic-RL model, 2026"
+  gap_to_attack: "packed JAX backward isolation and end-to-end gain"
+  subfield_sota_ref: "FlashAttention-3 Hopper attention, Shah et al., 2024"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.39
+  bo4: 0.49
+  pass4: 0.34
+  ub95: 0.62
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C073.md"
+    sha256: "8586981a66812fb96f78645c658cbd8ccd1d0cf7a1100a39c59a3077ba0dbe38"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

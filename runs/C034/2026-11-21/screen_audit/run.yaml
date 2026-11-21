@@ -1,0 +1,43 @@
+task_id: "C034"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.78
+  single_range: "0.67-0.85"
+  bo4: 0.83
+  pass4: 1.0
+  ub95: 0.85
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "InferenceBench, Opus 4.5 plus Claude Code, 2026; autoresearch discussion 43, Claude version unspecified, 2026"
+  gap_to_attack: "metered thermal-stable energy optimization has no matched autonomous demonstration"
+  subfield_sota_ref: "KAIROS context-aware power reduction under performance targets, Yuan et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.59
+  bo4: 0.64
+  pass4: 0.59
+  ub95: 0.67
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Allocate cumulative energy across observable context and thermal histories with feasible workflow deadlines."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C034.md"
+    sha256: "eb65e7b54d7ae89a93b6adbbaabd3b13bcbacf6b6c81200dcb8a0d7a2582e972"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

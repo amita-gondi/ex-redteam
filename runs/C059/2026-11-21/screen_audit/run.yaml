@@ -1,0 +1,43 @@
+task_id: "C059"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.71
+  single_range: "0.64-0.78"
+  bo4: 0.75
+  pass4: 1.0
+  ub95: 0.77
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "RE-Bench kernel task, o1-preview AIDE, 2024; KernelAgent, model unspecified, 2026"
+  gap_to_attack: "exact stateful grammar-backend integration under twelve-hour budget"
+  subfield_sota_ref: "dynamic compilation over 6x and near-zero overhead, XGrammar-2 Li et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.55
+  bo4: 0.6
+  pass4: 0.56
+  ub95: 0.62
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Couple exact speculative branch lifetimes to grammar-state sharing and end-to-end mask scheduling."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C059.md"
+    sha256: "69b3010d6f75a813460256b3dbea6c4cca6a56550692fe1e7ab09b5f5791adaf"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

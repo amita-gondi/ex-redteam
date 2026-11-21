@@ -1,0 +1,43 @@
+task_id: "C043"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.58
+  single_range: "0.36-0.77"
+  bo4: 0.71
+  pass4: 0.68
+  ub95: 0.77
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Research Debugging, GPT-6.2 Astra, 2026; MLE-bench, o1-preview AIDE, 2024"
+  gap_to_attack: "Diagnose versus validate clean-learning recovery under paid reads"
+  subfield_sota_ref: "Verified integrity, OpenZFS, accessed 2026; pretraining curation, Longpre, 2024"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.52
+  bo4: 0.63
+  pass4: 0.55
+  ub95: 0.72
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Couple persistent lineage errors to useful priced independent witnesses and final clean-source learning."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C043.md"
+    sha256: "d4eef614739659aaa37b31e1e7797d30d2fe6dd4ef1c805accd9572bcbdedd4a"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

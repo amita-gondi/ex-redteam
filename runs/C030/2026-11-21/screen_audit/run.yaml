@@ -1,0 +1,43 @@
+task_id: "C030"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.64
+  single_range: "0.54-0.77"
+  bo4: 0.75
+  pass4: 0.9
+  ub95: 0.77
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench, Opus 5.5/Claude Code, 2026; SWE-Serve, Opus 5 and GPT-5.6 Sol/mini-SWE-agent, 2026"
+  gap_to_attack: "eager-output parity after asynchronous cancellation and state reuse under a fixed copy budget"
+  subfield_sota_ref: "buffered hybrid serving ReplaySSM 2026; accepted-state reconstruction HybridSpec 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.55
+  bo4: 0.63
+  pass4: 0.79
+  ub95: 0.68
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize layer-specific exact recurrent state representation and commit placement jointly with cancellation and migration demand."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C030.md"
+    sha256: "e1910c40803ed2b0417ca47aeaf91ab7f6e877d8793b57e6be90fa3b0b8c3479"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

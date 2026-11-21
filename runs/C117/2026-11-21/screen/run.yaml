@@ -1,0 +1,32 @@
+task_id: "C117"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.69
+  single_range: "0.47-0.85"
+  bo4: 0.78
+  pass4: 0.91
+  ub95: 0.92
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "A data flywheel that retires solved failure modes"
+author_verdict: "CUT"
+kill_reason: "refreshed competence and interference aware replay avoid redundant data and forgetting"
+duplicate_of: "01B MODERATE; D26 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C117.md"
+    sha256: "20139554bd95761c167f784ce869564ff8b7519cf4983a9f013e76728010a0d4"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

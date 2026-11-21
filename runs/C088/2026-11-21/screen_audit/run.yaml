@@ -1,0 +1,43 @@
+task_id: "C088"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.48
+  single_range: "0.25-0.72"
+  bo4: 0.62
+  pass4: 0.55
+  ub95: 0.72
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "TrainExplorer, GLM-5.2, 2026; PostTrainBench Lite, GPT-6.2 Astra, 2026"
+  gap_to_attack: "recovery-value learning and anti-collapse integration unshown"
+  subfield_sota_ref: "GracefulRL success-error frontier, Arora, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.45
+  bo4: 0.56
+  pass4: 0.43
+  ub95: 0.68
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Learn causal recovery beliefs above an inherited cost-sensitive fallback and planning floor."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C088.md"
+    sha256: "29082f40633abe9ab4957831a8fd64ba8d5702fa067aca5ee55a6f00065ee7c9"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

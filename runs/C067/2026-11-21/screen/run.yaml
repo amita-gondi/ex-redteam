@@ -1,0 +1,32 @@
+task_id: "C067"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.7
+  single_range: "0.48-0.86"
+  bo4: 0.8
+  pass4: 0.91
+  ub95: 0.93
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Versioned prefix caches for asynchronous learning"
+author_verdict: "CUT"
+kill_reason: "version-correct caching plus synchronization search likely exceeds tail limits"
+duplicate_of: "04A MODERATE; 05A MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C067.md"
+    sha256: "551e83299dc41586e9ab53ac53ecfa468f33c9863f1b6bd0a4ea37401590145a"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

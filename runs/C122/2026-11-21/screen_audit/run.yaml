@@ -1,0 +1,43 @@
+task_id: "C122"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "ADVANCE"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.45
+  single_range: "0.27-0.70"
+  bo4: 0.58
+  pass4: 0.48
+  ub95: 0.7
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Double Ratchet Opus 4.7 2026; rTaste Astra Opus 5.5 and others 2026"
+  gap_to_attack: "trained critic transferring scientific utility beyond its outcome corpus"
+  subfield_sota_ref: "Double Ratchet oracle-relative skill lift Zhang 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.38
+  bo4: 0.49
+  pass4: 0.34
+  ub95: 0.65
+  verdict: "PASS-SCREEN"
+  binding_line: "none"
+  flip: "CONDITIONAL->PASS-SCREEN"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "NOT-NEEDED"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C122.md"
+    sha256: "bd7ff408363d30b83a2163e21f0c11544b36292fc8bd25c12758141bfcd69923"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

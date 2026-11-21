@@ -1,0 +1,43 @@
+task_id: "C066"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.73
+  single_range: "0.57-0.81"
+  bo4: 0.78
+  pass4: 1.0
+  ub95: 0.81
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench RL training, Opus 5.5+Claude Code, 2026; NanoGPT, GPT-6.2 Astra, 2026"
+  gap_to_attack: "identical dormant-group and resume clocks plus measured allocator gain"
+  subfield_sota_ref: "exact lazy Adam state implementation, PyTorch, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.58
+  bo4: 0.65
+  pass4: 0.68
+  ub95: 0.68
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize exact moment residency under observable data-dependent parameter activation with offload and prefetch baselines."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C066.md"
+    sha256: "42d849ac401dabad85f00f8b01b1b05e5c3a1c95f5a9335ce9dabc3b4e68916f"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

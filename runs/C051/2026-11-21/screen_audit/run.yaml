@@ -1,0 +1,43 @@
+task_id: "C051"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.67
+  single_range: "0.45-0.82"
+  bo4: 0.76
+  pass4: 1.0
+  ub95: 0.82
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "ArcticSwarm, Qwen 3.5-27B, 2026; CMASS Piika, GPT-6.1 Sol, 2026"
+  gap_to_attack: "Search demonstrations omit retriever-update feedback and realized recipe utility"
+  subfield_sota_ref: "BRIGHT GRAIL 69.4 nDCG at 10, benchmark leaderboard, 2026; BRIGHT-Pro, Zhao, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.56
+  bo4: 0.67
+  pass4: 0.59
+  ub95: 0.74
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Require useful adaptive semantic evidence portfolios beyond a lawful frozen hybrid floor in live recipe-selection campaigns."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C051.md"
+    sha256: "c022d6270b9c6d2f59b880fa1df731650c99bfb41bde4e0c9686157d0f59fef0"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

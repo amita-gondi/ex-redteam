@@ -1,0 +1,43 @@
+task_id: "C035"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.81
+  single_range: "0.65-0.89"
+  bo4: 0.87
+  pass4: 1.0
+  ub95: 0.89
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench, GPT-6.1 Sol plus Codex, 2026; InferenceBench, GPT-5.4 plus Codex, 2026"
+  gap_to_attack: "atomic online versions and adapter-graph validation were not evaluated"
+  subfield_sota_ref: "ELORA dependency-aware adapter and KV caching, Shi et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.58
+  bo4: 0.66
+  pass4: 0.55
+  ub95: 0.71
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Admit immutable heterogeneous adapter graphs while optimizing shared compilation, KV lifetimes and real residency."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C035.md"
+    sha256: "d204aa3d367322d47cbfc2f799eb9971a3fd3a45ed337d17bdce85cb1b38ecad"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

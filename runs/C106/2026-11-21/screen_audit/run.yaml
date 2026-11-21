@@ -1,0 +1,43 @@
+task_id: "C106"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.47
+  single_range: "0.29-0.73"
+  bo4: 0.6
+  pass4: 0.4
+  ub95: 0.73
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PaperBench Science, GPT-6 Astra, 2026; PaperBench, o1 IterativeAgent, 2025"
+  gap_to_attack: "autonomous paid-sensing and world-model feedback integration"
+  subfield_sota_ref: "DreamerV3, Hafner, 2023/2024; PL-MPC, Boyalakuntla, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.42
+  bo4: 0.54
+  pass4: 0.34
+  ub95: 0.71
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Require affordable alias-resolving actions and validate against a direct recurrent controller."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C106.md"
+    sha256: "404c1e5e727a5e65d6129e58765b9af701a7de0394f4b78ae96acef80b7c9a3f"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

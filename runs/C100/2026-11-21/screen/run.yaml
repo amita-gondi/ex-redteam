@@ -1,0 +1,32 @@
+task_id: "C100"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.85
+  single_range: "0.68-0.95"
+  bo4: 0.91
+  pass4: 0.99
+  ub95: 0.98
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Public throughput versus durable scientific throughput"
+author_verdict: "CUT"
+kill_reason: "exact useful serving capacity already grades complete trusted outcomes"
+duplicate_of: "v3 05A STRONG"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C100.md"
+    sha256: "f1ceaee3c6367267f6bed8f54fd7ac215b9ce8950b725d9edeb8082db85fc862"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

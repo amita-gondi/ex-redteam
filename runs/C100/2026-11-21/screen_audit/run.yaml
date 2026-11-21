@@ -1,0 +1,43 @@
+task_id: "C100"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.73
+  single_range: "0.43-0.86"
+  bo4: 0.82
+  pass4: 1.0
+  ub95: 0.86
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench serving, Opus 5.5+Claude Code, 2026; KernelAgent, model unreported, 2026"
+  gap_to_attack: "validated durable scientific workflows with dependent cancellation and storage"
+  subfield_sota_ref: "SGLang and agent engine on Singularity-Bench serving, 2026"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.5
+  bo4: 0.61
+  pass4: 0.48
+  ub95: 0.71
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C100.md"
+    sha256: "1f1a61fe532d4d71921078affd86f070f916a6c8546ecaba5c2996db4ba88ae9"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

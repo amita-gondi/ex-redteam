@@ -1,0 +1,43 @@
+task_id: "C027"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.5
+  single_range: "0.37-0.65"
+  bo4: 0.62
+  pass4: 0.91
+  ub95: 0.65
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "TOOLMAKER, GPT-4o, 2025; CASCADE DeepSolver, GPT-5, 2025"
+  gap_to_attack: "curriculum-induced scientific tool invention after generation and training costs"
+  subfield_sota_ref: "scientific tool construction TOOLMAKER and CASCADE, 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.4
+  bo4: 0.48
+  pass4: 0.0
+  ub95: 0.53
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Train invention of discriminating learning measurements with a common general execution interface and fully charged downstream utility."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C027.md"
+    sha256: "758c88dac850399c21a6a8a5797041385c8c2bc2c95d13ca0afbbc02c12c911d"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C002"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.5
+  single_range: "0.36-0.67"
+  bo4: 0.59
+  pass4: 0.45
+  ub95: 0.67
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "autoresearch, Claude unspecified version, 2026; RE-Bench, o1-preview and Claude 3.5 Sonnet METR scaffold, 2024/2025"
+  gap_to_attack: "Diagnose long-continuation optimizer support transitions rather than tune a fast validation loop"
+  subfield_sota_ref: "Pretraining warmup curriculum gains, Zhang Beyond Random Sampling, 2025/2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.41
+  bo4: 0.51
+  pass4: 0.34
+  ub95: 0.64
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "CUT->CONDITIONAL"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Require observable training-history distinctions to determine opposite curriculum transitions under identical current compiler errors."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C002.md"
+    sha256: "d4f84478cae332538c2aa5897bde5bdef5870ab5d7bc522f424714800278659a"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

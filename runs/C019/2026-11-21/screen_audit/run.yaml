@@ -1,0 +1,43 @@
+task_id: "C019"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.7
+  single_range: "0.51-0.84"
+  bo4: 0.78
+  pass4: 1.0
+  ub95: 0.84
+evidence:
+  attack_basis: "DEMONSTRATED-AGENT"
+  demonstrated_ref: "KernelAgent, Opus-4.5, 2026; InferenceBench, Sonnet 4.6 Claude Code, 2026"
+  gap_to_attack: "exact VLM requests and deployment-state-conditional tactic selection"
+  subfield_sota_ref: "execution-mode-aware persistent tactic selection, FlashInfer Autotuner v2, 2026"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.59
+  bo4: 0.72
+  pass4: 1.0
+  ub95: 0.78
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize live probe timing and state restoration under fully charged multimodal residency opportunity costs."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C019.md"
+    sha256: "dcca38bae6619337b7df626bf7ff47e0c9fec9d78f66179d1f8b40d40f79eeb3"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C033"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.75
+  single_range: "0.53-0.85"
+  bo4: 0.83
+  pass4: 1.0
+  ub95: 0.85
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Agentic CPU-GPU Scheduling, DeepSeek-R1-Distill-Qwen-32B-AWQ plus monitor, 2026; Singularity-Bench, Opus 5.5 plus Claude Code, 2026"
+  gap_to_attack: "paid directional-fault diagnosis is untested"
+  subfield_sota_ref: "HexGen-2 heterogeneous-network inference placement, Jiang et al., 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.57
+  bo4: 0.66
+  pass4: 0.59
+  ub95: 0.72
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Jointly choose minimally intrusive topology measurements and placement under disclosed traffic-dependent link contention."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C033.md"
+    sha256: "e160832f9e1af7abc316607eb7c9067f7d3c650e91eb9285f8cfe827881959cb"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

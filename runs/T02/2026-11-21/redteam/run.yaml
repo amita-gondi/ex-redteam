@@ -1,0 +1,26 @@
+task_id: "T02"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.57
+  desk_R_source: 0.41
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "3"
+kill_reason: "Strong accepted pretraining shape; source-transition/state interaction and raw loss/retention scale remain uninstantiated."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T02_independent.md"
+    sha256: "455807d26f69e0eb7d4edf702a48b780bd94d271b40a8ea4cc6dc3dd69405f5b"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

@@ -1,0 +1,32 @@
+task_id: "C019"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.73
+  single_range: "0.49-0.88"
+  bo4: 0.81
+  pass4: 0.94
+  ub95: 0.94
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Autotune without teaching the model the tuner workload"
+author_verdict: "CUT"
+kill_reason: "repaired representative replay tuning likely selects near-best kernels"
+duplicate_of: "v3-05A WEAK; D24 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C019.md"
+    sha256: "a9508cbcdb6d0995c21300abc864a5a27b1121693ed1d3bf43a201f4fa0f5717"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

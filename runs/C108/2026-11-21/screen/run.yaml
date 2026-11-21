@@ -1,0 +1,32 @@
+task_id: "C108"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.72
+  single_range: "0.50-0.88"
+  bo4: 0.81
+  pass4: 0.94
+  ub95: 0.93
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Teach an agent to create adversaries before choosing its data"
+author_verdict: "CUT"
+kill_reason: "validated adversarial curriculum and transfer filtering recover intended gains"
+duplicate_of: "T17 MODERATE; D04 MODERATE; D07 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C108.md"
+    sha256: "80408d058378154c4dd0119d59e6972fbe11523104815048724dfde61c28a275"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

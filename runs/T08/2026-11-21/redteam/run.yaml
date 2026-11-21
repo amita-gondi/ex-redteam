@@ -1,0 +1,26 @@
+task_id: "T08"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.59
+  desk_R_source: 0.39
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "7"
+kill_reason: "Still-valid versus obsolete target interference is plausible after full validity-filtered replay/projection."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T08_independent.md"
+    sha256: "1a49eb18a33c4885117bf9df756f79dffb0fc1bb7e98ae3906b1e2ec3011aba7"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

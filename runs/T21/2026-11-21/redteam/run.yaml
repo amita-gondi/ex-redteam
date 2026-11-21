@@ -1,0 +1,26 @@
+task_id: "T21"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.91
+  desk_R_source: 0.52
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "16"
+kill_reason: "Ordinary mixed-bit/pruning/recovery stack; no concrete hard resource frontier beyond mature tools."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T21_independent.md"
+    sha256: "a9b98e21c2d6a8c8fe22631cb292058adeb2bb42930992d594e37211dc7e320a"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

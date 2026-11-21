@@ -1,0 +1,43 @@
+task_id: "C083"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.55
+  single_range: "0.32-0.73"
+  bo4: 0.67
+  pass4: 0.68
+  ub95: 0.73
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Curation-Bench, Opus 4.7 Claude Code, 2026; MLE-bench, o1-preview AIDE, 2024"
+  gap_to_attack: "fresh program-semantic objective design and mixed pretraining validation"
+  subfield_sota_ref: "three-category text augmentation loss 3.792 at 150M, Chen et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.45
+  bo4: 0.56
+  pass4: 0.4
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Define lawful targets and demonstrate execution gains from content-conditioned augmentation beyond the complete modality-conditioned baseline."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C083.md"
+    sha256: "67a1af1444bfbbd1571d2c8b8a4f81dfda0f197bb34a7ca38e0bb10ee3c481ea"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

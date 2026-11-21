@@ -1,0 +1,32 @@
+task_id: "C047"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.64
+  single_range: "0.36-0.84"
+  bo4: 0.74
+  pass4: 0.81
+  ub95: 0.92
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Continue pretraining after a causal feature is deliberately removed"
+author_verdict: "CUT"
+kill_reason: "combined counterfactual recovery likely exceeds tail gates"
+duplicate_of: "T11 MODERATE; FIX-T11 MODERATE; D07 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C047.md"
+    sha256: "2dd27a39b00750eccd703c69bb460c112cd1fe6387c4d3335f56cfd9917a1e6d"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

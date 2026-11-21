@@ -1,0 +1,32 @@
+task_id: "C054"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.72
+  single_range: "0.53-0.86"
+  bo4: 0.81
+  pass4: 0.93
+  ub95: 0.94
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Search through figures whose causal labels must be read"
+author_verdict: "CUT"
+kill_reason: "explicit visual correspondence stack likely closes ordinary plot errors"
+duplicate_of: "T19 WEAK; T11 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C054.md"
+    sha256: "29da78d0619ae542c3c0257703dcaceefef00f1c56ef1d917de5cf5c415739ff"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

@@ -1,0 +1,32 @@
+task_id: "C110"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.63
+  single_range: "0.40-0.82"
+  bo4: 0.73
+  pass4: 0.82
+  ub95: 0.89
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "A benchmark generator that must survive its own learner's progress"
+author_verdict: "CUT"
+kill_reason: "mature learner conditioned generation already follows competence changes"
+duplicate_of: "D04 MODERATE; D18 MODERATE; T07 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C110.md"
+    sha256: "077f87881dc960ab6aa1c2de34a01211b5bf613407b5d12699d846400a316c92"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

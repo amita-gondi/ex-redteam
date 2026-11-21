@@ -1,0 +1,32 @@
+task_id: "C044"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.48
+  single_range: "0.26-0.67"
+  bo4: 0.57
+  pass4: 0.37
+  ub95: 0.72
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Choose pretraining architectures using downstream editability"
+author_verdict: "CONDITIONAL"
+kill_reason: "probe-transfer uncertainty near gates; require sequential ranking reversals"
+duplicate_of: "T03 MODERATE; FIX-T09 WEAK; D23 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C044.md"
+    sha256: "b1835012af6901af31e27b146675f2f9bfccb67021581e2437559b8081c11cc3"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

@@ -1,0 +1,43 @@
+task_id: "C124"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.65
+  single_range: "0.42-0.81"
+  bo4: 0.75
+  pass4: 1.0
+  ub95: 0.81
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "DeltaML GPT-5 ARG 2026; MLOps-Bench GPT-5.5 Codex 2026"
+  gap_to_attack: "trustworthy repair stopping on fresh scientific-state faults"
+  subfield_sota_ref: "MLOps-Bench Codex completion Tran 2026; DeltaML ARG Moukpe 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.45
+  bo4: 0.63
+  pass4: 0.63
+  ub95: 0.72
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Start from mature repair and learn validation depth for real coupled training-state incidents."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C124.md"
+    sha256: "465a0e0c982db4665886e729dea5d90df335553650241288d5d9970934cf1bf9"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

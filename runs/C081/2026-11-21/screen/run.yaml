@@ -1,0 +1,32 @@
+task_id: "C081"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "PASS-SCREEN"
+outcome: "ADVANCE"
+binding_line: "none"
+estimates:
+  single: 0.43
+  single_range: "0.24-0.58"
+  bo4: 0.52
+  pass4: 0.16
+  ub95: 0.68
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Masked-input regularization after repetitions stop being exchangeable"
+author_verdict: "PASS-SCREEN"
+kill_reason: "none"
+duplicate_of: "catalog T02 MODERATE; FIX T02 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C081.md"
+    sha256: "06255db34b23e6bfbebca09a8cf1826862b848116220c39386db3a6aedc448c1"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

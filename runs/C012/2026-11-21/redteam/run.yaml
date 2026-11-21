@@ -1,0 +1,32 @@
+task_id: "C012"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.91
+  bo4: 0.84
+  pass4: 0.93
+  ub95: 0.98
+  strongest_attack: "ESTIMATED 0.76 (ESTIMATED 0.56–0.94)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "creative_v4"
+required_fixes: "none"
+kill_reason: "published plasticity restoration covers proposed intervention"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/C012_independent.md"
+    sha256: "8449530264d9eb10681a77566622adc50bfa349bcee4b1087e478087789dda2b"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

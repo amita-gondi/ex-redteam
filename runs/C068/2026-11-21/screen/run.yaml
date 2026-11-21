@@ -1,0 +1,32 @@
+task_id: "C068"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.81
+  single_range: "0.62-0.92"
+  bo4: 0.89
+  pass4: 0.98
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Preserve mixed DPO/SFT semantics while packing uneven responses"
+author_verdict: "CUT"
+kill_reason: "corrected reductions and joint DPO SFT mixture search cover the extension"
+duplicate_of: "T18 WEAK; T06 MODERATE; 05B MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C068.md"
+    sha256: "61ce94272581d38784b114f639a18d787313a1de88378b23b20d872b6a214247"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

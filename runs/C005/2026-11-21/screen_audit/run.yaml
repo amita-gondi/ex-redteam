@@ -1,0 +1,43 @@
+task_id: "C005"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.5
+  single_range: "0.31-0.73"
+  bo4: 0.64
+  pass4: 0.55
+  ub95: 0.73
+evidence:
+  attack_basis: "ASSUMED"
+  demonstrated_ref: "AI Scientist-v2, Claude 3.5 Sonnet with GPT-4o tree-search feedback, 2025; Budget NanoGPT, METR frontier cohort winner unspecified, 2026"
+  gap_to_attack: "Turn external belief-sensitive planning into a generalizable reward-only trained cancellation policy"
+  subfield_sota_ref: "Cost-sensitive stopping trade-offs, Lee freeze-thaw BO, 2025; reward-only scientific successor control unavailable"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.35
+  bo4: 0.48
+  pass4: 0.28
+  ub95: 0.67
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Learn cancellation credit for real continuation campaigns where checkpoint evidence changes successor learning value as well as capacity."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C005.md"
+    sha256: "57999df610271eb94675eb28288c8e2db23991d1704f0aebf472848aad88b19b"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

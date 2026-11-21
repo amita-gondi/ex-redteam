@@ -1,0 +1,32 @@
+task_id: "C086"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "PASS-SCREEN"
+outcome: "ADVANCE"
+binding_line: "none"
+estimates:
+  single: 0.4
+  single_range: "0.20-0.57"
+  bo4: 0.5
+  pass4: 0.12
+  ub95: 0.67
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Research world models graded only by executed improvements"
+author_verdict: "PASS-SCREEN"
+kill_reason: "none"
+duplicate_of: "catalog T03 MODERATE; D21 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C086.md"
+    sha256: "775b328b5f92ad3683bab0716c3b91c20da3ec6559b5484f7765f5c49d511165"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

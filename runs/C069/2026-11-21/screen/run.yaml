@@ -1,0 +1,32 @@
+task_id: "C069"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.62
+  single_range: "0.40-0.79"
+  bo4: 0.72
+  pass4: 0.78
+  ub95: 0.88
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Finite policy losses without deleting informative extremes"
+author_verdict: "CUT"
+kill_reason: "stable sequence-weighted refresh stack breaches repeated-search limits"
+duplicate_of: "T18 MODERATE; T06 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C069.md"
+    sha256: "3c8e86c8af299b2b9bcf28c018283bc8ea9e87a0b004e416978fff665ae30f30"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

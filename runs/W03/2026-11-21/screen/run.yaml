@@ -1,0 +1,29 @@
+task_id: "W03"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "weakness-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.54
+  single_range: "0.31-0.73"
+  bo4: 0.63
+  pass4: 0.59
+  ub95: 0.8
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+kill_reason: "generic shared and routed expert training can cross repeated-success line without strong triple composition"
+duplicate_of: "T04 MODERATE; C042 MODERATE; C064 MODERATE; W04 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/weakness_tasks_saturation_screen/cards/W03.md"
+    sha256: "6177b04cffd6e9ee9b04a71d74e319b1988cdb73128f12517945a6ff5430b1e3"
+  - path: "/workspace/weakness_tasks_saturation_screen/screen.tsv"
+    sha256: "81a63741cedf895d5b56cb89739e0ad26628a98196f10e6f1b7b38cbb77486b8"

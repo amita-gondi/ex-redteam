@@ -1,0 +1,32 @@
+task_id: "C097"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.78
+  single_range: "0.57-0.92"
+  bo4: 0.86
+  pass4: 0.97
+  ub95: 0.96
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "A speedup claim that must survive changed training arithmetic"
+author_verdict: "CUT"
+kill_reason: "exact training system and grader target already covered by 05B"
+duplicate_of: "v3 05B STRONG"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C097.md"
+    sha256: "0abdb7a28c569d728de9791f6c5e6c538fbb0bbad9945164bc61d4535b60541c"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

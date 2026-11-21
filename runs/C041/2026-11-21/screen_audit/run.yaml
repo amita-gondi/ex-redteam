@@ -1,0 +1,43 @@
+task_id: "C041"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.5
+  single_range: "0.30-0.68"
+  bo4: 0.63
+  pass4: 0.68
+  ub95: 0.68
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "NanoGPT, GPT-6.2 Astra, 2026; PaperBench, o1 IterativeAgent, 2025"
+  gap_to_attack: "Joint byte-aware multilingual transfer is untested autonomously"
+  subfield_sota_ref: "RegMix-D, Zhao, 2026; multilingual transfer, Foroutan, 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.47
+  bo4: 0.56
+  pass4: 0.48
+  ub95: 0.65
+  verdict: "CONDITIONAL"
+  binding_line: "pass4>0.50"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Require validated context-dependent multilingual transfer reversals beyond the complete byte-aware mixture floor."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C041.md"
+    sha256: "aa8c079d47b84a7d7204380e64bbd5e4e0e93b31edb7b0f41f54db23611b2a8c"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

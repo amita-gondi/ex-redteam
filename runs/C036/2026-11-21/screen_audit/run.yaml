@@ -1,0 +1,43 @@
+task_id: "C036"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.62
+  single_range: "0.38-0.78"
+  bo4: 0.75
+  pass4: 1.0
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PaperBench, Claude 3.5 Sonnet plus BasicAgent, 2025; RE-Bench, Claude 3.5 Sonnet and o1-preview plus METR scaffolds, 2024"
+  gap_to_attack: "no demonstrated autonomous durable cold-recovery pipeline"
+  subfield_sota_ref: "GhostServe coded KV recovery and Concordia delta logging, Jayakody et al. and Gan et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.47
+  bo4: 0.58
+  pass4: 0.34
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize externally acknowledged persistence of shared inference ancestry under actual worker loss and visible continuation structure."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C036.md"
+    sha256: "d8324b8bb5261d685ab25af1c6b8f00ee4b14109ef950f5d51a3c13be864881f"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

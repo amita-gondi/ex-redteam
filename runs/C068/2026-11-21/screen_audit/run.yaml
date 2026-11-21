@@ -1,0 +1,43 @@
+task_id: "C068"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.69
+  single_range: "0.46-0.83"
+  bo4: 0.79
+  pass4: 1.0
+  ub95: 0.83
+evidence:
+  attack_basis: "DEMONSTRATED-AGENT"
+  demonstrated_ref: "PostTrainBench Lite, GPT-6.2 Astra, 2026; PostTrainBench v1.2, Opus 5.5+Claude Code, 2026"
+  gap_to_attack: "packing-invariant mixed-loss implementation and joint retention transfer"
+  subfield_sota_ref: "reference-guided Pre-DPO, Pan et al., 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.64
+  bo4: 0.74
+  pass4: 1.0
+  ub95: 0.78
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Learn evidence-dependent preference weighting after correct packing and mature mixed-loss search enter the floor."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C068.md"
+    sha256: "8de0aa82c7b837c2c7eef52b46396f0db17ff1408730b25deffca830f9527140"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

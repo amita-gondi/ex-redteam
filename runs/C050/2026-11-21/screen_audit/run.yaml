@@ -1,0 +1,43 @@
+task_id: "C050"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.68
+  single_range: "0.43-0.84"
+  bo4: 0.79
+  pass4: 1.0
+  ub95: 0.84
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "ATTUNE, Opus 4.8 Claude Code, 2026; autoresearch, Claude unspecified, 2026"
+  gap_to_attack: "Reusable project transfer and delayed continuation ranking remain unshown"
+  subfield_sota_ref: "BAPI, Belakaria, 2023; constrained online BED, Guo, 2026; ATTUNE, Amazon, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.57
+  bo4: 0.69
+  pass4: 0.59
+  ub95: 0.76
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C050.md"
+    sha256: "b47f6babe0ffa207b3ec619e84cf45e1532175832d5e5adb1bab828b904716c8"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

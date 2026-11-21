@@ -1,0 +1,32 @@
+task_id: "C023"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.8
+  single_range: "0.58-0.92"
+  bo4: 0.87
+  pass4: 0.98
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Allocate replication compute to detect nonportable speedups"
+author_verdict: "CUT"
+kill_reason: "standard blocked adaptive replication targets portability directly"
+duplicate_of: "v3-05B WEAK; D24 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C023.md"
+    sha256: "505c4ac934d523a6b30482b965c5b6d054c202ba0a444d790906a1b9249cfa61"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

@@ -1,0 +1,32 @@
+task_id: "C124"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.82
+  single_range: "0.61-0.94"
+  bo4: 0.89
+  pass4: 0.98
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Self-repairing tools that learn when repair evidence is enough"
+author_verdict: "CUT"
+kill_reason: "independent replay and minimal component repair restore the runner contract"
+duplicate_of: "D13 MODERATE; 07A MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C124.md"
+    sha256: "07fc4598b2fc2745f81481b59976ea5378b94972c6bf0ac46deda6301b49163f"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

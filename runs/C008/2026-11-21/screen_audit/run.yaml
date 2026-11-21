@@ -1,0 +1,43 @@
+task_id: "C008"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.48
+  single_range: "0.24-0.82"
+  bo4: 0.64
+  pass4: 0.76
+  ub95: 0.82
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Eureka, GPT-4-0314 evolutionary reward reflection, 2023/2024; ROSETTA, GPT-4o and o1-mini staged reward code, 2026"
+  gap_to_attack: "Fit autonomous causal pixel-policy diagnosis and teacher transfer into a matched twelve-hour training budget"
+  subfield_sota_ref: "Grounded staged manipulation rewards, Srivastava ROSETTA, 2026; vision teaching Chen 2020"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.43
+  bo4: 0.55
+  pass4: 0.48
+  ub95: 0.63
+  verdict: "CONDITIONAL"
+  binding_line: "pass4>0.50"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Cross observable identity and actuator mechanisms so student-response diagnosis must improve on complete privileged-teacher reward search."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C008.md"
+    sha256: "2a43e95ccf762423e4dca93131c6b8d1a5307ce3e48df60bcf8ee8f7e6f5b164"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

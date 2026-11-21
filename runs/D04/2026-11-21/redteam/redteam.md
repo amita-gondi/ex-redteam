@@ -1,0 +1,84 @@
+# D04: Build training worlds whose certified repairs teach new capability — independent adversarial review
+
+**Verdict: CUT.** The claimed residual—selecting worlds according to changing learner failures—is already the operating principle of established adaptive curricula and environment-design methods. Exact certification adds necessary engineering but does not supply a second research mechanism. The finite transition grammar, public authoritative constraints and lawful planning demonstrations create a strong support-synthesis route, with no specified interaction shown to survive it.
+
+Source file: `/workspace/hidden_task_cards_v4/cards/D04.md`. I read its factory suite and the relevant v3 data, objective and measurement context. This is a design audit using local documents and primary-source web search; there were no live candidate submissions. Rewards are ESTIMATED stress scenarios conditional on the proposed independent reference/anchor calibration. Actual `F_D04` payouts remain unidentified, and the scenario ranges must not be read as confidence intervals.
+
+## Independent attack table
+
+The parent suite proposes `factory(public_grammar,inherited_spec,authoritative_evidence,seed,config)`, `certify(spec,authoritative_evidence,config)` and `solution/solve.sh`. These names identify planned execution boundaries; no corresponding implementation was inspected.
+
+| Attack | Concrete adversary steps | Current/vulnerable reward | Does current defense block it? | Required fix or decisive control | Post-fix reward | Residual risk |
+|---|---|---|---|---|---|---|
+| Certified coverage plus level replay | Enumerate or constraint-sample valid repairs, canonicalize equivalent worlds, stratify mechanism coverage, then replay worlds with high learning-potential scores. | ESTIMATED 0.60–0.88 | No. The full route obeys factory and curriculum permissions. | Run an independently competent coverage-plus-adaptive-replay baseline with all admission costs charged. | ESTIMATED 0.60–0.88 | The proposed failure-conditioned selector may duplicate this existing algorithm. |
+| Mutate the learner's frontier | Start with reachable worlds; edit transitions that preserve authoritative evidence; select mutations by regret or held training learning progress. | ESTIMATED 0.58–0.87 | No. Typed transition synthesis still supports adaptive mutation. | Compare an ACCEL-style editor on the identical mutation grammar and learner budget. | ESTIMATED 0.58–0.87 | More complex grammar does not prove a qualitatively different learning bottleneck. |
+| Generate planner-supported mechanism lessons | Compute witness paths and repair contrasts from legal specifications; teach reusable precondition/recovery patterns through charged demonstrations rather than discovering an exotic curriculum. | ESTIMATED 0.63–0.91 | Independent target bank prevents copying target answers, but not transfer from generic lessons. | Include planner-assisted support synthesis and ordinary supervised/RL continuation wherever training authority allows it. | ESTIMATED 0.63–0.91 | Shared mechanism language may make independent surface authorship insufficient. |
+| Filesystem/mount/proc/IPC/frozen-asset access | Read held target relations, reachability witnesses or learner checkpoints via certifier subprocess descriptors, mounted validation caches or mutable interpreter libraries. | ESTIMATED 0.92–1.00 | Trusted validity and target checks are asserted without a tested lifecycle. | Keep target interpreter in a separate trust domain; freeze libraries/base learner; close inherited handles; test factory-worker reads and writes. | ESTIMATED 0.00 | A certifier service accepting arbitrary paths can become a truth-reading deputy. |
+| Interface or encoded-state smuggling | Encode target solutions or offline weights into state labels, transition IDs, curriculum weights or packed factory literals; exploit parser hooks to mutate the trainer. | ESTIMATED 0.81–1.00 | Bounded specs prohibit arbitrary code, but complete state/weight bandwidth is not fixed. | Canonicalize opaque labels, constrain weight precision and total spec bytes, bound decoded literals, and let only trusted training alter parameters. | ESTIMATED 0.00 | Valid transition structure is itself instructional information and must remain usable. |
+| Spoofed verdict/skipped execution/benign-bank fingerprint | Return `admit` or fabricated target scores without running worlds; recognize original healthy fixtures by sibling hashes; make the certifier refuse all examples to avoid finding defects. | ESTIMATED 0.86–1.00 | Downstream target utility and no validity-only reward help; root execution still needs implementation. | Parent interprets every admitted relation and evaluates the trained learner; independent equivalent positives must all pass; nonexecution yields no target success. | ESTIMATED 0.00 | Candidate admission should be a curriculum choice, never authority over target validity. |
+| Timing/check-decoupling/branch laundering | Certify one relation then replace its transitions before training; generate rejected worlds off-clock; preserve a trained learner across nominal clean starts. | ESTIMATED 0.73–0.98 | Generation budget is declared, but capture and ancestry boundaries are missing. | Hash-bound canonical relations from certification through training, all-generation ledger, immutable starts and per-seed process teardown. | ESTIMATED 0.00 | Cached model-checking results are legitimate only if their construction cost is counted consistently. |
+| Dev-hidden leakage/cue inference | Infer target mechanisms from authored-world naming, reference length, quarantine reasons or shared grammar templates; generate close analogues without learning broadly useful support. | ESTIMATED 0.67–0.96 | Independent target authorship addresses copying but may share a complete small grammar. | Split causal construction families, cross renderings and validity labels, audit semantic overlap, and test a grammar-closure solver. | ESTIMATED 0.08–0.42 | A lawful generic compiler that spans all target mechanisms is a difficulty failure. |
+| Adaptive aggregate oracle | Reweight one admitted family per query; fit target learning response from protected aggregates and select the most favorable curriculum. | ESTIMATED 0.56–0.85 | Protected proxy and matching limits are named without a full release policy. | Global charged feedback stream, fresh protected blocks and untouched final targets; include full lawful curriculum search in the recipe floor. | ESTIMATED 0.44–0.73 | Even a small aggregate channel can identify useful mixtures over a compact support basis. |
+| Slice abandonment/denominator optimization | Quarantine difficult worlds while generating many easy valid variants; specialize learner training on high-weight target mechanisms; attempt to omit failed target episodes. | ESTIMATED 0.46–0.81 | Invalid generations consume budget and target denominators remain fixed, but no per-mechanism floor is numeric. | Precommit target cells and localized coverage deficits; run easy-only, all-quarantine and single-mechanism controls through the actual grade. | ESTIMATED 0.24–0.56 | Coverage proxies cannot replace exact target capability or guarantee instructional value. |
+| Strongest lawful combined recipe | Constrained repair synthesis, equivalence deduplication, broad mechanism coverage, planner witnesses, regret/progress-based level replay and outcome-tuned curriculum schedules. | ESTIMATED 0.74 (ESTIMATED 0.49–0.94) | This directly uses the allowed intervention and does not alter scorer code. | Cut unless a new concrete learning interaction survives this composite under independent targets and matched work. | ESTIMATED 0.74 (ESTIMATED 0.49–0.94) | Security hardening cannot diminish legitimate support quality. |
+
+## Published recipe shortcut — web checked
+
+- [Prioritized Level Replay](https://arxiv.org/abs/2010.03934): the primary abstract describes selecting levels by estimated future learning potential. This directly challenges the novelty of reacting to changing learner failure modes.
+- [Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design](https://arxiv.org/abs/2012.02096): the primary abstract describes generating valid solvable environments and PAIRED's regret-based response to learner capability.
+- [Evolving Curricula with Regret-Based Environment Design](https://arxiv.org/abs/2203.01302): the primary abstract describes ACCEL's level editing to maintain a curriculum at the learner's frontier.
+
+These were found through web search during this session. Verification depth is primary abstract/excerpt inspection; no implementations were ported and no published performance transfers to this environment. Combining constrained certification with the better of replay and mutation is an engineering proposal, not a claim that all algorithms should be naively applied simultaneously. The strongest selected composite is **ESTIMATED 0.74 (ESTIMATED 0.49–0.94)**. Unlike independent static recipe tests, it lets a competent baseline adapt support after learning changes the learner.
+
+## Saturation against the hypothetical 10T researcher / 12h
+
+User-specified cutoffs used here are **>0.70** on a single run, **>0.60** on oracle best-of-four mean, **>0.50** on pass@four at **R≥0.60**, and **≥0.75** on projected upper-95%. These are quoted acceptance rules. S1 separately demands the reference in **[0.50,0.65]** and a same-contract stronger control at least **0.20** higher while reaching **R≥0.75**.
+
+The card correctly distinguishes validity from teaching. Its difficulty argument is less successful: adaptive teaching is exactly what modern environment-design methods target. A large researcher can synthesize a canonicalizer, obtain legal path witnesses from public relations, and search curriculum schedules without discovering the author's proposed dependency chain. Full enumeration of every bounded graph is not assumed feasible; constraint sampling, symmetry reduction, local mutation and demonstration generation can achieve useful coverage without enumerating the entire graph space. A desk review should not equate finite with cheap, but neither should it treat a larger grammar as evidence of scientific resistance.
+
+Independently authored target worlds help prevent target copying. They do not establish independence from a generic prerequisite/repair language that the solver can compile. The remaining case would require concrete complementary lessons whose value changes after earlier training and cannot be recovered by ordinary replay, regret and legal demonstrations. No such instance distribution or executable reference is supplied. The weakness reports supply no defense: reliable iteration and complete recipe recall are assumed for the target researcher.
+
+Predicted saturation stress values: single-run maximum **ESTIMATED 0.88 (ESTIMATED 0.65–0.99)**; oracle best-of-four mean **ESTIMATED 0.82 (ESTIMATED 0.59–0.97)**; pass@four **ESTIMATED 0.89 (ESTIMATED 0.42–0.99)**; projected upper-95% **ESTIMATED 0.99**. The point scenarios likely breach each corresponding binding single, best-of-four, pass and stronger-compute line. These are not independent draws, measured maxima or fitted tail estimates. Their broad ranges reflect substantial ambiguity about the missing distribution and calibration.
+
+Rollout scores: **UNMEASURED**, with planned certified-coverage versus adaptive-factory comparisons. Grader noise: **UNMEASURED**, to be assessed by repeating complete factory generation, admission, training and target evaluation. Observed runs: **UNMEASURED**, requiring independent research attempts rather than counting generated worlds as research trials. Observed pass@k: **UNMEASURED**, to be estimated across fresh target-family blocks with complete failures retained. Stronger-tier scaling: **UNMEASURED**, requiring separate researcher time/token/parallelism curves.
+
+S1 remains unresolved because there is no demonstrated reference and stronger same-deployment control. S7 cannot use maximum finite-state reachability as the neural learner's attainable ceiling; it needs an independent capability bracket under the training budget. Unknown ceilings and touching intervals require HOLD empirically. The CUT judgment follows the absence of a defensible novel mechanism in this version, not an alleged statistical finding.
+
+## Revised estimate versus the source card
+
+The source attack is `F_D04(U_enumerate+curriculum)`, explicitly unmeasured and symbolic. My **ESTIMATED 0.74** does not replace a source measurement. I broaden the attack from exhaustive static coverage to learner-conditioned replay and regret-driven mutation, which address the card's proposed residual directly. A failure-conditioned factory beating uniform valid sampling would be insufficient evidence; the relevant competitor already conditions on changing learning usefulness.
+
+## Boilerplate and missing build content
+
+Generic share **ESTIMATED 25–40%**, specific share **ESTIMATED 60–75%**. Under the requested insufficient-build-content flag, this is **mostly boilerplate as an implementation specification**, despite a distinct factory objective. Missing assets include the exact transition grammar and mutation mask; authoritative repair histories; trustworthy reachability and shortcut predicates; independent mechanism families and overlap analysis; curriculum sampling semantics; matched adaptive baselines; and a runnable reference with native headroom. The linked suite includes structural certification reward, whereas this card removes it; a build must follow the terminal-only card contract and cannot claim the suite's easier certification gains as teaching gains.
+
+## Duplicate check
+
+Checked v3 01A, 02A and 07A source sections. Corpus selection, auxiliary learning signals and measurement repair do not expose this factory's transition synthesis treatment. The D04 dedupe entry correctly separates factory support from checker repair, but that does not distinguish its residual from established environment design. Creative C002 and C127 were read completely: the former selects syntax curricula from optimizer blind spots, and the latter generates training episodes against cross-project interference. These overlap adaptive teaching and support interaction, while differing in generator authority and target learner. They are research neighbors rather than established exact duplicates. Full catalog-body coverage was not attempted.
+
+## Verdict, required fixes and cheapest decisive check
+
+CUT for a recipe-level collapse of the stated residual. Re-entry would require a concrete teaching interaction, an independently implemented adaptive environment-design comparator, and a reference that wins beyond that comparator's search budget. Merely disallowing legal planner lessons, level replay, mutation or complete support construction would invalidate the resistance argument. Enlarging transition bounds without preserving feasible author controls would instead create an untested cost/learnability problem.
+
+The cheapest useful empirical kill check is a small fixed-learner comparison of certified broad coverage, adaptive replay/mutation, and the proposed failure-conditioned factory, on independent target mechanisms. **ESTIMATED 13.5 H100-hours**: **ESTIMATED 3 curricula × 3 paired learner seeds × 1.25 H100-hours** for training, plus **ESTIMATED 2.25 H100-hours** for fixed target evaluation and reset overhead. CPU constraint synthesis and certification are additional CPU work and consume no H100 allocation. The estimate assumes existing task assets and a small subject learner; it neither prices missing author construction nor establishes statistical power or full-budget saturation resistance. Nothing was launched.
+
+Any future task must also satisfy Round 2's typed isolated execution, all-positive equivalent-world tests, payload caps, exact parent verdicts, per-seed timeouts and portable lifecycle. Failed generation spends its budget, missing target episodes keep their weight, and no certifier cleanup bonus may inflate utility. Privacy, decontamination, hydrated assets, version-consistent reports and independent live cheat regressions remain mandatory build gates, not evidence supplied by this document.
+
+## Verdict record
+
+id: D04
+source_group: D_card
+verdict: CUT
+strongest_attack: ESTIMATED 0.74 (ESTIMATED 0.49–0.94)
+combined_recipe_attack: ESTIMATED 0.74 (ESTIMATED 0.49–0.94)
+best_of_4: ESTIMATED 0.82
+pass_at_4: ESTIMATED 0.89
+single_run_max: ESTIMATED 0.88
+upper95_projected: ESTIMATED 0.99
+kill_line_breached: single,bo4,pass4,upper95
+decisive_gpu_h: ESTIMATED 13.5
+required_fixes: none; new mechanism needed beyond adaptive environment design
+main_kill_reason: published adaptive curricula target the claimed residual
+duplicate_of: none
+souping_flag: none
+urls_cited: ESTIMATED 3

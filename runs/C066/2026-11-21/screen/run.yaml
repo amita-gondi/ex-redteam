@@ -1,0 +1,32 @@
+task_id: "C066"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.94
+  single_range: "0.84-0.99"
+  bo4: 0.97
+  pass4: 0.99
+  ub95: 1.0
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Adam initialization that preserves the real update clock"
+author_verdict: "CUT"
+kill_reason: "direct state allocation and eager fallback nearly construct the solution"
+duplicate_of: "05B MODERATE; T08 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C066.md"
+    sha256: "8ea9f574605223223473a2289416c0130b13d9e9b79b22f4fa5011c51d4c001a"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

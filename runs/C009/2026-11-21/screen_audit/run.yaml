@@ -1,0 +1,43 @@
+task_id: "C009"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.73
+  single_range: "0.62-0.84"
+  bo4: 0.8
+  pass4: 1.0
+  ub95: 0.83
+evidence:
+  attack_basis: "DEMONSTRATED-AGENT"
+  demonstrated_ref: "autoresearch, Claude unspecified version, 2026; NanoGPT, GPT-6.2 Astra internal optimization agent, 2026"
+  gap_to_attack: "Verify that short return probes rank full dormant-skill trajectories at adequate trial throughput"
+  subfield_sota_ref: "Momentum-reset LLM training through 1B, Huang SPAM, 2025; norm stabilization Huang GradientStabilizer, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.59
+  bo4: 0.7
+  pass4: 1.0
+  ub95: 0.73
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Begin after clock repair and learn history-dependent value of returning moments across coupled retained skills."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C009.md"
+    sha256: "c0d86868b2983a73321129651fa78ad0349a906b21af39cba2292e8f49e9e5f4"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

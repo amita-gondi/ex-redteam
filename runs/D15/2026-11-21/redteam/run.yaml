@@ -1,0 +1,32 @@
+task_id: "D15"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.95
+  bo4: 0.89
+  pass4: 0.93
+  ub95: 1.0
+  strongest_attack: "ESTIMATED 0.80 (ESTIMATED 0.55–0.97)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "new natural evidence-cost witness; full fixed-cover and adaptive-planning controls; ML-relevant artifact semantics"
+kill_reason: "standard active test selection subsumes the proposed residual"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D15_independent.md"
+    sha256: "9bce9e5347f0334ef28385f38659e752ef87e752e5723753f2762636a8e34d4f"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

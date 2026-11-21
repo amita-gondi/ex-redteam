@@ -1,0 +1,43 @@
+task_id: "C053"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.48
+  single_range: "0.28-0.66"
+  bo4: 0.58
+  pass4: 0.48
+  ub95: 0.66
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "SciResearch-Eval, GPT-6 Astra, 2026; SciResearch-Eval, Claude Fable 5.2, 2026"
+  gap_to_attack: "publication-selection inference integrated with learner continuation"
+  subfield_sota_ref: "calibrated adaptive experiment design, Weston et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.41
+  bo4: 0.52
+  pass4: 0.31
+  ub95: 0.63
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Establish affordable causal identification and freeze proper probability scoring alongside continuation utility."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C053.md"
+    sha256: "8c750e656baf232a4171899ea0867d9da197689aece56fbc86b9b7d7efaa4ff3"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

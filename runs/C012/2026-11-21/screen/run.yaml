@@ -1,0 +1,32 @@
+task_id: "C012"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.49
+  single_range: "0.27-0.68"
+  bo4: 0.59
+  pass4: 0.43
+  ub95: 0.74
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Recover learnability after curriculum-induced gradient starvation"
+author_verdict: "CONDITIONAL"
+kill_reason: "require new-relation acquisition beyond exposure-matched recovery"
+duplicate_of: "FIX-T11 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C012.md"
+    sha256: "4e37742d36343c15d142520f08339644d0c438a71a6e1ff0d93de22a19381656"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

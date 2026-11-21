@@ -1,0 +1,26 @@
+task_id: "T23"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.9
+  desk_R_source: 0.51
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "21"
+kill_reason: "Neural imitation of simple controlled trajectories can optimize the low-dimensional extractor; compatible fast methods also threaten reserve."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T23_independent.md"
+    sha256: "ecb46fee8b723e617fab4e15ebc2de479d083291e449f375a12d5fa02e5a87f8"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

@@ -1,0 +1,43 @@
+task_id: "C062"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.66
+  single_range: "0.46-0.81"
+  bo4: 0.74
+  pass4: 1.0
+  ub95: 0.81
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Atrex-Kernel-Agent, Opus 4.7 and Qwen3.7-Max, 2026; InferenceBench, Opus 5.5 Max Claude Code, 2026"
+  gap_to_attack: "alias-complete state isolation and profitable graph reuse over future requests"
+  subfield_sota_ref: "recurrence selected-shape 1.31x production, Atrex-Kernel-Agent Yang et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.54
+  bo4: 0.65
+  pass4: 0.92
+  ub95: 0.68
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize exact speculative recurrent-state transactions after complete dummy-lane isolation and fallback repairs."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C062.md"
+    sha256: "fca69190f87efb80d0462f63f67a0d8b39e8d477ce9586144292c5badb69af3d"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C096"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.49
+  single_range: "0.28-0.72"
+  bo4: 0.63
+  pass4: 0.59
+  ub95: 0.72
+evidence:
+  attack_basis: "ASSUMED"
+  demonstrated_ref: "MLE-bench, o1-preview+AIDE, 2024; PaperBench, o1+IterativeAgent, 2025"
+  gap_to_attack: "validated semantic codec discovery at a specified byte rate"
+  subfield_sota_ref: "Diagram-MMU parsing comparison, Bo et al., 2026; exact channel SOTA unverified"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.44
+  bo4: 0.56
+  pass4: 0.45
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "CONDITIONAL->CUT"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Establish a feasible numerical channel where observable rule-conditioned retention outperforms a complete sparse graph codec."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C096.md"
+    sha256: "69526719e2341c727f18cb1e85b0d99ba00b294068397a08db7c2e9c882fc5bf"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

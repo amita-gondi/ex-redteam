@@ -1,0 +1,43 @@
+task_id: "C015"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.59
+  single_range: "0.37-0.77"
+  bo4: 0.71
+  pass4: 0.68
+  ub95: 0.77
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Agentic ASR sampling, LLM unspecified with Whisper-medium, 2026; MLE-bench, o1-preview AIDE, 2024; PostTrainBench Lite, GPT-6.2 Astra, 2026"
+  gap_to_attack: "discovering minute-priced acquisition with unrevealed transcript labels"
+  subfield_sota_ref: "multi-round accented acquisition, Dossou, 2025; adaptive multilingual sampling, Qian, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.48
+  bo4: 0.59
+  pass4: 0.37
+  ub95: 0.71
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Evaluate ordered complementary speech acquisitions with disclosed interaction examples and fully costed lookahead baselines."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C015.md"
+    sha256: "2b70302617868e0b0372d6f6cb2820e8876a6c1b14dc15d4cbe80423bd677aab"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

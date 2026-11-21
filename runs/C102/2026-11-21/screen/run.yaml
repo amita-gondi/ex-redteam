@@ -1,0 +1,32 @@
+task_id: "C102"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.64
+  single_range: "0.43-0.80"
+  bo4: 0.73
+  pass4: 0.82
+  ub95: 0.88
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Learn useful failed experiments under sparse scientific feedback"
+author_verdict: "CUT"
+kill_reason: "conditional failure memory and training saturate downstream selection"
+duplicate_of: "T03 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C102.md"
+    sha256: "abab019eb3a0cb2cdb3c7986582816012d042e2f4da583c0edf1b2306c0d64a1"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

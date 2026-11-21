@@ -1,0 +1,32 @@
+task_id: "C038"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.87
+  single_range: "0.64-0.96"
+  bo4: 0.92
+  pass4: 0.99
+  ub95: 0.99
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Make decoding batch-invariant without widening the whole model"
+author_verdict: "CUT"
+kill_reason: "documented batch-invariant backend supplies a direct replacement"
+duplicate_of: "05A MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C038.md"
+    sha256: "02a8a132a2ba8e9581d0c621c2752ff63b691ef00d8ad28428cf7177a4ec3033"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

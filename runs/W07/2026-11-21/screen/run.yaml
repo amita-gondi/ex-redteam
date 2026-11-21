@@ -1,0 +1,29 @@
+task_id: "W07"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "weakness-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.8
+  single_range: "0.40-0.94"
+  bo4: 0.88
+  pass4: 0.9
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+kill_reason: "compact conditional-law fitting plus legal tensor renderer exceeds single-run line"
+duplicate_of: "v3:01A WEAK; FIX:T11 WEAK; D18 WEAK; catalog:T22 MODERATE; catalog:T23 MODERATE; catalog:T12 MODERATE; catalog:C-17.1 MODERATE; C096 WEAK; C006 NONE; W05 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/weakness_tasks_saturation_screen/cards/W07.md"
+    sha256: "f7811c725fc54cd36fa785b66b4279069cd877c6c9deb7f10b4ed133671db06e"
+  - path: "/workspace/weakness_tasks_saturation_screen/screen.tsv"
+    sha256: "81a63741cedf895d5b56cb89739e0ad26628a98196f10e6f1b7b38cbb77486b8"

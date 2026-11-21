@@ -1,0 +1,43 @@
+task_id: "C071"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.66
+  single_range: "0.43-0.81"
+  bo4: 0.76
+  pass4: 1.0
+  ub95: 0.81
+evidence:
+  attack_basis: "DEMONSTRATED-AGENT"
+  demonstrated_ref: "Singularity-Bench midtraining, Opus 5.5+Claude Code, 2026; PostTrainBench Lite, GPT-6.2 Astra, 2026"
+  gap_to_attack: "exact late-preference coverage within the retained-token ledger"
+  subfield_sota_ref: "LongMab long-context preference data, Duan et al., 2025/2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.61
+  bo4: 0.72
+  pass4: 1.0
+  ub95: 0.78
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Learn sufficient retention of dispersed revised evidence above intact-pair and retrieval allocation controls."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C071.md"
+    sha256: "67b6a322506d00f206755d28fd28c1400351f34d48b125650113f63d386fa11d"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

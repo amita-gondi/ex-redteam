@@ -1,0 +1,43 @@
+# Red-team pipeline config: screen -> anchored re-score -> red team (FIX/CUT) -> [canary] -> [panel].
+# Desk stages are CPU-only. Rollout stages are OFF.
+version: 1
+attacker_model_assumption: "~10T research model, 12 h, full task budget (assumption)"
+kill_lines: {single_max: 0.70, best_of_4: 0.60, pass_at_4: 0.50, upper95: 0.75, tau: 0.60}
+pairings:   # canonical set, settled by Amita Nov 21 2026; exact pins OPEN (bar F7)
+  - {id: P1, model: "Claude Opus 5.5", harness: "Claude Code"}
+  - {id: P2, model: "Gemini 4 Argon", harness: "Antigravity"}
+  - {id: P3, model: "Qwen 3.8 Max", harness: "Qwen Code"}
+  - {id: P4, model: "GPT-6.2 Sol", harness: "Codex"}
+compute: {gpu: false, max_concurrent_desk_sessions: 4, stall_minutes: 15, max_resumes: 4}
+evidence_rule: method/evidence_grounding_rule.md
+schema: method/verdict_schema.yaml
+stages:
+  - name: screen
+    enabled: true
+    input: tasks/<task_id>/card.md
+    output: runs/<task_id>/<date>/screen/
+    advance_if: [PASS-SCREEN, CONDITIONAL]
+  - name: anchored_rescore
+    enabled: true
+    requires: [screen]
+    rule: method/evidence_grounding_rule.md
+    output: runs/<task_id>/<date>/anchored_rescore/
+    advance_if: [PASS-SCREEN, CONDITIONAL]
+  - name: redteam
+    enabled: true
+    requires: [anchored_rescore]
+    independent_of: [screen, anchored_rescore]   # reviewer must not read earlier verdicts
+    output: runs/<task_id>/<date>/redteam/
+    verdicts: [HOLDS, FIX, CUT]
+  - name: canary
+    enabled: false   # requires Amita GO
+    gpu: false       # requires Amita GO
+    spec: method/rollout_spec.md   # one canary per pairing
+  - name: panel
+    enabled: false   # requires Amita GO
+    gpu: false       # requires Amita GO
+    spec: method/rollout_spec.md   # 4 pairings x 4 runs; can kill, cannot clear
+gates:
+  canary: OFF   # requires Amita GO
+  panel: OFF    # requires Amita GO
+  publish_or_share: OFF   # requires Amita GO (bar F4)

@@ -1,0 +1,43 @@
+task_id: "C047"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.57
+  single_range: "0.32-0.78"
+  bo4: 0.71
+  pass4: 0.68
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "MLE-bench, o1-preview AIDE, 2024; PaperBench Science, GPT-6 Astra, 2026"
+  gap_to_attack: "No demonstrated absent-feature diagnosis and retained-skill VLM recovery"
+  subfield_sota_ref: "SpuriVerse fine-tuning, Yang, 2025; RaVL, Varma, 2024"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.47
+  bo4: 0.57
+  pass4: 0.45
+  ub95: 0.67
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Score transferable primitive-support recovery beyond complete counterfactual tuning and all-layer readout controls."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C047.md"
+    sha256: "029e6c802de2ec7cfbb51132e891d93ea24ff7cb597c9ecc02a0a756142b72b0"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

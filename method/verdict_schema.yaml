@@ -1,0 +1,59 @@
+# One verdict record per (task, run). Explained in verdict_schema.md.
+schema_version: 1
+record:
+  task_id: {type: string, example: "C014"}
+  run_kind: {type: enum, values: [screen, screen_audit, anchored_rescore, redteam, self_review, design_redteam]}
+  date: {type: date, tz: America/Los_Angeles}
+  method_version: {type: string}
+  status: {type: enum, values: [COMPLETE, IN-PROGRESS, INCOMPLETE]}
+  label: {type: const, value: "ESTIMATED desk verdict, UNMEASURED"}
+  measurement_status: {type: enum, values: [UNMEASURED, MEASURED], default: UNMEASURED}
+
+  # The verdict exactly as the stage wrote it.
+  stage_verdict:
+    type: enum
+    by_run_kind:
+      screen: [PASS-SCREEN, CONDITIONAL, CUT]
+      screen_audit: [PASS-SCREEN, CONDITIONAL, CUT]
+      anchored_rescore: [PASS-SCREEN, CONDITIONAL, CUT]
+      redteam: [HOLDS, FIX, CUT]
+      design_redteam: ["needs fixes", cut]
+      self_review: [likely-pass, at-risk]
+  # The one cross-stage outcome.
+  outcome: {type: enum, values: [ADVANCE, FIX, CUT, HOLD]}
+
+  binding_line: {type: enum, values: ["single>0.70", "bo4>0.60", "pass4>0.50", "ub95>=0.75", none, duplicate, souping, na]}
+  estimates:             # ESTIMATED attack distribution from this stage
+    single: {type: number, range: [0, 1]}
+    single_range: {type: string, example: "0.37-0.76"}
+    bo4: {type: number}
+    pass4: {type: number}
+    ub95: {type: number}
+  evidence:              # Amita's 12:04 PM PT rule (evidence_grounding_rule.md)
+    attack_basis: {type: enum, values: [DEMONSTRATED-AGENT, LITERATURE-ONLY, ASSUMED, na]}
+    demonstrated_ref: {type: string}
+    gap_to_attack: {type: string}
+    subfield_sota_ref: {type: string}
+    verdict_rests_on_assumption: {type: enum, values: ["yes", "no", na]}
+  anchored:              # The headline once present
+    single: {type: number}
+    bo4: {type: number}
+    pass4: {type: number}
+    ub95: {type: number}
+    verdict: {type: enum, values: [PASS-SCREEN, CONDITIONAL, CUT]}
+    binding_line: {type: string}
+    flip: {type: enum, values: [none, "CUT->CONDITIONAL", "CUT->PASS-SCREEN", "CONDITIONAL->PASS-SCREEN", "CONDITIONAL->CUT", "PASS-SCREEN->CUT", "PASS-SCREEN->CONDITIONAL"]}
+  anchored_addendum: {type: enum, values: [present, pending, na]}
+  required_fixes: {type: string}
+  kill_reason: {type: string}
+  duplicate_of: {type: string}
+  souping_flag: {type: enum, values: ["no", "yes"]}   # "yes" means the task is excluded from this repo
+  source: {path: string, sha256: string}
+
+outcome_mapping:
+  screen:        {PASS-SCREEN: ADVANCE, CONDITIONAL: FIX, CUT: CUT}
+  screen_audit:  {PASS-SCREEN: ADVANCE, CONDITIONAL: FIX, CUT: CUT}   # uses anchored.verdict when present
+  anchored_rescore: {PASS-SCREEN: ADVANCE, CONDITIONAL: FIX, CUT: CUT}
+  redteam:       {HOLDS: ADVANCE, FIX: FIX, CUT: CUT}
+  design_redteam: {"needs fixes": FIX, cut: CUT}
+  self_review:   {likely-pass: ADVANCE, at-risk: FIX}

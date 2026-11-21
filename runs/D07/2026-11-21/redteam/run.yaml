@@ -1,0 +1,32 @@
+task_id: "D07"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.73
+  bo4: 0.69
+  pass4: 0.68
+  ub95: 0.91
+  strongest_attack: "ESTIMATED 0.62 (ESTIMATED 0.39–0.84)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "prefix-causal real-onset assets; complete feedback and schedule baselines; native horizon floors and anchors; trusted lifecycle; C089 novelty comparison"
+kill_reason: "ordinary control may exhaust onset prevention"
+duplicate_of: "C089"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D07_independent.md"
+    sha256: "8ff1fe0ca45ff81691833c44c9cf1cb929b0917c8f3581ea19d14d6db66d63e0"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

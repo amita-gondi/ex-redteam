@@ -1,0 +1,43 @@
+task_id: "C048"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.78
+  single_range: "0.60-0.86"
+  bo4: 0.83
+  pass4: 1.0
+  ub95: 0.86
+evidence:
+  attack_basis: "DEMONSTRATED-AGENT"
+  demonstrated_ref: "ATTUNE, Opus 4.8 Claude Code, 2026; Singularity-Bench pretraining, Opus 5.5 Claude Code, 2026"
+  gap_to_attack: "Codec integration and receipt validation remain untested directly"
+  subfield_sota_ref: "SPDL non-starving training and efficient loading, Hira, 2025 revised 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.71
+  bo4: 0.78
+  pass4: 1.0
+  ub95: 0.82
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Couple fully metered codec cache preparation to observable stage-dependent curriculum value beyond fair asynchronous loading."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C048.md"
+    sha256: "795709ca1b0703513b5c8ea0fa689c756e86c786838f2470b6907043be373c18"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

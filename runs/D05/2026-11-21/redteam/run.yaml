@@ -1,0 +1,32 @@
+task_id: "D05"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.92
+  bo4: 0.87
+  pass4: 0.95
+  ub95: 0.99
+  strongest_attack: "ESTIMATED 0.79 (ESTIMATED 0.55–0.97)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "none; establish a new mechanism beyond diagnostic probe synthesis"
+kill_reason: "direct prerequisite probes plausibly saturate discrimination"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D05_independent.md"
+    sha256: "d738f40369f60f6e42ebe1a26e2b0c4b38310d78ced3a5229466312ffe46b9c0"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

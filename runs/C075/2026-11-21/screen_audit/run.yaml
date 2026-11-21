@@ -1,0 +1,43 @@
+task_id: "C075"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.51
+  single_range: "0.26-0.71"
+  bo4: 0.66
+  pass4: 0.76
+  ub95: 0.71
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PaperBench, o1 IterativeAgent, 2025; AI Scientist-v2, Claude 3.5 Sonnet GPT-4o, 2025"
+  gap_to_attack: "validated storage-aware branch selection improves final learner quality"
+  subfield_sota_ref: "wdCP bounded recovery, Cheng et al., 2026; ByteCheckpoint, Wan et al., 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.34
+  bo4: 0.53
+  pass4: 0.48
+  ub95: 0.7
+  verdict: "CONDITIONAL"
+  binding_line: "pass4>0.50"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Start from safe persistence and test quality-sensitive ancestry retention against full-copy and exact-replay beams."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C075.md"
+    sha256: "c7badd9f7a6ef6ddb00a265c3d75650a60cdf4c0f19ec97918d8699f4dac6b54"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

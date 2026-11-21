@@ -1,0 +1,43 @@
+task_id: "C074"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.57
+  single_range: "0.38-0.72"
+  bo4: 0.68
+  pass4: 0.76
+  ub95: 0.72
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "KernelAgent, unspecified backbone, 2026; Singularity-Bench, Opus 5.5 Claude Code, 2026"
+  gap_to_attack: "partial multimodal rotary backward parity and amortized training benefit"
+  subfield_sota_ref: "MHRoPE and MRoPE-I, Huang et al., 2025 revised 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.45
+  bo4: 0.55
+  pass4: 0.45
+  ub95: 0.65
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Freeze exact positional semantics and establish interaction gains beyond a complete corrected compiler and cache baseline."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C074.md"
+    sha256: "0167e7a0aa03a96ddd9debf04f208e6e7951880fee991fd42b2f0940fb5b70d1"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

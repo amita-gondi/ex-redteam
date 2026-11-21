@@ -1,0 +1,32 @@
+task_id: "C050"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.74
+  single_range: "0.47-0.90"
+  bo4: 0.83
+  pass4: 0.94
+  ub95: 0.96
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Search by commissioning discriminating micro-experiments"
+author_verdict: "CUT"
+kill_reason: "informative live-experiment selection already covered by T03"
+duplicate_of: "T03 STRONG; D10 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C050.md"
+    sha256: "21f70d7c619852bda023bb4bf3b227d844fd707ab2ad0f96fe30ecd925cabc23"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

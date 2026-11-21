@@ -1,0 +1,32 @@
+task_id: "C084"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.85
+  bo4: 0.8
+  pass4: 0.88
+  ub95: 0.96
+  strongest_attack: "ESTIMATED 0.71 (0.46–0.91)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "creative_v4"
+required_fixes: "exact speculation frontier; fixed executable utility and cost; semantic twin families; same-stream timing and execution"
+kill_reason: "exact and conservative adaptive speculation threaten the whole gain"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/C084_independent.md"
+    sha256: "87e4df6c0e1e08515bd091eefd39e571a0ac3d95a6b2677ee15c480488fdb7f0"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

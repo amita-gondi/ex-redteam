@@ -1,0 +1,43 @@
+task_id: "C072"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.64
+  single_range: "0.43-0.80"
+  bo4: 0.75
+  pass4: 1.0
+  ub95: 0.8
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench orchestration, Opus 5.5+Claude Code, 2026; Internal Research Debugging, GPT-6.2 Astra, 2026"
+  gap_to_attack: "crash-validated distributed replay with continued policy utility"
+  subfield_sota_ref: "Belayer agentic-RL recovery, Zhou et al., 2026; FailBench, Aljbab and Barrak, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.49
+  bo4: 0.6
+  pass4: 0.45
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Allocate durability to shared stateful tool episodes with delayed learning value above complete incremental recovery controls."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C072.md"
+    sha256: "61a3aa56f34a4904ed63ce7f03a5bd37ecbe9a404f3276610fd9b6b37385b8b5"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

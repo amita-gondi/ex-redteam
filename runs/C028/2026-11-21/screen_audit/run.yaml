@@ -1,0 +1,43 @@
+task_id: "C028"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.66
+  single_range: "0.53-0.79"
+  bo4: 0.74
+  pass4: 0.99
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "AIDE2, Opus 4.7/Gemini 3 Flash, 2026; autoresearch, Claude unspecified, 2026"
+  gap_to_attack: "prerequisite-sensitive continuation validated in twelve hours"
+  subfield_sota_ref: "dynamic continuation DyHPO 2022; research strategy evolution AIDE2 2026"
+  verdict_rests_on_assumption: "no"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.47
+  bo4: 0.54
+  pass4: 0.0
+  ub95: 0.58
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C028.md"
+    sha256: "7dfefe1c41395d16ef1b377c63faa8b061cf5063c4e44a2b22a060387b18fd08"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

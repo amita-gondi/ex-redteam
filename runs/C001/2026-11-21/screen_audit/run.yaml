@@ -1,0 +1,43 @@
+task_id: "C001"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.58
+  single_range: "0.40-0.78"
+  bo4: 0.72
+  pass4: 0.68
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PostTrainBench Lite, GPT-6.2 Astra internal agent, 2026; MLE-bench, o1-preview AIDE, 2024"
+  gap_to_attack: "Validate contradiction retention through scientific learner transfer within twelve hours"
+  subfield_sota_ref: "Controlled corpus filtering, Li DataComp-LM, 2024/2025; exact scientific-loss SOTA unavailable"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.49
+  bo4: 0.59
+  pass4: 0.43
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Learn exposure of provenance-linked conditional evidence after contradictory-tuple retention is already supplied."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C001.md"
+    sha256: "ee6b8dd5be8f2074a50a79b5c204420f1be80df9556a835adc9c4db6b41f7ac8"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

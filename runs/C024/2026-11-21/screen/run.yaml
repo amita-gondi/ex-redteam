@@ -1,0 +1,32 @@
+task_id: "C024"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.42
+  single_range: "0.23-0.61"
+  bo4: 0.53
+  pass4: 0.29
+  ub95: 0.7
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Retain scientific uncertainty in compressed experiment records"
+author_verdict: "CONDITIONAL"
+kill_reason: "require binding total memory and non-hindsight uncertainty retention"
+duplicate_of: "catalog-T05 MODERATE; catalog-T03 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C024.md"
+    sha256: "f67aeb06992b833f39603e66b69e855683375a4b8dbfcbe51a2a08a00a7c001a"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

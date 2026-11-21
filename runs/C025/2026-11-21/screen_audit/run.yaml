@@ -1,0 +1,43 @@
+task_id: "C025"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.69
+  single_range: "0.59-0.79"
+  bo4: 0.75
+  pass4: 1.0
+  ub95: 0.78
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "AIDE2, Opus 4.7/Gemini 3 Flash, 2026; MLE-bench AIDE, o1-preview, 2024"
+  gap_to_attack: "designing and validating the useful interface within a twelve-hour construction-inclusive budget"
+  subfield_sota_ref: "held-out research harness self-improvement, AIDE2, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.47
+  bo4: 0.58
+  pass4: 0.28
+  ub95: 0.66
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Begin with full checkpoint workflows and reward a transferable optimizer-state transition diagnostic through final learning gains."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C025.md"
+    sha256: "6c68ff55cd720f47620c96c71bda70697605215cd50d3ab0616946c9276e5762"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C063"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.64
+  single_range: "0.40-0.79"
+  bo4: 0.75
+  pass4: 1.0
+  ub95: 0.79
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench, Opus 5.5+Claude Code, 2026; NanoGPT, GPT-6.2 Astra, 2026"
+  gap_to_attack: "exact distributed MTP backward and learning-time validation"
+  subfield_sota_ref: "DeepSeek-V3 MTP, DeepSeek-AI, 2024/2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.45
+  bo4: 0.56
+  pass4: 0.43
+  ub95: 0.66
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Learn transferable MTP horizon allocation after exact communication is included in the floor."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C063.md"
+    sha256: "021f5859b385630ff0612a2400799f6fb6d06938fd0f2bee3b46a219ac43ecea"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

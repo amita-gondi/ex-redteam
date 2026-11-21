@@ -1,0 +1,43 @@
+task_id: "C022"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.58
+  single_range: "0.49-0.71"
+  bo4: 0.68
+  pass4: 0.87
+  ub95: 0.71
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PaperQA2/ContraCrow, GPT-4-Turbo, 2024; xKG/PaperCoder and IterativeAgent, o3-mini, 2025/2026"
+  gap_to_attack: "code and evidence retrieval are not realized training utility"
+  subfield_sota_ref: "contradiction retrieval PaperQA2 2024; executable research knowledge xKG 2025/2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.42
+  bo4: 0.52
+  pass4: 0.28
+  ub95: 0.63
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Turn conflicting reproduction evidence into a charged active diagnosis problem scored by subsequent training utility."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C022.md"
+    sha256: "f9f15caafe4da0a0045ed020b5b98ab1ff03d3e19ad4ae10333df62f11607248"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C020"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.62
+  single_range: "0.38-0.80"
+  bo4: 0.73
+  pass4: 1.0
+  ub95: 0.8
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "ServerBench, Opus 5.5 Claude Code, 2026; ArchAgent, AlphaEvolve Gemini unspecified, 2026"
+  gap_to_attack: "twelve-hour training and validation of a weights-only joint-memory predictor"
+  subfield_sota_ref: "workflow-transition cache management, CacheScout, 2026; cache-population feedback admission, Basin, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.45
+  bo4: 0.58
+  pass4: 0.43
+  ub95: 0.7
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "CONDITIONAL->CUT"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Test learned complementary-state portfolio admission across observable joins and shared host/device transfer contention."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C020.md"
+    sha256: "523f5afeec039bcc97ac675fb46262083c207125440fabb48c76619685ac4ea5"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

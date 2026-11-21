@@ -1,0 +1,43 @@
+task_id: "C090"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "duplicate"
+estimates:
+  single: 0.52
+  single_range: "0.29-0.76"
+  bo4: 0.67
+  pass4: 0.59
+  ub95: 0.76
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench, Opus 5.5 Claude Code, 2026; SpecPilot, Opus 5.5 Claude Code, 2026"
+  gap_to_attack: "no specified residual above complete replacement floor"
+  subfield_sota_ref: "TorchTitan and matched production systems, PyTorch and Zhou, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.37
+  bo4: 0.5
+  pass4: 0.34
+  ub95: 0.65
+  verdict: "CUT"
+  binding_line: "duplicate"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "DUPLICATE-STAYS-CUT"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C090.md"
+    sha256: "fb2062403d52d855c8dbba2eaa909c56e1ddad3a5bf4b5560ee28905222b0a35"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,28 @@
+# logs and session transcripts
+logs/
+*.log
+*.jsonl
+*.pid
+# secrets
+.env
+.env.*
+*.pem
+*.key
+# binaries / large artifacts
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.npz
+*.npy
+*.zip
+*.tar
+*.tar.gz
+*.gz
+*.parquet
+*.png
+*.jpg
+*.pdf
+__pycache__/
+*.pyc

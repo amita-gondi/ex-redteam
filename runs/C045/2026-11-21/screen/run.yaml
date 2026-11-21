@@ -1,0 +1,32 @@
+task_id: "C045"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "PASS-SCREEN"
+outcome: "ADVANCE"
+binding_line: "none"
+estimates:
+  single: 0.42
+  single_range: "0.21-0.59"
+  bo4: 0.51
+  pass4: 0.23
+  ub95: 0.68
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Pretraining with stateful external memory under update churn"
+author_verdict: "PASS-SCREEN"
+kill_reason: "none"
+duplicate_of: "T05 MODERATE; T20 WEAK; 06A WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C045.md"
+    sha256: "69a95895ea151475c4bd50fad95911ef90f19f0fd240f5d2ee97f333d5e06468"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

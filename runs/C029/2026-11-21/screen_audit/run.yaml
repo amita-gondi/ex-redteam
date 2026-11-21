@@ -1,0 +1,43 @@
+task_id: "C029"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.63
+  single_range: "0.51-0.69"
+  bo4: 0.69
+  pass4: 0.99
+  ub95: 0.69
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "Singularity-Bench, Opus 5.5/Claude Code, 2026; SWE-Serve, GPT-5.6 Sol and Opus 5/mini-SWE-agent, 2026"
+  gap_to_attack: "identical committed-token trajectories and throughput after arbitrary tool-prefix revisions"
+  subfield_sota_ref: "speculative drafts EAGLE-3 2025; parallel speculative serving SPECTRE 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.52
+  bo4: 0.6
+  pass4: 0.62
+  ub95: 0.65
+  verdict: "CUT"
+  binding_line: "pass4>0.50"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize exact speculation jointly with memory placement across observable asynchronous tool rejoins."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C029.md"
+    sha256: "4c8f93e9246c6066cf775dde5cab2c294be0c9e19ec277b5b1f8a121abb61be6"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

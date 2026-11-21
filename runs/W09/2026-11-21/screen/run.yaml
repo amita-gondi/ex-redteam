@@ -1,0 +1,29 @@
+task_id: "W09"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "weakness-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.63
+  single_range: "0.41-0.75"
+  bo4: 0.69
+  pass4: 0.87
+  ub95: 0.8
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+kill_reason: "legal adaptive optimizer portfolio exceeds best-of-four line"
+duplicate_of: "FIX:T02 MODERATE; FIX:T08 MODERATE; C095 MODERATE; C009 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/weakness_tasks_saturation_screen/cards/W09.md"
+    sha256: "639ea94d36f57cf7ca68e8eb5f54e11c550a07ce8a4ddca4a044043e6e4326b8"
+  - path: "/workspace/weakness_tasks_saturation_screen/screen.tsv"
+    sha256: "81a63741cedf895d5b56cb89739e0ad26628a98196f10e6f1b7b38cbb77486b8"

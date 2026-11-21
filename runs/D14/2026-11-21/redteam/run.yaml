@@ -1,0 +1,32 @@
+task_id: "D14"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.93
+  bo4: 0.86
+  pass4: 0.9
+  ub95: 0.99
+  strongest_attack: "ESTIMATED 0.77 (ESTIMATED 0.53–0.95)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "re-entry needs costed diagnosis-specific learning witness and complete continuation-distillation comparison"
+kill_reason: "direct verified correction training bypasses diagnosis"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D14_independent.md"
+    sha256: "0a1ca01b03cbc5e015503e75a149d5760f2a7afd40151c69ab659f69b068e6dc"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

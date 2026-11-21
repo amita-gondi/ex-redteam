@@ -1,0 +1,32 @@
+task_id: "D22"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.88
+  bo4: 0.83
+  pass4: 0.92
+  ub95: 0.97
+  strongest_attack: "ESTIMATED 0.76 (0.49–0.94)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "none"
+kill_reason: "complete induced-state imitation likely supplies reference"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D22_independent.md"
+    sha256: "db3202b9024c687f47616c3ddfbb6a0f2381febad9ee3f36d2ef7f1b605f15ff"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

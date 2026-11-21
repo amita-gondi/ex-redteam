@@ -1,0 +1,32 @@
+task_id: "C056"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.48
+  single_range: "0.28-0.65"
+  bo4: 0.57
+  pass4: 0.35
+  ub95: 0.71
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Search that learns executable query rewrites for codebases"
+author_verdict: "CONDITIONAL"
+kill_reason: "trace-budget and held-out mechanism requirements unresolved near tail line"
+duplicate_of: "T20 MODERATE; T04 WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C056.md"
+    sha256: "4c5560508d5820ef616431cba1b8c299c930ce052125ba88d5873e9f2c5b337b"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

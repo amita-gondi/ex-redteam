@@ -1,0 +1,32 @@
+task_id: "C098"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.82
+  single_range: "0.63-0.94"
+  bo4: 0.89
+  pass4: 0.99
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Report and repair censored training failures"
+author_verdict: "CUT"
+kill_reason: "complete population expected utility is directly handled by failure aware search"
+duplicate_of: "catalog T14 WEAK; catalog T03 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C098.md"
+    sha256: "24687f04068470d1d48b16ed37630f491ff5e186e82515a4197abfe76693b260"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

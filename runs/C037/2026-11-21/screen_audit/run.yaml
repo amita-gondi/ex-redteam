@@ -1,0 +1,43 @@
+task_id: "C037"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.53
+  single_range: "0.30-0.72"
+  bo4: 0.65
+  pass4: 0.59
+  ub95: 0.72
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PostTrainBench Lite, GPT-6.2 Astra plus internal agent harness, 2026; autoresearch, Claude unspecified, 2026"
+  gap_to_attack: "profitable online learning under request-service contention is not demonstrated"
+  subfield_sota_ref: "verl-SpeCo idle-window and drafter-freeze co-training, Tan et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.52
+  bo4: 0.58
+  pass4: 0.34
+  ub95: 0.68
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "CONDITIONAL->CUT"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Disclose predictive persistence and learnability features so draft refresh must repay future shared-pool service displacement."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C037.md"
+    sha256: "97c4d3dcf3a554945c14c0b991afbe599fb6105260472d6db6e6a42b15eb68f5"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

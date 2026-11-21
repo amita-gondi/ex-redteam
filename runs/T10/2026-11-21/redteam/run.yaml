@@ -1,0 +1,26 @@
+task_id: "T10"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.6
+  desk_R_source: 0.4
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "6"
+kill_reason: "Budgeted complementary observation can be hard, but an existential witness is not a discoverable legal policy."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T10_independent.md"
+    sha256: "95f45b9986b3a03e2b9e474210f6c0cbdfa17956e49071437cac7d85bed5ba22"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

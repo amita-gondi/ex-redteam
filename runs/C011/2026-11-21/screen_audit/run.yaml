@@ -1,0 +1,43 @@
+task_id: "C011"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.75
+  single_range: "0.58-0.88"
+  bo4: 0.84
+  pass4: 1.0
+  ub95: 0.88
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "KernelAgent, Opus-4.5, 2026; NanoGPT, GPT-6.2 Astra, 2026"
+  gap_to_attack: "learning-preserving sparse routing through a capacity transition"
+  subfield_sota_ref: "mixed-precision MoE training, DeepSeek-V3, 2024/2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.46
+  bo4: 0.56
+  pass4: 0.34
+  ub95: 0.69
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize counterfactual learning value and precision jointly under fully charged routing probes and observed domain transitions."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C011.md"
+    sha256: "e6d9a8adbf8bb2d5f80b255f73b3d3a2f0b0d4d5a73d8b38dadb8e5f4d1a5c7b"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

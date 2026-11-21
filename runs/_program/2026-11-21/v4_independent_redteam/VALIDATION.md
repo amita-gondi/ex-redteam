@@ -1,0 +1,21 @@
+# VALIDATION (structural checks executed on CPU; not task results)
+
+- Coverage: 50/50 files `redteam/<id>_independent.md` (24 D + 26 C), each with `## Verdict record` and `souping_flag:`. verdicts.tsv has 50 rows, 0 MISSING fields.
+- Attack table: all 50 files have exactly 11 attack rows, including a "Strongest lawful combined recipe" row.
+- Souping/merging: no file uses or proposes it. All 50 have `souping_flag: none`. A text scan found no soup or merging content.
+- Numbers: every score field in verdicts.tsv carries an ESTIMATED label. Measurement fields are UNMEASURED.
+- Wording (tools/wording_check.py, output in ref/wording_check_final.json):
+  - Each file's share of repeated sentences of 15+ words is 0.0% for all 50, both before and after. The limit is <10%, and no rewrite was needed.
+  - The maximum pairwise 8-gram Jaccard is 0.0102 (C056/C095). The limit is ≤0.10, and no pair exceeds it.
+  - Against the old T01–T23 red-team prose, the maximum sentence share is 0.0% and the maximum Jaccard 0.0079.
+  - For comparison, the old T01–T23 set scores 52–65% repeated per file, with a maximum pair of 0.52.
+- URLs (curl -L, results in ref/url_check.tsv and ref/url_check_wave2.tsv):
+  - Wave 1: 70 unique, of which 69 returned HTTP 200. One, st.cispa.saarland in D29, failed to connect from the box twice; this is not a 404.
+  - Wave 2: 79 unique, all HTTP 200.
+- Independence (tools/independence_check.py plus a raw grep):
+  - All 6 session JSONLs (R1–R6) have 0 tool calls or outputs touching creative_v4_saturation_screen/, weakness_tasks_saturation_screen/, task_tabs_v4/, 01_ranked.md, screen.md, rankings.json or cards.json.
+  - There were 0 recursive /workspace searches.
+  - Non-prompt JSONL lines and logs contain 0 mentions of those paths. No session was contaminated, so no redo was needed.
+- Sources: all 176 hashed inputs (ref/source_sha256_before.txt) were unchanged at the end (`sha256sum -c` passed).
+- Sessions: 6 own Codex sessions, never more than 3 at once, with 0 resumes and 0 stalls. Screening sessions were never resumed or touched.
+- Aggregation scripts (tools/aggregate.py, the comparison tables in ref/) only extract or compare existing records. All red-team prose was written by the blind sessions.

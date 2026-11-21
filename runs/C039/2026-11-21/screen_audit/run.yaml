@@ -1,0 +1,43 @@
+task_id: "C039"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.56
+  single_range: "0.34-0.75"
+  bo4: 0.7
+  pass4: 0.68
+  ub95: 0.75
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PostTrainBench Lite, GPT-6.2 Astra plus internal agent scaffold, 2026; MLE-bench, o1-preview plus AIDE, 2024"
+  gap_to_attack: "exposure-only conditional scientific revision learning is untested"
+  subfield_sota_ref: "temporal pretraining ordering, Fabre et al., 2026; scientific-update frontier, ScienceMeter, Wang et al., 2025 revised 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.46
+  bo4: 0.55
+  pass4: 0.34
+  ub95: 0.67
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Train from legally available condition-bearing revision spans and score counterbalanced scientific conclusion contrasts."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C039.md"
+    sha256: "c164a24f127aa0da1883467539ddd91de10edbb6a896959580fa7555513cbbc8"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

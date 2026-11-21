@@ -1,0 +1,43 @@
+task_id: "C112"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "ADVANCE"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.5
+  single_range: "0.28-0.74"
+  bo4: 0.63
+  pass4: 0.5
+  ub95: 0.74
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "PaperBench Science, GPT-6 Astra, 2026; AI Scientist-v2, Sonnet 3.5 and GPT-4o, 2025"
+  gap_to_attack: "causal imaging and sensor-policy co-design with downstream training"
+  subfield_sota_ref: "uncertainty-driven microscopy, Ye, 2025; AdaSense, Elata, 2024; semantic sensing, Enttsel, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.37
+  bo4: 0.49
+  pass4: 0.28
+  ub95: 0.66
+  verdict: "PASS-SCREEN"
+  binding_line: "none"
+  flip: "CONDITIONAL->PASS-SCREEN"
+anchored_addendum: "present"
+old_verdict: "CONDITIONAL"
+flip_vs_old: "CONDITIONAL->CUT"
+redesign_status: "NOT-NEEDED"
+redesign_oneline: "na"
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C112.md"
+    sha256: "4b87601030879e5a6f30ee68c566a49965db793b7ffcac14c7fd65c1af1b2736"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

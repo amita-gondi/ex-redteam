@@ -1,0 +1,32 @@
+task_id: "C010"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.46
+  single_range: "0.25-0.64"
+  bo4: 0.56
+  pass4: 0.34
+  ub95: 0.72
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Train through delayed simulator corrections"
+author_verdict: "CONDITIONAL"
+kill_reason: "require real byte pressure and nonanticipatory causal retention"
+duplicate_of: "FIX-T13 WEAK; D03 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C010.md"
+    sha256: "2f5f398300089f219b2f030087346c82860a65e1530d28df4eb50cb1f0b6fa82"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

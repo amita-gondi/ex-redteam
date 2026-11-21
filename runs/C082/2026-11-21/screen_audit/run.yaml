@@ -1,0 +1,43 @@
+task_id: "C082"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.53
+  single_range: "0.29-0.74"
+  bo4: 0.68
+  pass4: 0.68
+  ub95: 0.74
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "SLDAgent, o4-mini and other backbones, 2025; RE-Bench scaling, Claude 3.5 Sonnet Modular, 2024"
+  gap_to_attack: "live probe financing and regularizer-intervention transport"
+  subfield_sota_ref: "MIR SoftQ, Xu et al., 2026; prescriptive repetition law, Lovelace et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.45
+  bo4: 0.58
+  pass4: 0.45
+  ub95: 0.7
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Freeze the forecast-and-loss contract and establish identifiable intervention-sensitive allocation beyond generic curve-based continuation."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C082.md"
+    sha256: "2a1b1ef9b0b4c086f0e3696ad497bbd57b124f8523eded7f470e9cc233be35ef"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

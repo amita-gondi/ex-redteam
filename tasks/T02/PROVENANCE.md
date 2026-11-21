@@ -1,0 +1,1 @@
+card.md = copy of /workspace/fix_packets_v4/T02/packet.md (sha256 f82f5ca89e09983bb699c75b374716e3bbb91ba1516d125b34899a91e637bcc9). Pre-migration: its pairing table still lists the old roster (Carbon/6.1 Sol/Astra); canonical set is in config/runner.yaml.

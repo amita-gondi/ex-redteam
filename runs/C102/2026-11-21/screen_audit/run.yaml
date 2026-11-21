@@ -1,0 +1,43 @@
+task_id: "C102"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.54
+  single_range: "0.30-0.77"
+  bo4: 0.68
+  pass4: 0.59
+  ub95: 0.77
+evidence:
+  attack_basis: "ASSUMED"
+  demonstrated_ref: "ReasoningBank, Gemini-2.5-Pro, 2025/2026; Agentic AutoRAG, Kimi-K2.5, 2026"
+  gap_to_attack: "failure-corpus training that improves causal choices on actual learning projects"
+  subfield_sota_ref: "SciValidityBench scientific-state comparison, Pan and Chen, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.38
+  bo4: 0.53
+  pass4: 0.4
+  ub95: 0.72
+  verdict: "CONDITIONAL"
+  binding_line: "ub95>=0.75"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Train on diagnostic contrasts that distinguish uninformative nulls from ineffective mechanisms and grade live downstream learning."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C102.md"
+    sha256: "918a08404c5efc96fc443ab52206c7a529e46348384d13fe253d8db39cc0c91b"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

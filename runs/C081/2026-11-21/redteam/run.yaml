@@ -1,0 +1,32 @@
+task_id: "C081"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.79
+  bo4: 0.73
+  pass4: 0.8
+  ub95: 0.93
+  strongest_attack: "ESTIMATED 0.63 (0.39–0.85)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "creative_v4"
+required_fixes: "complete MIR and clean AR floor; observable semantic repetition reversal; byte and FLOP contract; fresh corpus controls"
+kill_reason: "generic conditional masking may match the proposed objective"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/C081_independent.md"
+    sha256: "d269e1440a5ad6dd1c24740f0a89ba52f868cd6ce91da9efc8681ee1bf59217f"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

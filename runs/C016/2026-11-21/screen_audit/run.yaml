@@ -1,0 +1,43 @@
+task_id: "C016"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "pass4>0.50"
+estimates:
+  single: 0.71
+  single_range: "0.57-0.80"
+  bo4: 0.76
+  pass4: 1.0
+  ub95: 0.8
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "RE-Bench scaling law, Claude 3.5 Sonnet Modular, 2024/2025; AI Scientist-v2, Claude 3.5 Sonnet plus GPT-4o, 2025"
+  gap_to_attack: "identifying shared RNG components and calibrating adaptive utility forecasts"
+  subfield_sota_ref: "nuisance-aware neural comparisons, Bouthillier, 2021; empirical RL design, Patterson, 2024"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.46
+  bo4: 0.57
+  pass4: 0.43
+  ub95: 0.68
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize paid scientific randomization interventions and transport-adjusted utility forecasts over observable curriculum interactions."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C016.md"
+    sha256: "96824073d220e1847ff6dd867ce4d4f6b0c19d282e1e8162160eecaf2f5922ce"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

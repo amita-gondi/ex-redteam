@@ -1,0 +1,32 @@
+task_id: "C123"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.84
+  single_range: "0.65-0.95"
+  bo4: 0.91
+  pass4: 0.99
+  ub95: 0.98
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "A context pager that preserves the agent's causal working state"
+author_verdict: "CUT"
+kill_reason: "recoverable event logs and structured paging preserve pending causal state"
+duplicate_of: "T05 MODERATE; 02B MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C123.md"
+    sha256: "65dd3f94a324c195afc9527d676730d41ca335284910199e5a6cf78874cdf182"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

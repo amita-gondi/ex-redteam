@@ -1,0 +1,43 @@
+task_id: "C077"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.58
+  single_range: "0.39-0.73"
+  bo4: 0.69
+  pass4: 0.76
+  ub95: 0.73
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "CudaForge, o3, 2025; RE-Bench prefix sum, o1-preview, 2024"
+  gap_to_attack: "paged GQA normalization and timed multi-backend composition integration"
+  subfield_sota_ref: "FlashInfer exact attention-state engine, Ye et al., 2025"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.51
+  bo4: 0.59
+  pass4: 0.4
+  ub95: 0.67
+  verdict: "CONDITIONAL"
+  binding_line: "bo4>0.60"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Optimize cache-sensitive attention-state reuse over disclosed dependency graphs after the complete cascade repair is floored."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C077.md"
+    sha256: "6717c444795ec22a5d34b40873d5be3d7a6a06b77ab3965b4fd48b7e91c2f819"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,43 @@
+task_id: "C111"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.64
+  single_range: "0.41-0.84"
+  bo4: 0.77
+  pass4: 1.0
+  ub95: 0.84
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "NanoGPT internal evaluation, GPT-6.2 Astra, 2026; autoresearch, Claude unspecified, 2026"
+  gap_to_attack: "exact-update certification plus coupled horizon and quality validation"
+  subfield_sota_ref: "NanoGPT human 72.38% time saved, OpenAI, 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.53
+  bo4: 0.65
+  pass4: 0.48
+  ub95: 0.76
+  verdict: "CUT"
+  binding_line: "bo4>0.60"
+  flip: "none"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Require economically meaningful delayed data and optimizer interactions after verified acceleration with both engines independently retuned."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C111.md"
+    sha256: "b2f0e4cb68851b22a9f2ae32909e6e859ab44630611b2295d21123d6fd4c13cf"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

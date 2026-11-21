@@ -1,0 +1,32 @@
+task_id: "C041"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.81
+  single_range: "0.55-0.94"
+  bo4: 0.88
+  pass4: 0.98
+  ub95: 0.98
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Pretrain with a tokenizer whose byte cost changes"
+author_verdict: "CUT"
+kill_reason: "byte-aware packing and optimized source mixture cover main gain"
+duplicate_of: "01A MODERATE; T02 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C041.md"
+    sha256: "ad7e6dffcac114a3a82cc73b87414cb81bfd07d6711925cc4de0105738bd42b1"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

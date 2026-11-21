@@ -1,0 +1,43 @@
+task_id: "C060"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.58
+  single_range: "0.37-0.76"
+  bo4: 0.7
+  pass4: 0.68
+  ub95: 0.76
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "InferenceBench, Opus 5.5 Max Claude Code, 2026; ParallelKernelBench, GPT-5.5, 2026"
+  gap_to_attack: "canonical sampler semantics across multi-rank backend transitions"
+  subfield_sota_ref: "exact fused TP sampling up to 10 percent TPOT reduction, FlashSampling Ruiz et al., 2026"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "PARTIAL"
+anchored:
+  single: 0.38
+  bo4: 0.49
+  pass4: 0.45
+  ub95: 0.68
+  verdict: "CONDITIONAL"
+  binding_line: "pass4>0.50"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Establish exact sharded truncation and migration reserve beyond authoritative receipts and compatible fused sampling."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C060.md"
+    sha256: "0846ab2139f0882c32b0b32751de2ac7b90b6ea9a4ff7b9fe75f0dd92532a340"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

@@ -1,0 +1,32 @@
+task_id: "C011"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.86
+  single_range: "0.69-0.96"
+  bo4: 0.91
+  pass4: 0.99
+  ub95: 0.99
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Precision rescue for discrete routing boundaries"
+author_verdict: "CUT"
+kill_reason: "published selective router precision preserves narrow communication"
+duplicate_of: "v3-04B MODERATE; v3-04A MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C011.md"
+    sha256: "cb35236e343ba2ea7a5d9ce58e321894d3f39ff311174fd02948798c47e18b1b"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

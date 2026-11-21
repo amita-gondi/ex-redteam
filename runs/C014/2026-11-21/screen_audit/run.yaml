@@ -1,0 +1,43 @@
+task_id: "C014"
+run_kind: "screen_audit"
+date: "2026-11-21"
+method_version: "creative-v4-screen-audit + AMEND 12:04 (evidence_grounding_rule.md)"
+status: "IN-PROGRESS"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "FIX"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.56
+  single_range: "0.37-0.76"
+  bo4: 0.69
+  pass4: 0.59
+  ub95: 0.76
+evidence:
+  attack_basis: "LITERATURE-ONLY"
+  demonstrated_ref: "JudgeEval, o1 SimpleJudge, 2025; Research Debugging, GPT-6.2 Astra, 2026"
+  gap_to_attack: "gain-aware acceptance of scientifically different training patches"
+  subfield_sota_ref: "executable DL-library fuzzing, TitanFuzz, 2023; scientific selection optimum unverified"
+  verdict_rests_on_assumption: "yes"
+  evidence_grade: "ASSUMED"
+anchored:
+  single: 0.44
+  bo4: 0.56
+  pass4: 0.43
+  ub95: 0.68
+  verdict: "CONDITIONAL"
+  binding_line: "none"
+  flip: "CUT->CONDITIONAL"
+anchored_addendum: "present"
+old_verdict: "CUT"
+flip_vs_old: "none"
+redesign_status: "REDESIGNABLE"
+redesign_oneline: "Price claim-conditioned learning falsifiers against useful final training across valid interventions with predictable horizon reversals."
+souping_flag: "no"
+card_complete: "True"
+source:
+  - path: "/workspace/creative_v4_screen_audit/cards/C014.md"
+    sha256: "4add28a9a6f3f539fd32dafc134029d3cd5c854115d24b9f688ef7e0e195e618"
+note: "Snapshot of a RUNNING audit (STATUS.md: RUNNING); aggregation/validation not done. Card may still change."

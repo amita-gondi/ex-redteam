@@ -1,0 +1,26 @@
+task_id: "T03"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v3-independent-redteam (METHOD.md)"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "na"
+estimates:
+  lawful_composite_R: 0.79
+  desk_R_source: 0.48
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+priority_rank: "14"
+kill_reason: "Reference is essentially contextual multi-fidelity optimization; source novelty not instantiated."
+source:
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/redteam/T03_independent.md"
+    sha256: "fda868ca61afeb3752e52c6a92af642e86a3f7e81e7820b5f0d904f785f4ebf8"
+  - path: "/workspace/task_catalog_v3_full/independent_redteam/00_summary.md"
+    sha256: "c3fac106cf29baf5e63fa7c507bf36056d6e676cb4aa81d5dcbb2ad90daceb50"
+note: "Codex log 2026-11-21T08:19Z = Nov 21, 12:19 AM PT."

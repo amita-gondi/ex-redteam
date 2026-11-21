@@ -1,0 +1,32 @@
+task_id: "C092"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "bo4>0.60"
+estimates:
+  single: 0.68
+  single_range: "0.45-0.84"
+  bo4: 0.78
+  pass4: 0.9
+  ub95: 0.92
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Entropy-robust control for an actual GPU training scheduler"
+author_verdict: "CUT"
+kill_reason: "discrete goodput and lease aware planning bypass continuous time transfer"
+duplicate_of: "v3 05B WEAK; catalog T03 MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C092.md"
+    sha256: "c20949d64ffb52797a60bca49471ed9aff2c2a6c8054e3e1b9535d9a729f75ce"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

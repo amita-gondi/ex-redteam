@@ -1,0 +1,32 @@
+task_id: "C062"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single>0.70"
+estimates:
+  single: 0.8
+  single_range: "0.61-0.92"
+  bo4: 0.88
+  pass4: 0.98
+  ub95: 0.97
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "Prevent persistent NaN poisoning at graph padding transitions"
+author_verdict: "CUT"
+kill_reason: "active-lane write isolation and fallback remove the stated mechanism"
+duplicate_of: "06A WEAK; 05A MODERATE"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C062.md"
+    sha256: "9d59eba34804a44a8c0c5cad00a3c1a222f6029be1a157bb585fa6072b2a83dd"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."

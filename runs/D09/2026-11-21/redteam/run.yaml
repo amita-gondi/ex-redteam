@@ -1,0 +1,32 @@
+task_id: "D09"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CUT"
+outcome: "CUT"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.9
+  bo4: 0.85
+  pass4: 0.92
+  ub95: 0.99
+  strongest_attack: "ESTIMATED 0.77 (ESTIMATED 0.51–0.96)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "D_card"
+required_fixes: "none; establish a new probability-channel resistance mechanism"
+kill_reason: "complete checked distillation plausibly matches the reference"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/D09_independent.md"
+    sha256: "9e70ecc6745d50a14edb9b22a1d6514f53f4c9a4573a2391476001a8e9746d2e"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

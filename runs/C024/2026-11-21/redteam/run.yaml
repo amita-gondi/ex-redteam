@@ -1,0 +1,32 @@
+task_id: "C024"
+run_kind: "redteam"
+date: "2026-11-21"
+method_version: "v4-independent-redteam"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "FIX"
+outcome: "FIX"
+binding_line: "single,bo4,pass4,upper95"
+estimates:
+  single: 0.87
+  bo4: 0.8
+  pass4: 0.89
+  ub95: 0.96
+  strongest_attack: "ESTIMATED 0.71 (ESTIMATED 0.49–0.91)"
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+source_group: "creative_v4"
+required_fixes: "post-commitment supported decisions; sufficient-statistic and plan floors; complete memory reset; executed improvement objective"
+kill_reason: "precomputed experiment plans bypass uncertainty retention"
+duplicate_of: "none"
+souping_flag: "none"
+source:
+  - path: "/workspace/v4_independent_redteam/redteam/C024_independent.md"
+    sha256: "4c5fe4f097dedb8ed2537ddeacbaaf4801d29159fb09438b5fa4f40dda48de57"
+  - path: "/workspace/v4_independent_redteam/verdicts.tsv"
+    sha256: "6b8133e5d2007f13dbcccf5d63645cdb6ed7fa1cc229133792a359f5c711d45f"
+note: "Pre-12:04-rule method: no attack_basis fields."

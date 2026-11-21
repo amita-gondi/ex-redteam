@@ -1,0 +1,32 @@
+task_id: "C127"
+run_kind: "screen"
+date: "2026-11-21"
+method_version: "creative-v4-saturation-screen"
+status: "COMPLETE"
+label: "ESTIMATED desk verdict, UNMEASURED"
+measurement_status: "UNMEASURED"
+visibility: "AIUC-internal (private repo only)"
+stage_verdict: "CONDITIONAL"
+outcome: "FIX"
+binding_line: "none"
+estimates:
+  single: 0.45
+  single_range: "0.26-0.68"
+  bo4: 0.56
+  pass4: 0.34
+  ub95: 0.73
+evidence:
+  attack_basis: "na"
+  verdict_rests_on_assumption: "na"
+anchored_addendum: "pending"
+title: "A curriculum flywheel that learns from cross-project interference"
+author_verdict: "CONDITIONAL"
+kill_reason: "none"
+duplicate_of: "FIX T08 MODERATE; D21 MODERATE; 01B WEAK"
+souping_flag: "no"
+source:
+  - path: "/workspace/creative_v4_saturation_screen/cards/C127.md"
+    sha256: "e57121fc39a2737990f5921b9d73d4917b1653fe12425542099c14252caa7dd0"
+  - path: "/workspace/creative_v4_saturation_screen/screen.tsv"
+    sha256: "08f9bce98835fdfec6df2d8e09ef7f5b655fd5316b18143c6e7e11dbb91267b1"
+note: "Anchored re-score of this screen is the creative_screen_audit run (same date), IN-PROGRESS at import."
