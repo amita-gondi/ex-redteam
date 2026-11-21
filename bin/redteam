@@ -10,7 +10,7 @@ What it does, and nothing more:
   1. renders method/prompts/<stage>.md (+ method/prompts/_common.md) with the task's paths;
   2. runs `codex --search exec -m <model> -c model_reasoning_effort=<effort> ...` with the
      model/effort from config/runner.yaml (desk_agent), output under runs/<task>/<date>/<stage>/;
-  3. writes run.yaml (status, model, prompt hash, record fields parsed from the report).
+  3. writes run.yaml (status, model, prompt hash, record fields parsed from the report; for anchored_rescore, both strict_verdict and anchored_verdict).
 --dry-run prints the rendered prompt and the exact command, and writes nothing.
 
 What it does NOT do: stall watching, auto-resume, parallel batches, aggregation, URL checks.
@@ -30,6 +30,33 @@ OUTFILE = {"screen": "screen_card.md", "anchored_rescore": "audit_card.md", "red
 RECORD = {"screen": "## Screen record", "anchored_rescore": "## Audit record", "redteam": "## Verdict record"}
 VERDICT_KEY = {"screen": "verdict", "anchored_rescore": "anchored_verdict", "redteam": "verdict"}
 OUTCOME = {"PASS-SCREEN": "ADVANCE", "HOLDS": "ADVANCE", "CONDITIONAL": "FIX", "FIX": "FIX", "CUT": "CUT"}
+
+
+def clean_verdict(v):
+    return (v or "").split("|")[0].strip() or None
+
+
+def strict_from_record(rec):
+    """Promotion-gate verdict for the anchored_rescore stage.
+
+    LITERATURE-ONLY and ASSUMED attacks use the evidence-only / pre-anchoring
+    verdict (new_verdict). Only DEMONSTRATED-AGENT evidence may use the
+    lowered anchored_verdict. Returns (strict_verdict, source_label).
+    """
+    basis = (rec.get("attack_basis") or "").strip()
+    ev = clean_verdict(rec.get("new_verdict"))
+    anc = clean_verdict(rec.get("anchored_verdict"))
+    written = clean_verdict(rec.get("strict_verdict"))
+    if basis == "DEMONSTRATED-AGENT":
+        computed, src = anc, "anchored (DEMONSTRATED-AGENT)"
+    elif basis in ("LITERATURE-ONLY", "ASSUMED"):
+        computed, src = ev, "pre-anchoring (%s)" % basis
+    else:
+        computed, src = ev or anc, "unknown-basis"
+    if written and computed and written != computed:
+        print(f"bin/redteam: WARN: record strict_verdict={written} disagrees with computed {computed} ({src})",
+              file=sys.stderr)
+    return computed, src
 
 
 def die(msg, code=2):
@@ -188,11 +215,25 @@ def main():
         rc = subprocess.run(cmd, cwd=REPO, stdout=so, stderr=se).returncode
 
     rec = parse_record(os.path.join(out_abs, OUTFILE[a.stage]), RECORD[a.stage])
-    v = rec.get(VERDICT_KEY[a.stage]) or rec.get("verdict")
-    v = (v or "").split("|")[0].strip() or None
+    v = clean_verdict(rec.get(VERDICT_KEY[a.stage]) or rec.get("verdict"))
     run.update({"finished": datetime.datetime.now().astimezone().isoformat(timespec="seconds"), "exit_code": rc,
                 "status": "COMPLETE" if (rc == 0 and rec and v) else "INCOMPLETE",
-                "stage_verdict": v, "outcome": OUTCOME.get(v or "", "UNKNOWN"), "record": rec})
+                "stage_verdict": v, "outcome": OUTCOME.get(v or "", "UNKNOWN"), "record": rec,
+                "gate_rule": cfg.get("gate_rule"), "anchored_upper_bound": cfg.get("anchored_upper_bound")})
+    if a.stage == "anchored_rescore":
+        anc = clean_verdict(rec.get("anchored_verdict"))
+        strict, src = strict_from_record(rec)
+        # COMPLETE still requires the parsed anchored_verdict (the stage's native key).
+        # Promotion / outcome follow the strict gate when gate_rule is strict.
+        run["anchored_verdict"] = anc
+        run["strict_verdict"] = strict
+        run["strict_source"] = src
+        if str(cfg.get("gate_rule") or "strict").strip().lower() == "strict":
+            run["stage_verdict"] = strict
+            run["outcome"] = OUTCOME.get(strict or "", "UNKNOWN")
+            if not strict:
+                run["status"] = "INCOMPLETE"
+        v = run["stage_verdict"]
     if a.stage == "redteam":
         chk = subprocess.run([sys.executable, os.path.join(REPO, "tools", "independence_check.py"),
                               os.path.join(out_abs, "codex_events.jsonl")], capture_output=True, text=True)

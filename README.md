@@ -7,7 +7,7 @@
 ## Purpose
 A task-agnostic home for red-teaming RL research tasks against saturation by a strong frontier researcher (a ~10T model with 12 h; assumption). It holds:
 - one method: the attacker prompt, rollout spec, evidence grounding rule, kill thresholds and verdict schema;
-- one pipeline config;
+- one pipeline config (`gate_rule: strict`; `anchored_upper_bound: true`);
 - a per-task history of every desk verdict so far.
 
 ## Status
@@ -48,7 +48,7 @@ method/prompts/  _common.md + screen.md, anchored_rescore.md, redteam.md (task-a
 ## Workflow
 1. Write `tasks/<id>/card.md`, `grader.md` and `sota_sources.md` from `tasks/_template/`.
 2. **Screen**: a desk saturation screen against the kill lines, giving PASS-SCREEN, CONDITIONAL or CUT.
-3. **Anchored re-score**: apply `method/evidence_grounding_rule.md` (attack_basis, demonstrated refs with gap, subfield SOTA). The anchored verdict is the headline.
+3. **Anchored re-score**: apply `method/evidence_grounding_rule.md` (attack_basis, demonstrated refs with gap, subfield SOTA). The **strict** verdict is the promotion gate (`config/runner.yaml` → `gate_rule: strict`): LITERATURE-ONLY and ASSUMED attacks use the evidence-only / pre-anchoring scores; only DEMONSTRATED-AGENT evidence may lower an attack score. The anchored verdict is recorded as an **upper bound** on survival, not the advance decision.
 4. **Red team**: an independent review that doesn't read earlier verdicts, giving HOLDS, FIX or CUT.
 5. Write each stage as `runs/<id>/<date>/<run_kind>/run.yaml` (`method/verdict_schema.yaml`).
 6. **Canary, then panel**: only after Amita's GO, per `method/rollout_spec.md`.

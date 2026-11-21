@@ -6,6 +6,8 @@ This repo runs three desk-only stages on one RL-environment task:
 
 **screen → anchored re-score → red team (HOLDS / FIX / CUT)**
 
+The **strict** rule is the promotion gate (`config/runner.yaml` → `gate_rule: strict`). The anchored verdict is an **upper bound** on survival (`anchored_upper_bound: true`), not the decision that advances a task. After the anchored re-score, `run.yaml` records both `strict_verdict` (the gate) and `anchored_verdict` (the upper bound). `outcome` follows the strict verdict.
+
 Each stage is a single Codex CLI session that reads your task files and writes one report plus a `run.yaml`. Nothing is trained or rolled out. The two rollout stages (canary, panel) are switched off, and the wrapper refuses to run them.
 
 ---
@@ -59,7 +61,9 @@ How to read the results:
 | CUT | CUT |
 | any interval touching a kill line | HOLD, not pass |
 
-The anchored verdict is the headline. Kill lines (`method/kill_thresholds.md`):
+After an anchored re-score, the **strict** verdict is the gate used for `outcome` and for whether the task is promoted. The anchored verdict is kept as an upper bound: a card that survives only in the anchored reading is not promoted. For LITERATURE-ONLY or ASSUMED attacks, strict uses the evidence-only / pre-anchoring scores (treat the attack as executable by a 12-hour frontier agent). Only DEMONSTRATED-AGENT evidence may lower an attack score below that. See `method/evidence_grounding_rule.md`.
+
+Kill lines (`method/kill_thresholds.md`):
 - single run > 0.70
 - best-of-4 > 0.60
 - pass@4 > 0.50 at R ≥ 0.60
@@ -120,10 +124,10 @@ The desk agent (`desk_agent.model`) is a separate setting. It is the reviewer, n
 | Stage | Path | Verdict → outcome | Key numbers (ESTIMATED) |
 |---|---|---|---|
 | screen | `runs/C010/2026-11-21/screen/` (`screen_card.md`, `run.yaml`) | CONDITIONAL → FIX | single 0.46 (0.25–0.64), bo4 0.56, pass@4 0.34, ub95 0.72 |
-| anchored re-score (imported as `screen_audit`; this audit was still running when imported) | `runs/C010/2026-11-21/screen_audit/` (`audit_card.md`, `run.yaml`) | anchored CONDITIONAL → FIX, binding bo4>0.60 | anchored single 0.41, bo4 0.57, pass@4 0.43, ub95 0.64. attack_basis LITERATURE-ONLY, so the verdict rests on assumption |
+| anchored re-score (imported as `screen_audit`; this audit was still running when imported) | `runs/C010/2026-11-21/screen_audit/` (`audit_card.md`, `run.yaml`) | **strict (gate)** CONDITIONAL → FIX, same as the evidence-only verdict (attack_basis is LITERATURE-ONLY, so the gate cannot use the lowered anchored scores). Anchored upper bound is also CONDITIONAL, binding bo4>0.60 | evidence-only single 0.43, bo4 0.57, pass@4 0.22, ub95 0.73; anchored single 0.41, bo4 0.57, pass@4 0.43, ub95 0.64 (ESTIMATED). The verdict rests on assumption. A later wrapper run would record both `strict_verdict` and `anchored_verdict` in `run.yaml` |
 | red team (v4 independent) | `runs/C010/2026-11-21/redteam/` (`redteam.md`, `run.yaml`) | FIX → FIX | single max 0.82, bo4 0.74, pass@4 0.84, ub95 0.93. Required fixes listed in `run.yaml` |
 
-So the screen and the anchored re-score put C010 just under the best-of-4 line. The independent red team found a combined replay/reconstruction recipe that breaches all four lines. The outcome is FIX: redesign before any GO.
+So the screen, the evidence-only re-estimate and the anchored upper bound all put C010 just under the best-of-4 line. Because the attack_basis is LITERATURE-ONLY, the strict gate is the evidence-only CONDITIONAL, not a more optimistic anchored reading. The independent red team found a combined replay/reconstruction recipe that breaches all four lines. The outcome is FIX: redesign before any GO.
 
 Re-running C010 with the wrapper (these are the real dry-run outputs, Nov 21, 2026):
 ```bash

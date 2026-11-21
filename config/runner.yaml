@@ -17,6 +17,9 @@ desk_agent:   # used by bin/redteam for the desk stages (screen, anchored_rescor
 compute: {gpu: false, max_concurrent_desk_sessions: 4, stall_minutes: 15, max_resumes: 4}
 evidence_rule: method/evidence_grounding_rule.md
 schema: method/verdict_schema.yaml
+# Promotion gate (Amita, 3:02 PM PT, Nov 21 2026). The anchored verdict is an upper bound on survival, not the advance decision.
+gate_rule: strict
+anchored_upper_bound: true
 stages:
   - name: screen
     enabled: true
@@ -28,6 +31,7 @@ stages:
     requires: [screen]
     rule: method/evidence_grounding_rule.md
     output: runs/<task_id>/<date>/anchored_rescore/
+    # advance_if applies to strict_verdict (gate_rule: strict). anchored_verdict is recorded as an upper bound.
     advance_if: [PASS-SCREEN, CONDITIONAL]
   - name: redteam
     enabled: true

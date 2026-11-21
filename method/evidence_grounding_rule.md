@@ -27,7 +27,7 @@ Notes:
 ## 3. Subfield SOTA anchor
 Record the subfield's best known human or system result, with its source and year. Anchor the task's north star (what R≈1 or the reference R corresponds to) to it, not to an invented target.
 
-## 4. Anchored estimate and verdict (the headline)
+## 4. Anchored estimate and verdict (upper bound on survival)
 Every verdict record carries:
 - an ANCHORED estimate: single run (point and range), best-of-4, pass@4 at R≥0.60, and upper 95%, derived from a stated distribution rather than a fixed offset, and marked ESTIMATED;
 - the anchored verdict;
@@ -35,7 +35,18 @@ Every verdict record carries:
 - its flip against the earlier verdict;
 - `verdict_rests_on_assumption: yes|no`.
 
-The field names are in `verdict_schema.yaml` (`evidence.*`, `anchored.*`).
+The field names are in `verdict_schema.yaml` (`evidence.*`, `anchored.*`). The anchored verdict is **not** the promotion decision. It is an upper bound on survival: the most optimistic desk reading, in which only demonstrated agent capability justifies a high attack score.
 
-## 5. Status of imported results
+## 5. Promotion gate (Amita, 3:02 PM PT, Nov 21 2026)
+`config/runner.yaml` sets `gate_rule: strict` and `anchored_upper_bound: true`.
+
+The **strict** rule is the promotion gate (`advance_if`, `outcome`, whether a task moves forward):
+
+- If `attack_basis` is `LITERATURE-ONLY` or `ASSUMED`, treat that attack as executable by a 12-hour frontier agent and use the evidence-only / pre-anchoring scores and verdict (`new_verdict` after a screen re-score; the earlier stage's verdict on an addendum).
+- Only `DEMONSTRATED-AGENT` evidence may lower an attack score below that pre-anchoring estimate. In that case the anchored scores and verdict are also the gate values.
+- Record both. `strict_verdict` is the gate. `anchored_verdict` is kept as the upper bound.
+
+A task that survives only in the anchored reading is not promoted. It remains a hypothesis for later rollouts, which still need Amita's GO.
+
+## 6. Status of imported results
 Every verdict imported into `runs/` is an **ESTIMATED desk verdict, UNMEASURED**. No rollout, canary or panel has been run.

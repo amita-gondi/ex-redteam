@@ -20,7 +20,8 @@ WHAT TO DO
    - Only DEMONSTRATED-AGENT justifies a high attack score. Where only a recipe exists, score what an agent must still discover, integrate and validate in 12 h, and say that the verdict rests on assumption.
    - Don't reflexively lower everything. Where agents have demonstrated the capability, score high.
 3. **Subfield SOTA:** find the subfield's best known human or system result, with its source and year, and anchor the task's north star (R≈1 or the reference R) to it.
-4. **Anchored estimate:** give the ANCHORED estimate and verdict. This is the headline.
+4. **Anchored estimate:** give the ANCHORED estimate and verdict. This is an **upper bound** on survival, not the promotion decision.
+5. **Strict (the gate):** if attack_basis is LITERATURE-ONLY or ASSUMED, the STRICT verdict and scores are the section-4 (evidence-only / pre-anchoring) ones — treat that attack as executable by a 12-hour frontier agent. Only DEMONSTRATED-AGENT evidence may lower an attack score below that estimate; in that case STRICT equals ANCHORED. A task that survives only in the anchored reading is not promoted.
 
 WRITE {{OUT_DIR}}/audit_card.md with these sections (about 700–1300 words, hand-written):
 # {{TASK_ID}}: <task title>: anchored re-score
@@ -38,9 +39,9 @@ Component derivation, the spread, then ESTIMATED single (point + range), best-of
 - The KNOWN-RECIPE vs AGENT-DEMONSTRATED analysis, attack_basis, and what an agent would have to do in 12 h that no agent has been shown to do.
 - ANCHORED estimate: single (point + range), bo4, pass@4 and ub95, ESTIMATED, plus whether the verdict rests on assumption.
 ## 5. Verdict under the kill lines
-The section-4 verdict and the ANCHORED verdict, the binding line and margin, and the flip of the anchored verdict against the screen's verdict, with the reason.
+The section-4 (evidence-only) verdict, the ANCHORED verdict (upper bound on survival), and the STRICT verdict (the promotion gate), each with its binding line and margin. Also the flip of the anchored verdict against the screen's verdict, and the flip of the strict verdict against both, with the reason.
 ## 6. Redesign
-Judge this using the ANCHORED verdict. For CUT, redesign unless the task is a duplicate or has a souping dependency. Classify the kill cause:
+Judge this using the STRICT verdict (the promotion gate). Still report the anchored verdict as the upper bound. For a strict CUT, redesign unless the task is a duplicate or has a souping dependency. Classify the kill cause:
 - (a) a mature-stack attack;
 - (b) a grader optimizable by search;
 - (c) leaked semantics;
@@ -72,6 +73,10 @@ anchored_ub95: 0.xx
 anchored_verdict: PASS-SCREEN|CONDITIONAL|CUT
 anchored_binding_line: single>0.70|bo4>0.60|pass4>0.50|ub95>=0.75|none|duplicate|souping
 anchored_flip: none|CUT->CONDITIONAL|CUT->PASS-SCREEN|CONDITIONAL->PASS-SCREEN|CONDITIONAL->CUT|PASS-SCREEN->CONDITIONAL|PASS-SCREEN->CUT
+strict_verdict: PASS-SCREEN|CONDITIONAL|CUT
+strict_binding_line: single>0.70|bo4>0.60|pass4>0.50|ub95>=0.75|none|duplicate|souping
+# strict_verdict equals new_verdict when attack_basis is LITERATURE-ONLY or ASSUMED;
+# it equals anchored_verdict only when attack_basis is DEMONSTRATED-AGENT.
 verdict_rests_on_assumption: yes|no
 redesign_status: REDESIGNABLE|TRULY-DEAD|DUPLICATE-STAYS-CUT|NOT-NEEDED
 redesign_oneline: <one sentence or na>

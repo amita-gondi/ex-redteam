@@ -29,6 +29,12 @@ CUT if, by ESTIMATED reckoning, ANY of these holds:
 
 Lawful known recipes, paper recall and lawful generalization are valid solutions. Never rescue a task by forbidding a lawful winning method.
 
+PROMOTION GATE (Amita, 3:02 PM PT, Nov 21 2026)
+The **strict** rule is the promotion gate. The anchored verdict is an upper bound on survival, not the decision that advances a task.
+- If attack_basis is LITERATURE-ONLY or ASSUMED, use the evidence-only / pre-anchoring scores and verdict. Treat that attack as executable by a 12-hour frontier agent.
+- Only DEMONSTRATED-AGENT evidence may lower an attack score below that pre-anchoring estimate.
+Record both the evidence-only (or earlier-stage) verdict and the anchored verdict. The wrapper maps them to `strict_verdict` (the gate) and `anchored_verdict` (the upper bound). See method/evidence_grounding_rule.md.
+
 HOW TO ESTIMATE
 1. Derive the single-run estimate component by component: which part of the reward each attack component captures, how strongly the evidence supports it, and what residual remains.
 2. State the run-to-run spread for THIS task and where it comes from (seed noise, whether the 12-hour search finds the key insight, which is often bimodal, grader noise, workload variance).
