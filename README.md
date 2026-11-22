@@ -10,23 +10,47 @@ redteam run <task_dir>
 
 **New here? Read [GETTING_STARTED.md](GETTING_STARTED.md).** It walks through install, adding a task, and every command and gate.
 
-## What `redteam run` does
-It runs these desk stages in order, writing one record per stage under `runs/<task>/v<version>/<run_id>/<stage>/`:
+## What we run, why, and what comes out
 
-1. **validate** - `task.yaml` against `schema/task.schema.json`; fails loudly, listing every problem.
-2. **screen** - a desk saturation screen against the kill lines -> PASS-SCREEN / CONDITIONAL / CUT.
-3. **anchored_rescore** - re-score anchored to demonstrated agent results (`method/evidence_grounding_rule.md`).
-4. **strict_gate** - the **promotion gate** (Amita, Nov 21 2026). LITERATURE-ONLY / ASSUMED attacks use the evidence-only (pre-anchoring) scores; only DEMONSTRATED-AGENT evidence may lower an attack. The anchored verdict is kept as an **upper bound** on survival, never the gate.
-5. **redteam** - an independent adversarial review (blind to prior verdicts) -> HOLDS / FIX / CUT.
-6. **probe_blackbox** + **probe_whitebox** - desk exploit probes (black-box, then white-box with the grader source read-only). Findings are tagged by mode and **never counted toward saturation metrics**.
-7. **aggregate** + **index** - the combined verdict, then the `runs/INDEX.tsv` upsert.
+**What:** one command, `redteam run <task_dir>`, which puts an LLM desk reviewer (Codex by default, or `stub` for tests) through a fixed sequence of review stages for one task. It reads the task card, the grader interface and the cited sources. It does **not** train models or run rollouts.
 
-**canary** and **panel** (rollouts) are gated OFF and the CLI never launches rollouts (`config/runner.yaml`).
+**Why:** to kill tasks that a frontier solver (roughly 10T parameters, 12 hours of compute) would saturate, and to find reward hacks *before* anyone spends GPU time building or evaluating a task. A desk review can kill a task but can never clear it. Only measured rollouts can clear one, and those are gated off.
+
+**Output:** for each stage, a folder `runs/<task>/v<version>/<run_id>/<stage>/` holding `prompt.md` (exactly what the reviewer saw), `out/` (its answer), `run.yaml` (verdict, model and input hashes) and logs. There is also one row per stage in `runs/INDEX.tsv`, and `redteam report <task>` prints a markdown summary. Every verdict is labelled **ESTIMATED desk verdict, UNMEASURED**.
+
+| # | Stage | What it asks | Verdict |
+|---|---|---|---|
+| 1 | `validate` | Is `task.yaml` complete and well formed (`schema/task.schema.json`)? | pass / fail, listing every problem |
+| 2 | `screen` | Would a strong lawful solver cross the kill lines? | PASS-SCREEN / CONDITIONAL / CUT |
+| 3 | `anchored_rescore` | Rescore anchored to demonstrated agent results | upper bound only |
+| 4 | `strict_gate` | **The promotion gate.** Only agent-demonstrated evidence can lower an attack. Literature-only and assumed attacks keep their pre-anchoring scores. | PASS / CONDITIONAL / CUT |
+| 5 | `redteam` | An independent reviewer, blind to the earlier verdicts, attacks the task lawfully | HOLDS / FIX / CUT |
+| 6 | `probe_blackbox` | Exploit probe: hunt for reward hacks without the grader source | findings list |
+| 7 | `probe_whitebox` | Exploit probe: the same hunt with the grader source read-only | findings list |
+| 8 | `aggregate` + `index` | Combine into one outcome and update `runs/INDEX.tsv` | final outcome |
+
+`canary` and `panel` (real rollouts) are switched off in `config/runner.yaml`. They refuse to start without a recorded GO.
+
+## Black-box vs white-box
+
+There are two kinds of attacker, and they answer different questions.
+
+| | Lawful attacker (stages 2-5) | Black-box exploit probe (6) | White-box exploit probe (7) |
+|---|---|---|---|
+| Question | Can a solver legitimately saturate the task? | Can it cheat using only what a solver sees? | Can it cheat if it reads the grader code? |
+| Sees | Task card, grader interface, allowed resources | The same | The same, **plus grader source, scoring code and config (read-only)** |
+| Never sees | Grader source, hidden data | Grader source, hidden data | Hidden or test data and secret seeds (unless explicitly listed as exposed) |
+| Goal | Maximise score by doing the research; any exploit is logged, not used | Score high **without** doing the research | Find grader bugs: fail-open branches, clipping or off-by-one errors, cacheable randomness, parse tricks, paths to hidden data |
+| Counts toward saturation? | **Yes** (single run, best-of-4, pass@4, upper 95% bound) | **No.** Findings go to the environment fix list | **No.** Findings go to the environment fix list |
+| Output | Scores and a verdict | Findings tagged `mode=blackbox` (reproduction, score, severity, fix, and which defences held) | Findings tagged `mode=whitebox`, plus the grader code location |
+
+By default each task gets one probe of each kind (`probe_modes` in `config/runner.yaml`). The lawful attacker is always black-box. Probes run in a disposable copy of the task with no real credentials, and they stop and report if they reach a real secret. The full prompts are in `method/attacker_prompt.md` (Parts A and B for the lawful attacker, Parts C1 and C2 for the probes).
+
+**Blindness is enforced:** each stage gets an isolated workdir containing only its allowed inputs, sandboxed with `bwrap` when it is available. Without `bwrap` the stage falls back to copied folders, and the run log records that.
 
 ## Everything here is an estimate
-- **Every verdict is an ESTIMATED desk verdict, UNMEASURED** (an LLM judgement). No rollout, canary or panel is run.
-- A 4x4 panel can **kill** a task but cannot **clear** it (`method/kill_thresholds.md`): 0/16 still leaves pass@4 <= 0.602 at 95%.
-- The desk model backend defaults to the Codex CLI; a `stub` backend drives the tests and examples.
+- Every verdict is an ESTIMATED desk verdict, UNMEASURED (an LLM judgement). No rollout, canary or panel is run.
+- A 4x4 panel can kill a task but cannot clear it (`method/kill_thresholds.md`): even 0/16 still leaves pass@4 <= 0.602 at 95%.
 
 ## Layout
 ```
