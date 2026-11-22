@@ -1,81 +1,59 @@
 # ex-redteam (private)
 
-> **AIUC-internal. Private repo only.** Everything here is AIUC/Extrapolate internal: task designs, hidden task cards, desk verdicts and method drafts. Do not make the repo public, fork it publicly or share it outside the team without Amita's approval (bar F4).
+> **AIUC-internal. Private repo only.** Task designs, hidden task cards, desk verdicts and method drafts. Do not make the repo public, fork it publicly or share it outside the team without Amita's approval (bar F4).
 
-**New here? Start with [GETTING_STARTED.md](GETTING_STARTED.md)**: prerequisites, adding your task, `bin/redteam` commands, gates, DO NOT list, worked example and known gaps.
+A **task-agnostic** desk red-team pipeline for RL research tasks. Any task that provides a `task.yaml` and its referenced files runs end to end through one installable CLI:
 
-## Purpose
-A task-agnostic home for red-teaming RL research tasks against saturation by a strong frontier researcher (a ~10T model with 12 h; assumption). It holds:
-- one method: the attacker prompt, rollout spec, evidence grounding rule, kill thresholds and verdict schema;
-- one pipeline config (`gate_rule: strict`; `anchored_upper_bound: true`);
-- a per-task history of every desk verdict so far.
+```
+redteam run <task_dir>
+```
 
-## Status
-- **Every imported verdict is an ESTIMATED desk verdict, UNMEASURED.** No rollout, canary or panel has been run for any task. Nothing here certifies a task, and a 4×4 panel can kill but not clear (`method/kill_thresholds.md`).
-- Canary and panel stages are **OFF** and require Amita's GO (`config/runner.yaml`).
-- Snapshot taken Nov 21, 2026, 1:54 PM PT.
-- **IN-PROGRESS at import:**
-  - The creative v4 screen audit was still RUNNING. All 120 cards have anchored records, but aggregation and validation weren't done. Its 120 `screen_audit` runs are marked `status: IN-PROGRESS`.
-  - The weakness (W) screen is partial: W01–W11 are screened, W12–W14 aren't yet, and the Claude W pipeline was still writing. The W10 anchored addendum was running; a snapshot is included and marked IN-PROGRESS.
-- **Awaiting anchored addenda:** every run made before Amita's 12:04 PM PT evidence rule carries `anchored_addendum: pending` and an `ANCHORED_ADDENDUM_PENDING.md` placeholder:
-  - the v2 design red team,
-  - the v3 self-review and v3 independent red team,
-  - the v4 independent red team,
-  - the creative screen (the audit covers 120 of its 125 cards),
-  - the W screen.
+**New here? Read [GETTING_STARTED.md](GETTING_STARTED.md).** It walks through install, adding a task, and every command and gate.
+
+## What `redteam run` does
+It runs these desk stages in order, writing one record per stage under `runs/<task>/v<version>/<run_id>/<stage>/`:
+
+1. **validate** - `task.yaml` against `schema/task.schema.json`; fails loudly, listing every problem.
+2. **screen** - a desk saturation screen against the kill lines -> PASS-SCREEN / CONDITIONAL / CUT.
+3. **anchored_rescore** - re-score anchored to demonstrated agent results (`method/evidence_grounding_rule.md`).
+4. **strict_gate** - the **promotion gate** (Amita, Nov 21 2026). LITERATURE-ONLY / ASSUMED attacks use the evidence-only (pre-anchoring) scores; only DEMONSTRATED-AGENT evidence may lower an attack. The anchored verdict is kept as an **upper bound** on survival, never the gate.
+5. **redteam** - an independent adversarial review (blind to prior verdicts) -> HOLDS / FIX / CUT.
+6. **probe_blackbox** + **probe_whitebox** - desk exploit probes (black-box, then white-box with the grader source read-only). Findings are tagged by mode and **never counted toward saturation metrics**.
+7. **aggregate** + **index** - the combined verdict, then the `runs/INDEX.tsv` upsert.
+
+**canary** and **panel** (rollouts) are gated OFF and the CLI never launches rollouts (`config/runner.yaml`).
+
+## Everything here is an estimate
+- **Every verdict is an ESTIMATED desk verdict, UNMEASURED** (an LLM judgement). No rollout, canary or panel is run.
+- A 4x4 panel can **kill** a task but cannot **clear** it (`method/kill_thresholds.md`): 0/16 still leaves pass@4 <= 0.602 at 95%.
+- The desk model backend defaults to the Codex CLI; a `stub` backend drives the tests and examples.
 
 ## Layout
 ```
-method/      attacker_prompt.md, rollout_spec.md (canonical pairing set), spec_notes.md (open questions + alignment debt),
-             evidence_grounding_rule.md, kill_thresholds.md, verdict_schema.yaml + verdict_schema.md,
-             refs/ (AMEND 12:04 rule verbatim; frontier_reference snapshot)
-config/      runner.yaml (screen -> anchored re-score -> red team; canary/panel OFF) + README.md
-tasks/       _template/ (card.md, grader.md, sota_sources.md); T02..T18 = v4 FIX packets; D01..D32 = hidden task cards
-runs/        <task_id>/<date>/<run_kind>/run.yaml (+ copied record); _program/ = cross-task summaries; INDEX.tsv
-tools/       import_runs.py (how the records were imported; read-only on sources),
-             wording_check.py (boilerplate check), independence_check.py (post-hoc red-team blindness check)
-bin/         redteam: thin wrapper; one desk stage for one task via codex exec (--dry-run supported)
-method/prompts/  _common.md + screen.md, anchored_rescore.md, redteam.md (task-agnostic stage prompts)
+README.md GETTING_STARTED.md
+pyproject.toml Makefile .github/workflows/ci.yml
+redteam/          the installable package (CLI, pipeline, gate, blindness, checks, backends)
+schema/           task.schema.json (the task.yaml contract)
+method/           attacker_prompt.md, rollout_spec.md, evidence_grounding_rule.md, kill_thresholds.md,
+                  spec_notes.md, verdict_schema.{md,yaml}, prompts/ (stage prompts), refs/
+config/           runner.yaml (the single pipeline config) + README
+tasks/_template/  copy this to start a task
+examples/toy_task/  a task that runs end to end with the stub backend
+tests/            unit + end-to-end tests (make test)
+tools/            secret_scan.sh
+runs/             generated run records (git-ignored); INDEX.tsv
+archive/          all imported history (ESTIMATED desk verdicts, UNMEASURED); see archive/README.md
 ```
 
-`run_kind` is one of:
-- `design_redteam` (v2),
-- `self_review` (v3, same session),
-- `redteam` (v3 independent, v4 independent),
-- `screen` (creative v4, W),
-- `screen_audit` (creative v4 audit with the anchored fields).
+## Quickstart
+```bash
+make install                                   # venv + editable install + dev deps
+redteam validate examples/toy_task             # validate a task
+redteam run examples/toy_task --backend stub --offline   # full pipeline with the fake agent
+redteam status examples/toy_task               # see each stage's verdict
+redteam report examples/toy_task               # a markdown summary of the latest run
+make test                                      # unit + e2e tests (stub, offline)
+```
 
-## Workflow
-1. Write `tasks/<id>/card.md`, `grader.md` and `sota_sources.md` from `tasks/_template/`.
-2. **Screen**: a desk saturation screen against the kill lines, giving PASS-SCREEN, CONDITIONAL or CUT.
-3. **Anchored re-score**: apply `method/evidence_grounding_rule.md` (attack_basis, demonstrated refs with gap, subfield SOTA). The **strict** verdict is the promotion gate (`config/runner.yaml` → `gate_rule: strict`): LITERATURE-ONLY and ASSUMED attacks use the evidence-only / pre-anchoring scores; only DEMONSTRATED-AGENT evidence may lower an attack score. The anchored verdict is recorded as an **upper bound** on survival, not the advance decision.
-4. **Red team**: an independent review that doesn't read earlier verdicts, giving HOLDS, FIX or CUT.
-5. Write each stage as `runs/<id>/<date>/<run_kind>/run.yaml` (`method/verdict_schema.yaml`).
-6. **Canary, then panel**: only after Amita's GO, per `method/rollout_spec.md`.
-
-## Imported runs
-| Source | Date (PT) | Runs | Notes |
-|---|---|---|---|
-| v2 design red team | Nov 20 | 15 tasks | 03A excluded (merging) |
-| v2 rerank | Nov 20 | `_program/` | 03A rows dropped |
-| v3 catalog self-review T01–T23 | Nov 20, 11:21 PM | 23 | same-session review, not independent |
-| v3 independent red team T01–T23 | Nov 21, 12:19 AM | 23 | 0 HOLDS / 10 FIX / 13 CUT |
-| v4 independent red team | Nov 21 | 50 | 0 HOLDS / 24 FIX / 26 CUT |
-| creative v4 screen | Nov 21 | 125 | |
-| creative v4 screen audit | Nov 21 | 120 | IN-PROGRESS |
-| weakness screen W01–W11 | Nov 21 | 11 | W12–W14 pending |
-
-Task cards: `tasks/T*` are copies of the v4 FIX packets. Their pairing tables are pre-migration (they list Carbon, 6.1 Sol and Astra); the canonical set is in `config/runner.yaml`. `tasks/D*` are the hidden D cards.
-
-## Excluded (and why)
-- Souping/merging material: model-souping-ro and the v2 task 03A (expert consolidation with task-arithmetic/TIES attacks).
-- GDM feedback and other source inputs, including the v3 `feedback_disposition.md`.
-- Codex session JSONLs, `codex_run.log`, watcher logs and `logs/` directories.
-- Prompts other than the binding AMEND rule, and run tooling scripts.
-- Large binaries.
-- Anything matching the secret scan.
-
-Sources were copied, never modified or moved.
-
-## Canonical pairings (Amita, Nov 21)
-Opus 5.5 + Claude Code; Gemini 4 Argon + Antigravity; Qwen 3.8 Max + Qwen Code; GPT-6.2 Sol + Codex. Exact pins are OPEN (bar F7).
+## Hard rules
+No GPU, no rollouts, no souping/merging, nothing shared or sent, no Doc writes, never commit secrets. Label every estimate ESTIMATED and every unmeasured quantity UNMEASURED. See GETTING_STARTED.md section "DO NOT".

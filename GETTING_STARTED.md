@@ -2,160 +2,154 @@
 
 > **AIUC-internal, private repo only.** Don't share this repo, its prompts or its run records with labs, GDM or anyone outside the team.
 
-This repo runs three desk-only stages on one RL-environment task:
+This repo runs a CPU-only desk pipeline on one RL-environment task, end to end, through a single installable CLI:
 
-**screen → anchored re-score → red team (HOLDS / FIX / CUT)**
+```
+validate -> screen -> anchored re-score -> strict gate -> red team -> desk exploit probes (black-box + white-box) -> aggregate -> INDEX
+```
 
-The **strict** rule is the promotion gate (`config/runner.yaml` → `gate_rule: strict`). The anchored verdict is an **upper bound** on survival (`anchored_upper_bound: true`), not the decision that advances a task. After the anchored re-score, `run.yaml` records both `strict_verdict` (the gate) and `anchored_verdict` (the upper bound). `outcome` follows the strict verdict.
-
-Each stage is a single Codex CLI session that reads your task files and writes one report plus a `run.yaml`. Nothing is trained or rolled out. The two rollout stages (canary, panel) are switched off, and the wrapper refuses to run them.
+The **strict** rule is the promotion gate (`config/runner.yaml` -> `gate_rule: strict`). The anchored verdict is an **upper bound** on survival (`anchored_upper_bound: true`), not the decision that advances a task. Nothing is trained or rolled out. The two rollout stages (canary, panel) are gated OFF and the CLI refuses to run them.
 
 ---
 
 ## 1. Prerequisites
 | Need | Notes |
 |---|---|
-| git | to clone this repo and commit your own task/run files on a branch |
-| Codex CLI (`codex`) | Install it and log in with **your own** model access. Never commit credentials. Tested with codex-cli 0.163.0. |
-| Model and effort | Set in `config/runner.yaml` → `desk_agent`. All imported runs used **`gpt-6.1-sol`, `model_reasoning_effort=high`, `--search` on**. If you don't have that model, set your own and say so in your report (it is recorded in `run.yaml`). |
-| Python 3 + PyYAML | `python3 -m pip install --user pyyaml` |
-| GPU | **None needed.** Every stage is CPU/desk-only. |
+| Python 3.10+ | `python3 --version` |
+| git | to commit your own task/run files on a branch |
+| Codex CLI (`codex`) | Only for real desk runs (`--backend codex`, the default). Install it and log in with **your own** model access. Never commit credentials. Tested with codex-cli 0.163.0. Not needed for `--backend stub`. |
+| bubblewrap (`bwrap`) | Optional but recommended: enables OS-level blindness (`isolation.mode: auto`). Without it the pipeline falls back to copy-only isolation. |
+| GPU | **None.** Every stage is CPU/desk-only. |
 
+```bash
+make install          # creates .venv, installs the package (editable) + dev deps
+# or: python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
+```
+After install the `redteam` command is on the venv's PATH (`.venv/bin/redteam`). Run it from inside the repo, or set `REDTEAM_ROOT=/path/to/repo`, or pass `--root`.
 
 ## 2. Add your task: `tasks/<id>/` from `_template`
 ```bash
 cp -r tasks/_template tasks/MYTASK01
-$EDITOR tasks/MYTASK01/card.md tasks/MYTASK01/grader.md tasks/MYTASK01/sota_sources.md
+$EDITOR tasks/MYTASK01/task.yaml tasks/MYTASK01/card.md tasks/MYTASK01/grader_interface.md tasks/MYTASK01/sota_sources.md
 ```
-- **`card.md`**: the problem, the action surface, the reward and the north star (what R≈1 means), the budget, and the anti-shortcut design. Write it so a stranger could build it.
-- **`grader.md`**: the grader *interface* only (accepted inputs, scoring, seeds, fail-closed rules, anti-gaming fixtures). The agents see the grader only through this file. Don't link grader internals or private data.
-- **`sota_sources.md`**: the evidence the anchored stage is held to (`method/evidence_grounding_rule.md`). It has two parts:
-  - **Demonstrated agent results** (≥2): benchmark/system, model + scaffold, time and compute, what was achieved, the gap to your task's attack, and the attack_basis.
-  - **Subfield SOTA**: the result, the authors/system, the **year**, the URL, and how your north star is anchored to it.
-  - Mark any source you didn't open as unverified.
+`task.yaml` is the single contract (schema: `schema/task.schema.json`). Fill in, at minimum:
+- **id / version / owner**; **title**.
+- **card**: goal, start state, allowed resources, **network_allowlist**, compute budget, wallclock (default 12h), submission format, and the `card.md` prose.
+- **grader**: `interface_file` (the black-box interface, shown to every stage) and `source_path` (the grader source, shown **read-only to the white-box probe only**; hidden data and secret seeds under `secret_globs` are withheld).
+- **reward**: definition, frozen scale, R~1 reference, R~0 baselines, and `grader_noise` (`UNMEASURED` + a plan if not measured).
+- **evidence**: >=1 agent-demonstrated result (model/scaffold/time/compute/gap/year/url) and the subfield SOTA with its year; or a `not_found_reason`.
+- **known_lawful_recipes**, **hidden_data** (with a unique `canary_string`), **contamination** notes.
+- `souping_dependency: false` (souping/merging is excluded entirely).
 
-The task id must be letters, digits, `_` or `-` (e.g. `MYTASK01`).
-
-## 3. Run the stages (CPU/desk only)
-Always dry-run first. A dry-run prints the fully rendered prompt and the exact `codex` command, and writes nothing:
+Then:
 ```bash
-bin/redteam MYTASK01 screen --dry-run
+redteam validate tasks/MYTASK01      # lists EVERY missing/invalid field at once; exit 2 if invalid
 ```
-Then run the stages in order. Each one blocks until Codex finishes.
+
+## 3. Run the pipeline (CPU/desk only)
+Always dry-run first. A dry-run prints each rendered prompt, the isolated workdir contents and the exact command, and writes nothing:
 ```bash
-bin/redteam MYTASK01 screen              # -> PASS-SCREEN | CONDITIONAL | CUT
-bin/redteam MYTASK01 anchored_rescore    # re-scores the latest runs/MYTASK01/*/screen/screen_card.md (or --prior PATH)
-bin/redteam MYTASK01 redteam             # independent; told never to read runs/; -> HOLDS | FIX | CUT
+redteam run tasks/MYTASK01 --dry-run
 ```
-Options:
-- `--date YYYY-MM-DD` (default: today);
-- `--model` / `--effort` to override the config for one run;
-- `--force` to re-run into a folder that already has `DONE.txt`.
+Then run for real:
+```bash
+redteam run tasks/MYTASK01                 # full pipeline, Codex backend
+redteam run tasks/MYTASK01 --backend stub  # dry pipeline with the deterministic fake agent (no cost)
+```
+Useful flags:
+- `--stage screen` (repeatable) - run only some stages;
+- `--resume` - continue the agent session of a stalled/partial stage;
+- `--force` - re-run a stage fresh (the old attempt is kept under `<stage>/.superseded/`);
+- `--continue-on-cut` - run the red team and probes even when the strict gate is CUT;
+- `--run-id ID` / `--new-run`; `--model` / `--effort` / `--backend`; `--offline` (skip URL checks).
 
-How to read the results:
+Re-runs are **idempotent**: a stage that is COMPLETE and whose inputs are unchanged is skipped.
 
-| Stage verdict | Outcome |
+## 4. Read the results
+```bash
+redteam status tasks/MYTASK01     # per-stage status + verdicts + checks
+redteam report tasks/MYTASK01     # markdown report of the latest run
+```
+How verdicts map:
+
+| Stage verdict | outcome |
 |---|---|
-| PASS-SCREEN / HOLDS | ADVANCE |
+| PASS-SCREEN / HOLDS | ADVANCE (the next stage may look at it; never "cleared") |
 | CONDITIONAL / FIX | FIX |
 | CUT | CUT |
 | any interval touching a kill line | HOLD, not pass |
 
-After an anchored re-score, the **strict** verdict is the gate used for `outcome` and for whether the task is promoted. The anchored verdict is kept as an upper bound: a card that survives only in the anchored reading is not promoted. For LITERATURE-ONLY or ASSUMED attacks, strict uses the evidence-only / pre-anchoring scores (treat the attack as executable by a 12-hour frontier agent). Only DEMONSTRATED-AGENT evidence may lower an attack score below that. See `method/evidence_grounding_rule.md`.
+The **aggregate** outcome is the worse of the strict gate and the red team. Probe findings are reported separately (tagged by mode) and set `environment_fix_required`; they are never counted toward saturation.
 
-Kill lines (`method/kill_thresholds.md`):
-- single run > 0.70
-- best-of-4 > 0.60
-- pass@4 > 0.50 at R ≥ 0.60
-- upper-95% ≥ 0.75
+Kill lines (`method/kill_thresholds.md`): single > 0.70, best-of-4 > 0.60, pass@4 at R >= 0.60 > 0.50, upper-95% >= 0.75. A task may override them in `task.yaml` **with a reason**.
 
-After a red-team run, two optional checks:
-```bash
-python3 tools/wording_check.py runs/MYTASK01        # repeated-boilerplate check across reports (<10% per file)
-python3 tools/independence_check.py runs/MYTASK01/<date>/redteam/codex_events.jsonl   # bin/redteam also runs this
+## 5. Where outputs land
 ```
-
-## 4. Where outputs land
+runs/<task>/v<version>/<run_id>/
+  RUN.yaml                        run-level provenance (task hash, repo commit, kill lines, pairings, outcome)
+  <stage>/
+    prompt.md                     the exact rendered prompt (hash in run.yaml)
+    run.yaml                      status, backend, prompt/inputs hashes, parsed record, verdict -> outcome,
+                                  checks (wording/urls/independence), label "ESTIMATED desk verdict, UNMEASURED"
+    out/<report>.md               the hand-written report (screen_card.md / audit_card.md / redteam.md / probe_*.md)
+    out/DONE.txt                  written by the agent when finished
+    codex_events.jsonl, codex.log raw session output (git-ignored; never commit)
+runs/INDEX.tsv                    one row per (task, version, run, stage)
 ```
-runs/<task>/<YYYY-MM-DD>/<stage>/
-  prompt.md            exact rendered prompt (hash in run.yaml)
-  screen_card.md | audit_card.md | redteam.md    the report, ending in a machine-readable record block
-  DONE.txt             written by the agent when finished
-  run.yaml             written by bin/redteam: status, model, effort, prompt sha256, repo commit,
-                       parsed record, verdict -> outcome, label "ESTIMATED desk verdict, UNMEASURED"
-  last_message.md      Codex's final message
-  codex_events.jsonl, codex.log    raw session output (git-ignored; never commit them)
-```
-`run.yaml` reads `IN-PROGRESS` while the stage runs. It becomes `COMPLETE` if Codex exited 0 and the record block parsed, and `INCOMPLETE` otherwise. If you get `INCOMPLETE`, read `codex.log` and re-run with `--force`.
+`runs/` is git-ignored: run records are local working state. Provenance in each `run.yaml` records the backend, model, effort, prompt hash, inputs hash, timings, and both `strict_verdict` and `anchored_verdict`, plus probe findings by mode.
 
-## 5. Gates: canary and panel stay OFF
-`config/runner.yaml` has `gates: {canary: OFF, panel: OFF, publish_or_share: OFF}` and empty `gate_go_records`. `bin/redteam <id> canary|panel`:
-- exits with code 3 (REFUSED) while the gate is OFF;
-- still refuses if the gate is ON but the `gate_go_records.<stage>` entry lacks who/when/source for **Amita's GO**;
-- even with both in place, does not run rollouts (exit 4). Rollouts follow `method/rollout_spec.md` by hand, and only after Amita's GO.
+## 6. Enforced blindness (how a stage is kept honest)
+Each desk stage runs in a fresh, disposable workdir **outside** the repo, containing ONLY the inputs it may see:
+- all stages: `task/` (card, grader interface, sota, public task.yaml, extras), the named `method/` files, `peers/` (other tasks' cards for duplicate checks);
+- `anchored_rescore` also gets `prior/screen_card.md`;
+- `probe_whitebox` also gets `grader_src/` (read-only; hidden data and secret seeds removed);
+- the red team and the probes never see `runs/`, prior verdicts, the originating repo or hidden data.
+
+With `isolation.mode: auto` and bubblewrap present, the agent process additionally runs in a mount namespace that masks the repo, the task dir, the grader source, every `hidden_data` path and other workdirs with empty tmpfs. A post-hoc independence check scans the session log for forbidden-path access and for any hidden-data canary string (values never printed).
+
+## 7. Gates: canary and panel stay OFF
+`config/runner.yaml` has `gates: {canary: OFF, panel: OFF, publish_or_share: OFF}` with empty `gate_go_records`. `redteam run <task> --stage canary|panel`:
+- exits 3 (REFUSED) while the gate is OFF;
+- still exits 3 if the gate is ON but `gate_go_records.<stage>` lacks who/when/source for Amita's GO;
+- even with both in place, exits 4 and launches no rollout. Rollouts follow `method/rollout_spec.md` by hand, only after Amita's GO.
 
 Don't flip a gate yourself.
 
-## 6. Pairing set
-For any later rollout, use the **canonical Task Tabs set** only (settled by Amita, Nov 21, 2026; exact version pins are still OPEN). It's also in `config/runner.yaml` → `pairings`.
+## 8. Pairings
+Any later rollout uses the canonical Task Tabs set (`config/runner.yaml` -> `pairings`): P1 Opus 5.5 + Claude Code, P2 Gemini 4 Argon + Antigravity, P3 Qwen 3.8 Max + Qwen Code, P4 GPT-6.2 Sol + Codex. Exact version pins are OPEN (bar F7). The desk backend (`desk_agent.model`) is the reviewer, not a pairing under test.
 
-| ID | Model | Harness |
-|---|---|---|
-| P1 | Claude Opus 5.5 | Claude Code |
-| P2 | Gemini 4 Argon | Antigravity |
-| P3 | Qwen 3.8 Max | Qwen Code |
-| P4 | GPT-6.2 Sol | Codex |
-
-The desk agent (`desk_agent.model`) is a separate setting. It is the reviewer, not a pairing under test.
-
-## 7. DO NOT
-- **No GPU.** No training jobs, no paid compute.
-- **No rollouts.** Canary and panel need Amita's GO, and that GO is recorded in config by her side, not yours.
-- **No sharing** of this repo, its prompts, runs or verdicts with labs, GDM or anyone outside the team. No public posts.
-- **No souping or merging** (model soups, weight averaging, task arithmetic, TIES/DARE). It's out of scope for attacks, fixes and tasks alike.
-- **No grader access** beyond the interface written in `grader.md`. No hidden seeds, internals or private data.
-- **Never commit secrets:** no API keys, tokens, `.env` files, auth headers, cookies or session logs. `.gitignore` covers `*.jsonl`, `*.log` and `.env*`, but check `git diff --cached` before every commit anyway.
-- **Label every estimate ESTIMATED**, and every unmeasured quantity UNMEASURED (with the planned measurement). Desk verdicts aren't measurements.
-- Don't edit `method/` prompts in a way that changes kill lines or record keys without telling Amita. Record the change in your report.
-
-## 8. Worked example: C010 ("Train through delayed simulator corrections")
-`tasks/C010/card.md` is the real v4 creative card. It predates `_template`, so `grader.md` and `sota_sources.md` are missing, and the wrapper warns about that. Its history is already in the repo from the imported Nov 21 runs, all of them **ESTIMATED desk verdicts, UNMEASURED**:
-
-| Stage | Path | Verdict → outcome | Key numbers (ESTIMATED) |
-|---|---|---|---|
-| screen | `runs/C010/2026-11-21/screen/` (`screen_card.md`, `run.yaml`) | CONDITIONAL → FIX | single 0.46 (0.25–0.64), bo4 0.56, pass@4 0.34, ub95 0.72 |
-| anchored re-score (imported as `screen_audit`; this audit was still running when imported) | `runs/C010/2026-11-21/screen_audit/` (`audit_card.md`, `run.yaml`) | **strict (gate)** CONDITIONAL → FIX, same as the evidence-only verdict (attack_basis is LITERATURE-ONLY, so the gate cannot use the lowered anchored scores). Anchored upper bound is also CONDITIONAL, binding bo4>0.60 | evidence-only single 0.43, bo4 0.57, pass@4 0.22, ub95 0.73; anchored single 0.41, bo4 0.57, pass@4 0.43, ub95 0.64 (ESTIMATED). The verdict rests on assumption. A later wrapper run would record both `strict_verdict` and `anchored_verdict` in `run.yaml` |
-| red team (v4 independent) | `runs/C010/2026-11-21/redteam/` (`redteam.md`, `run.yaml`) | FIX → FIX | single max 0.82, bo4 0.74, pass@4 0.84, ub95 0.93. Required fixes listed in `run.yaml` |
-
-So the screen, the evidence-only re-estimate and the anchored upper bound all put C010 just under the best-of-4 line. Because the attack_basis is LITERATURE-ONLY, the strict gate is the evidence-only CONDITIONAL, not a more optimistic anchored reading. The independent red team found a combined replay/reconstruction recipe that breaches all four lines. The outcome is FIX: redesign before any GO.
-
-Re-running C010 with the wrapper (these are the real dry-run outputs, Nov 21, 2026):
+## 9. Worked example: `examples/toy_task`
+A tiny classifier task with a real grader source and hidden labels. It runs the whole pipeline with the stub backend:
 ```bash
-$ bin/redteam C010 screen --dry-run --date 2026-11-22
-WARN: tasks/C010/grader.md missing; the prompt tells the agent to say so
-WARN: tasks/C010/sota_sources.md missing; the prompt tells the agent to say so
-=== RENDERED PROMPT (C010 / screen, sha256 …) ===
-You are doing a CPU-only DESK SATURATION SCREEN of one RL-environment research task. Task: C010. …
-=== COMMAND (not executed; --dry-run) ===
-cd <repo> && codex --search exec -m gpt-6.1-sol -c model_reasoning_effort=high --skip-git-repo-check \
-  -s workspace-write -C <repo> --json -o runs/C010/2026-11-22/screen/last_message.md \
-  "$(cat runs/C010/2026-11-22/screen/prompt.md)" > runs/C010/2026-11-22/screen/codex_events.jsonl 2> runs/C010/2026-11-22/screen/codex.log
-would create: runs/C010/2026-11-22/screen/{prompt.md,run.yaml,screen_card.md,last_message.md,codex_events.jsonl,codex.log}
-
-$ bin/redteam C010 anchored_rescore --dry-run --date 2026-11-22   # prompt names: runs/C010/2026-11-21/screen/screen_card.md
-$ bin/redteam C010 redteam --dry-run --date 2026-11-22            # -> runs/C010/2026-11-22/redteam/
-$ bin/redteam C010 canary
-bin/redteam: REFUSED: stage 'canary' is gated and gates.canary is OFF in config/runner.yaml. …   (exit 3)
+redteam run examples/toy_task --backend stub --offline --new-run
+redteam status examples/toy_task
 ```
-Without `--dry-run`, the three commands would produce `runs/C010/2026-11-22/{screen,anchored_rescore,redteam}/`, each with a report and a `run.yaml`. That is the same layout as the imported runs; the only difference is that the new anchored stage is named `anchored_rescore`, not `screen_audit`.
+With the stub it lands: screen CONDITIONAL, anchored PASS-SCREEN (upper bound), **strict gate CONDITIONAL** (LITERATURE-ONLY, so the anchored PASS-SCREEN does NOT promote it), red team FIX, one white-box probe finding (uncounted), aggregate **FIX**. These are stub outputs to exercise the pipeline, not desk judgements. `make test` runs this end to end plus the unit tests.
 
-## 9. Known gaps (be honest about these in your report)
-- **No stall watcher or auto-resume.** The wrapper runs a session once and blocks. If Codex stalls or dies, `run.yaml` stays `IN-PROGRESS` or `INCOMPLETE`. Re-run with `--force`, or resume by hand with `codex exec resume <session-id> …`. The program used per-batch watchers (`stall_minutes`, `max_resumes` in config), and those aren't included.
-- **Checks are partial.** `tools/wording_check.py` (the boilerplate check) is a generic copy. There is no URL-liveness checker: verify cited URLs yourself.
-- **Independence is not sandbox-enforced.**
-  - Red-team blindness, and "write only to your run folder", are enforced by prompt instructions plus a post-hoc check (`tools/independence_check.py` scans the saved JSONL for `runs/` access and recursive searches).
-  - `-s workspace-write -C <repo>` lets the agent write anywhere in the repo, so review `git status` after each run.
-- **Aggregation is task-family-specific.** The program's aggregation scripts (rankings, flip tables) were written per task family, so they aren't included. `runs/INDEX.tsv` was produced by `tools/import_runs.py` for the imported runs only; it isn't updated by `bin/redteam`.
-- **Verdicts are LLM desk judgments, not measurements.** Every number is ESTIMATED. A panel of 4×4 rollouts could later kill a task but never clear it (0/16 still leaves pass@4 ≤ 0.602 at 95%; see `method/kill_thresholds.md`).
-- **The record parser is simple.** It reads `key: value` lines after the record heading. If an agent formats the block differently, the parsed fields are empty, and status becomes `INCOMPLETE` even though the report exists.
-- **Desk-agent model.** The imported runs used gpt-6.1-sol. Runs on a different model aren't directly comparable.
+## 10. Tests and checks
+```bash
+make test          # unit tests + end-to-end toy run (stub, offline)
+make lint          # ruff
+make secret-scan   # scan the tree for secrets (never prints values)
+make e2e           # just the toy end-to-end run
+```
+
+## 11. DO NOT
+- **No GPU, no rollouts, no paid compute.** Canary/panel need Amita's recorded GO.
+- **No sharing** of this repo, its prompts, runs or verdicts with labs, GDM or anyone outside the team. No public posts.
+- **No souping or merging** (model soups, weight averaging, task arithmetic, TIES/DARE), as attack, fix or task.
+- **No grader access** beyond the interface in `grader_interface.md` (the white-box probe's read-only `grader_src/` is the one exception; hidden data/seeds stay withheld).
+- **Never commit secrets:** no API keys, tokens, `.env`, cookies or session logs. `.gitignore` covers `*.jsonl`, `*.log`, `.env*`; run `make secret-scan` and check `git diff --cached` before every commit.
+- **Label every estimate ESTIMATED** and every unmeasured quantity UNMEASURED. Desk verdicts are not measurements.
+- Don't change kill lines or record keys in `method/` without telling Amita; record any such change in your report.
+
+## 12. Known gaps / still not generic (be honest)
+- **Desk verdicts are LLM judgements, not measurements.** Every number is ESTIMATED and UNMEASURED. A panel can kill but never clear.
+- **The strict gate trusts the agent's `attack_basis`.** A mislabelled LITERATURE-ONLY vs DEMONSTRATED-AGENT changes the gate; the pipeline records the basis and flags disagreements but cannot verify the evidence for you.
+- **The record parser is tolerant but not magic.** Wildly malformed record blocks parse as INCOMPLETE; re-run with `--force`.
+- **URL liveness is best-effort.** Bot-walls (401/403/429/999) are reported as "blocked", not "dead"; verify cited URLs yourself when it matters. `enforce: false` by default.
+- **Blindness without bubblewrap is weaker.** Copy-only isolation plus the prompt and the post-hoc check still let a determined agent run a recursive search; the independence check flags it after the fact. Install `bwrap` for OS-level masking.
+- **The desk-agent model matters.** Runs on different models aren't directly comparable; the model is recorded in `run.yaml`.
+- **Aggregation is per-run.** Cross-task rollups (rankings, flip tables, strict-view summaries) are not rebuilt here; `runs/INDEX.tsv` is the per-stage index. The historical cross-task summaries live in `archive/`.
+- **Imported history isn't re-runnable.** `archive/tasks/*` cards have no `task.yaml`; write one to run them through the new CLI.
+- **The method prompts are drafts.** `attacker_prompt.md`/`rollout_spec.md` carry open questions and TODO harness pins (bar F7).

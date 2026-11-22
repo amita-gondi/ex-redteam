@@ -1,0 +1,4 @@
+# Toy grader config (white-box visible)
+query_limit: 200
+metric: accuracy
+fail_closed: true

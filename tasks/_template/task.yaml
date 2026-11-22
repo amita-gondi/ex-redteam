@@ -1,0 +1,95 @@
+# Task spec for the ex-redteam desk pipeline. Validate with:  redteam validate tasks/<id>
+# JSON Schema: schema/task.schema.json. Every path is relative to this task directory.
+# Fill in every field. `redteam validate` fails loudly and lists everything missing or invalid.
+schema_version: 1
+id: MYTASK01                      # letters/digits/_/-; must match this directory name and not start with "_"
+version: "1"                      # bump whenever the card or grader changes
+owner:
+  name: Your Name
+  team: Extrapolate               # optional
+  contact: ""                     # optional
+title: One-line human title of the task
+status: draft                     # draft | ready | frozen | retired
+
+card:
+  file: card.md                   # full card prose (shown to every desk stage)
+  goal: One sentence: what the agent must achieve.
+  start_state: What the agent starts with (repo, data, partial system).
+  allowed_resources:
+    tools: ["python", "the task repo"]
+    datasets: []                  # named, allowed datasets only
+    models: []
+    hardware: "e.g. 8xH100, 12h"
+    notes: ""
+  network_allowlist: []           # hosts/URL prefixes the solver may reach; [] = no network
+  compute_budget:
+    gpu_type: H100
+    gpus: 8
+    gpu_hours: 96
+    api_usd_cap: 100
+    notes: ""
+  wallclock_hours: 12
+  submission_format: What the agent submits and how it is scored (e.g. a checkpoint + eval command).
+
+grader:
+  interface_file: grader_interface.md   # BLACK-BOX interface (shown to every desk stage)
+  source_path: grader_src               # grader source/scoring code dir, shown READ-ONLY to the white-box probe ONLY
+  secret_globs: ["**/*secret*", "**/*seed*", "**/hidden/**"]   # withheld from the white-box copy
+  whitebox_include: []                  # files under source_path to expose even if they match secret_globs
+  query_limit: 2000
+  version: "1"
+
+reward:
+  definition: What R measures and how it is computed from a submission.
+  scale: {min: 0.0, max: 1.0, frozen: true}
+  r1_reference:
+    description: What an R~1 result looks like (the north star).
+    source: ""
+    anchored_to_sota: Which SOTA result the north star is anchored to.
+  r0_baselines:
+    - {name: "trivial/empty submission", score: 0.0, source: ""}
+  grader_noise: UNMEASURED
+  grader_noise_plan: How grader noise will be measured (e.g. N re-grades of fixed artifacts).
+
+# Optional. Defaults come from config/runner.yaml. Any change needs override_reason.
+# kill_thresholds: {single_max: 0.70, best_of_4: 0.60, pass_at_4: 0.50, upper95: 0.75, tau: 0.60, override_reason: ""}
+
+evidence:
+  sota_file: sota_sources.md            # optional file with the evidence prose
+  agent_demonstrated:                   # >=1; else set not_found_reason
+    - benchmark: "benchmark/system this capability was shown on"
+      model: "model + version"
+      scaffold: "agent scaffold"
+      time: "wall-clock the agent had"
+      compute: "compute the agent used"
+      achieved: "what it achieved"
+      gap_to_attack: "what this task's attack still needs beyond that"
+      year: 2026
+      url: "https://..."
+      status: fetched                   # fetched | search-only | unverified
+      attack_basis: LITERATURE-ONLY     # DEMONSTRATED-AGENT | LITERATURE-ONLY | ASSUMED
+  subfield_sota:
+    - result: "the subfield's best known result"
+      by: "authors/system"
+      year: 2026
+      url: "https://..."
+      status: fetched
+      north_star_anchor: "how R~1 ties to this result"
+  not_found_reason: ""
+
+known_lawful_recipes:
+  - {name: "a published method a solver could use", source: "paper/repo", year: 2025, url: "https://...", expected_effect: ""}
+
+hidden_data:                            # NEVER copied into any desk workdir; plant a canary for later greps
+  - {path: grader_src/hidden, description: "held-out test data", canary_string: "CANARY-REPLACE-ME-0001"}
+
+# pairings: {set: [...], reason: ""}    # optional override of the canonical four
+cost_rates: {usd_per_gpu_hour: 3.0, api_usd_per_run: 100.0, basis: ESTIMATED}
+desk: {}                                # optional per-task override, e.g. {model: gpt-6.1-sol, reasoning_effort: high}
+contamination:
+  notes: What is public about this task and when; memorization risk.
+  memorization_risk: unknown            # low | medium | high | unknown
+duplicate_check:
+  peer_cards: []                        # other tasks' card files, e.g. ["../OTHER01/card.md"] (card prose only)
+souping_dependency: false               # must be false; souping/merging is excluded entirely
+notes: ""
