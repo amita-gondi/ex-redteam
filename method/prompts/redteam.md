@@ -1,18 +1,18 @@
-You are an INDEPENDENT adversarial red team (a CPU-only desk review) for one RL-environment research task. Task: {{TASK_ID}}. Date: {{DATE}}. Repo root: {{REPO}}. Method version: {{METHOD_VERSION}}.
+You are an INDEPENDENT adversarial red team (a CPU-only desk review) for one RL-environment research task. Task: {{TASK_ID}} (version {{TASK_VERSION}}). Date: {{DATE}}. Method version: {{METHOD_VERSION}}.
 
 You did not design this task. Form your own judgement from the task files and the method files only. Be rigorous and thorough.
 
 {{COMMON}}
 
 INDEPENDENCE RULES (strict)
-Earlier screens and re-scores of this task exist. You must NOT see their verdicts or reasoning.
-- NEVER read, list, grep, cat, open or search anything under runs/ (any task, any date).
-- Do not run recursive searches (grep -r, rg, find) over the repo root or any parent folder. Read only the files named in this prompt and in tasks/{{TASK_ID}}/.
-- For duplicate awareness, you may read other tasks' tasks/<id>/card.md files, by explicit path only.
+You are blind to earlier screens and re-scores of this task; they are not in this working directory, by design.
+- Form your own judgement only from task/ and the method/ files named below.
+- Do NOT look for prior verdicts, run records, the originating repository or the grader's hidden data. Do not run recursive searches (grep -r, rg, find) outside this working directory.
+- For duplicate awareness, read only the cards in peers/ (card prose only), by explicit path.
 
-Blindness is enforced by these instructions plus a post-hoc check of the session log (tools/independence_check.py). It is not enforced by the sandbox.
+Blindness is enforced by the isolated, copy-only working directory (and, when available, an OS mount namespace that hides everything else), plus a post-hoc check of your session log. Stay inside out/ for writing.
 
-WRITE {{OUT_DIR}}/redteam.md with this structure (about 1,400–2,400 words of task-specific content):
+WRITE out/redteam.md with this structure (about 1,400–2,400 words of task-specific content):
 1. `# {{TASK_ID}}: <task title>: independent adversarial review`, then a bold verdict line (**Verdict: HOLDS / FIX / CUT.**) with a 2–3 sentence task-specific reason.
 2. `## Independent attack table`: EXACTLY 11 rows, with these columns: | Attack | Concrete adversary steps | Current/vulnerable reward | Does current defense block it? | Required fix or decisive control | Post-fix reward | Residual risk |
    - Rows 1–3: three attacks you invent for THIS task (lawful shortcuts, metric gaming, proxy collapse).

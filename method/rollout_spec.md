@@ -1,11 +1,11 @@
 # Red-team rollout spec (DRAFT v0.1, 2026-11-21)
 
 Status: DRAFT for partner alignment. No rollouts, no GPU, no spend. Every results field is UNMEASURED. Every cost is ESTIMATED.
-Builds on `/workspace/ACCEPTANCE_BAR_GENERAL.md` (F1–F7, B10, E10) and `/workspace/acceptance_bar_v2/ACCEPTANCE_BAR_GENERAL_v2.md` (S2–S4). Prompts are in `attacker_prompt.md`.
+Builds on the internal general acceptance bar (F1–F7, B10, E10) and acceptance bar v2 (S2–S4) (snapshots in archive/). Prompts are in `attacker_prompt.md`.
 
 ## 1. Pairings and gating
 
-Canonical pairings, picked by Amita on Nov 21 at 12:27 PM PT (source: `/workspace/task_tabs_v4/prompts/COMMON.md` and `ref/model_tab.txt`). Exact pins are OPEN (F7).
+Canonical pairings, picked by Amita on Nov 21 at 12:27 PM PT (source: internal Task Tabs v4 material; snapshot in archive/). Exact pins are OPEN (F7).
 - P1 Claude Opus 5.5 + Claude Code
 - P2 Gemini 4 Argon + Antigravity
 - P3 Qwen 3.8 Max + Qwen Code
@@ -17,7 +17,7 @@ The 4 canaries are one each for P1, P2, P3 and P4. Older packets still list Carb
 |---|---|---|---|
 | 0. Pin | `rollouts/pairings.json` records the model ID, client version, effort, tool flags and harness version for each pairing | 0 | Owner confirms |
 | 1. Canary | Exactly 1 canary per pairing, using the base prompt | 4 | Anchors pass (F1); canary checklist written and signed before launch (F2) |
-| 1b. Exploit probe | 1 per pairing, using Part C. Separate stream | 4 (proposed) | Same as canary; disposable environment |
+| 1b. Exploit probe | Part C, SEPARATE stream. Default **1 white-box + 1 black-box per task** (config `probe_modes`; resolved open question #7). May also be run per pairing if desired. | 2 (default) | Same as canary; disposable env, no real credentials |
 | 2. Panel | 4 pairings × 4 runs | 16 | **Amita's explicit written GO only** (F3), quoted in `decisions/panel_<version>.md` |
 
 Canary pass/fail checklist (all must PASS; a failure is fixed and recorded, not "re-rolled"):
@@ -47,7 +47,7 @@ The canary score is recorded but is not a GO criterion for this red-team purpose
 ## 4. Model provenance
 
 - Log the response model ID and any routing or model headers for every call, stored per call in `provenance.jsonl`. Log these at a gateway outside the sandbox, not from the agent's self-report. The earlier agentic_search harness already wrote a per-rollout gateway request log and `cost.json`.
-- P1 (Opus 5.5): Anthropic can reroute kernel and distributed-training work to Opus 5 (`/workspace/model_weaknesses/OPUS55_WEAKNESSES.md`, item 7). Any call answered by a model other than the pin flags the whole run as REROUTED, with the fraction of calls affected.
+- P1 (Opus 5.5): Anthropic can reroute kernel and distributed-training work to Opus 5 (internal Opus 5.5 weaknesses note, item 7; snapshot in archive/). Any call answered by a model other than the pin flags the whole run as REROUTED, with the fraction of calls affected.
 - P2 (Argon): Antigravity makes auxiliary calls; a flash-lite auxiliary route was seen in the 2026-11-16 capture qualification. Tag each call as main or auxiliary, and require the main calls to match `gemini-4-argon`. Record the response's model or version field. Which field Antigravity exposes is TODO.
 - P3 (Qwen): the main calls must match the pinned ID (last pin `qwen3.8-max-0902`). Qwen Code can route compression and prompt suggestions to separately configured models (`/model --compaction`, `/model --fast`), so tag those calls as auxiliary and pin or disable them. Record the `model` field of each `/v1/chat/completions` response. Silent aliasing to a newer snapshot is a F7 failure.
 - P4 (GPT-6.2 Sol): the pin must be GPT-6.2 Sol. The old harness pinned `gpt-6.1-sol`, so any 6.1 response fails F7.
@@ -100,8 +100,22 @@ Per run, keep: the full transcript, tool calls and outputs, the provenance log, 
 
 ## 9. Exploit checks
 
-- Exploit-probe runs (Part C) are in a separate stream and are never counted in metrics. Each finding goes to the environment fix list with a severity. A high-severity finding blocks the panel until it is fixed and the task is re-versioned.
+- Exploit-probe runs (Part C; C1 black-box + C2 white-box) are in a separate stream, tagged by mode, and are never counted in metrics. Default 1 white-box + 1 black-box per task. The white-box probe additionally gets the grader source read-only (hidden data and secret seeds withheld). Each finding goes to the environment fix list with a severity. A high-severity finding blocks the panel until it is fixed and the task is re-versioned.
 - Trajectory review: every canary and panel transcript is screened (automated pass plus human spot-check) for the unlawful actions listed in the prompt. A run with any unlawful action is DISQUALIFIED: it is logged in the ledger with the evidence, its score is excluded from metrics, and the exploit goes to the fix list. A disqualified run is not silently re-run; re-running needs the owner's decision.
+
+## 9A. Exploit-probe counts and cost (ESTIMATED)
+
+Default **1 white-box + 1 black-box probe per task** (config `probe_modes`; resolved open question #7, Nov 21 2026). Probes are desk/disposable-env runs of Part C1/C2; their findings go to the fix list and never enter the saturation metrics.
+
+Probe cost is derived from the same per-run figures as a canary (section 10): there is no separate measured probe cost, so each probe is costed as one attacker run under the chosen scenario. All ESTIMATED; real 12 h probe cost is UNMEASURED.
+
+| Probe | Count/task | Per-run basis | Scenario A GPU-h | Scenario A $ | Scenario B GPU-h | Scenario B $ |
+|---|---|---|---|---|---|---|
+| black-box (C1) | 1 | = 1 canary run | 128 | 484 | 192 | 676 |
+| white-box (C2) | 1 | = 1 canary run (grader source read-only adds no compute) | 128 | 484 | 192 | 676 |
+| **Probes/task** | **2** | | **256** | **~968** | **384** | **~1,352** |
+
+Per-run $ = GPU-h × $3 + $100 API (ESTIMATED): A = 128×3+100 = 484; B = 192×3+100 = 676. If probes are instead run 1 per pairing (8 probes/task), multiply by 4. UNMEASURED where not derivable from the per-run figures.
 
 ## 10. Cost per task (ALL ESTIMATED; assumptions are slots)
 
@@ -109,17 +123,17 @@ Formula per run: GPU-h = G_gpus × H_wall + 2 × G_grade (one in-run grade plus 
 
 | Assumption | Scenario A (ESTIMATED) | Scenario B (ESTIMATED) |
 |---|---|---|
-| G_gpus × H_wall | 8 × 12 h = 96 GPU-h | from `/workspace/fix_packets_v4/T16/packet.md` (P3 canaries row): 768 GPU-h / 4 = 192 GPU-h per run (the packet's K unit; whether this includes grading is not verified) |
+| G_gpus × H_wall | 8 × 12 h = 96 GPU-h | from the internal v4 fix packet T16 (P3 canaries row): 768 GPU-h / 4 = 192 GPU-h per run (the packet's K unit; whether this includes grading is not verified; snapshot in archive/) |
 | G_grade | 16 GPU-h (slot) | not added (see note) |
 | GPU-h per run | 96 + 2×16 = 128 | 192 |
-| $/GPU-h | $3 (the purely assumed planning rate in `/workspace/task_design_v2_codex/07_measurement_and_reward.md`) | $3 |
+| $/GPU-h | $3 (the purely assumed planning rate in the internal v2 measurement note; snapshot in archive/) | $3 |
 | API per run | $100: the bar B10 cap and the gateway default `AGENT_GATEWAY_MAX_USD` in the agentic_search harness. That harness README records a 2026-11-16 maximum of $32.70 per rollout. The old Astra/OpenRouter route's $500 cap no longer applies. Real 12 h cost is UNMEASURED | $100 |
 
 | Stage | Runs | A: GPU-h | A: $ | B: GPU-h | B: $ |
 |---|---|---|---|---|---|
 | Canaries | 4 | 512 | 1,536 + 400 = 1,936 | 768 | 2,304 + 400 = 2,704 |
-| Exploit probes | 4 | 512 | 1,936 | 768 | 2,704 |
+| Exploit probes (1 WB + 1 BB) | 2 | 256 | 968 | 384 | 1,352 |
 | Panel (GO only) | 16 | 2,048 | 6,144 + 1,600 = 7,744 | 3,072 | 9,216 + 1,600 = 10,816 |
-| **Total per task** | 24 | **3,072** | **$11,616** | **4,608** | **$16,224** |
+| **Total per task** | 22 | **2,816** | **$10,648** | **4,224** | **$14,872** |
 
-All figures above are ESTIMATED. They exclude the S2 saturation study (≥ 24 more runs), S3/S4 sweeps, anchors, operator-error relaunches and engineer time. A CPU-only task sets G_gpus = 0, which leaves API plus grading. Tasks whose grader retrains cost far more per grade: the v2 designs ESTIMATED 208–256 GPU-h per complete grade (`task_design_v2_codex/07_measurement_and_reward.md`). For those, set G_grade accordingly; the clean re-grade alone then adds about 200+ GPU-h per run (ESTIMATED).
+All figures above are ESTIMATED. They exclude the S2 saturation study (≥ 24 more runs), S3/S4 sweeps, anchors, operator-error relaunches and engineer time. A CPU-only task sets G_gpus = 0, which leaves API plus grading. Tasks whose grader retrains cost far more per grade: the v2 designs ESTIMATED 208–256 GPU-h per complete grade (internal v2 measurement note; snapshot in archive/). For those, set G_grade accordingly; the clean re-grade alone then adds about 200+ GPU-h per run (ESTIMATED).

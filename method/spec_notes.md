@@ -19,7 +19,7 @@ These target the known Opus 5.5 / GPT-6.x weaknesses: stopping early, incrementa
 - clean re-grading, retention, and contamination and exploit checks;
 - an ESTIMATED cost table of about 3,072–4,608 GPU-h and $11.6k–$16.2k per task, including probes and excluding the S2 study.
 
-Pairings: the canonical set, picked by Amita on Nov 21 at 12:27 PM PT (source: `/workspace/task_tabs_v4/prompts/COMMON.md`, `task_tabs_v4/ref/model_tab.txt`):
+Pairings: the canonical set, picked by Amita on Nov 21 at 12:27 PM PT (source: internal Task Tabs v4 material; snapshot in archive/):
 - P1 Claude Opus 5.5 + Claude Code
 - P2 Gemini 4 Argon + Antigravity
 - P3 Qwen 3.8 Max + Qwen Code
@@ -27,7 +27,7 @@ Pairings: the canonical set, picked by Amita on Nov 21 at 12:27 PM PT (source: `
 
 ## Alignment debt (old roster in other files)
 
-Status after Amita's migration GO (Nov 21, 1:18 PM PT); the full log is `/workspace/pairing_migration_log.md`, with backups in `/workspace/pairing_migration_backup/`.
+Status after Amita's migration GO (Nov 21, 1:18 PM PT); the full log and backups are internal (not in this repo).
 - **Migrated:**
   - `task_packets_codex.md` and `task_packets_codex/` (13 files)
   - `task_tabs_v4/tabs/*.md` and `*.sources.md` (16 files)
@@ -58,7 +58,7 @@ Status after Amita's migration GO (Nov 21, 1:18 PM PT); the full log is `/worksp
 4. **Pass threshold τ** for pass@4: keep R ≥ 0.60 (bar v2 S2), or set it per task?
 5. **Is "upper 95%" the bound on the observed mean, the S4 projection, or both?**
 6. **Network for the recipe survey.** Should the attacker get allowlisted web search, an offline literature pack, or nothing? (Bar F7 mentions disabling web search as a pinned flag.) This choice strongly shapes the combined-recipe attack.
-7. **Exploit probes.** Run 1 per pairing, or fewer? Should they be white-box (grader code visible) or black-box?
+7. **RESOLVED (Amita, Nov 21 2026): exploit probes run in two modes.** Default **1 white-box + 1 black-box probe per task** (config `probe_modes`). Black-box is the current behaviour; white-box additionally sees the grader source, scoring code and config read-only, with hidden test data and secret seeds withheld unless explicitly listed. Both are a separate run type (`attacker_prompt.md` Part C1/C2), tagged by mode, never counted toward saturation metrics, run in a disposable env with no real credentials. The main lawful attacker stays black-box.
 8. **Caps.** Per-run GPU, token and API caps. Is $100 per run (the bar B10 default) enough for 12 h at max effort? Real token costs are UNMEASURED.
 9. **Retention period** and who may access the transcripts.
 10. **Harness details.** Antigravity's tool names, continuation and model-ID field are TODO. For Qwen Code, the effort level (`xhigh` vs `max`), the memory-off settings and the subagent policy on 0.26.6 are TODO. Is 0.26.6 still the pin, given that 0.28.3 shipped on Nov 20 PT? Who confirms them?

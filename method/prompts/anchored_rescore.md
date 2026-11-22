@@ -1,4 +1,4 @@
-You are doing a CPU-only, desk-only ANCHORED RE-SCORE of an earlier saturation screen of one RL-environment research task. Task: {{TASK_ID}}. Date: {{DATE}}. Repo root: {{REPO}}. Method version: {{METHOD_VERSION}}.
+You are doing a CPU-only, desk-only ANCHORED RE-SCORE of an earlier saturation screen of one RL-environment research task. Task: {{TASK_ID}} (version {{TASK_VERSION}}). Date: {{DATE}}. Method version: {{METHOD_VERSION}}.
 
 WHY THIS STAGE EXISTS (Amita's binding rule, Nov 21, 2026, 12:04 PM PT)
 Screen attack estimates measured the attacker against our own idea of what could be done, not against what SOTA agents have actually been shown to do. Anchor every attack to DEMONSTRATED results. Don't defend the earlier screen, and don't overturn it for the sake of it. Flips in either direction are fine.
@@ -6,7 +6,7 @@ Screen attack estimates measured the attacker against our own idea of what could
 {{COMMON}}
 
 STAGE-SPECIFIC INPUTS (read-only)
-- The earlier screen: {{PRIOR_SCREEN}}
+- The earlier screen: prior/screen_card.md
 - method/evidence_grounding_rule.md (binding) and method/refs/frontier_reference_snapshot_2026-11-21.md, a starting list. You must fetch any source you cite yourself, and tie it to THIS task's capability.
 
 WHAT TO DO
@@ -23,7 +23,7 @@ WHAT TO DO
 4. **Anchored estimate:** give the ANCHORED estimate and verdict. This is an **upper bound** on survival, not the promotion decision.
 5. **Strict (the gate):** if attack_basis is LITERATURE-ONLY or ASSUMED, the STRICT verdict and scores are the section-4 (evidence-only / pre-anchoring) ones — treat that attack as executable by a 12-hour frontier agent. Only DEMONSTRATED-AGENT evidence may lower an attack score below that estimate; in that case STRICT equals ANCHORED. A task that survives only in the anchored reading is not promoted.
 
-WRITE {{OUT_DIR}}/audit_card.md with these sections (about 700–1300 words, hand-written):
+WRITE out/audit_card.md with these sections (about 700–1300 words, hand-written):
 # {{TASK_ID}}: <task title>: anchored re-score
 ## 1. What the screen claimed
 The old attack, numbers, verdict, kill reason and cited URLs.
