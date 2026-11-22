@@ -1,10 +1,16 @@
-# config/runner.yaml
+# config/
 
-One config drives the desk pipeline:
+`runner.yaml` is the single pipeline config. The `redteam` CLI loads it and merges it over the built-in
+defaults in `redteam/config.py`, so you only set what you want to change. Every path is relative to the
+project root unless it is absolute; nothing is pinned to one machine.
 
-1. **screen**: a CPU-only desk saturation screen of a task card against the kill lines.
-2. **anchored re-score**: re-estimates the attack under the evidence grounding rule (DEMONSTRATED-AGENT / LITERATURE-ONLY / ASSUMED), recording subfield SOTA and the gap. `gate_rule: strict` is the promotion gate: LITERATURE-ONLY and ASSUMED attacks use the evidence-only / pre-anchoring verdict; only DEMONSTRATED-AGENT evidence may lower an attack score. The anchored verdict is recorded as an upper bound (`anchored_upper_bound: true`).
-3. **red team**: an independent adversarial review (it must not read earlier verdicts). Possible verdicts are HOLDS, FIX and CUT.
-4. **canary** and **panel**: rollout stages. Both are **disabled** (`enabled: false`, `gates: OFF`) and require Amita's GO. Their procedure is `method/rollout_spec.md`.
-
-No runner is included. Earlier runs used per-job Codex sessions supervised by a watcher: at most N concurrent sessions, stall detection on session-log idle time, and resume of the same session up to 4 times. Each stage writes one `run.yaml` per task in the shape of `method/verdict_schema.yaml`. `tools/import_runs.py` shows how the existing records were mapped.
+Key sections:
+- **kill_lines / gate_rule / anchored_upper_bound** - the kill thresholds and the strict promotion gate (the
+  anchored verdict is only an upper bound). `gate_rule` must stay `strict`.
+- **pairings** - the canonical four for any later rollout (not used by the desk stages).
+- **desk_agent** - which model backend runs the desk stages. `backend: codex` (default) or `stub` (tests).
+- **probe_modes** - 1 white-box + 1 black-box desk exploit probe per task; findings never count toward saturation.
+- **supervisor / retries / stage_timeouts_minutes** - stall-resume, backoff and timeouts.
+- **isolation** - enforced blindness (copy-only workdir; bubblewrap masking when available).
+- **checks** - wording/boilerplate, URL liveness, independence; `enforce` decides whether a failure blocks COMPLETE.
+- **gates / gate_go_records** - rollout gates, OFF; the CLI never launches rollouts regardless.
