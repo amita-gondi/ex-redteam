@@ -1,6 +1,6 @@
 # Getting started: running the red-team desk pipeline on YOUR task
 
-> **AIUC-internal, private repo only.** Don't share this repo, its prompts or its run records with labs, GDM or anyone outside the team.
+> **Extrapolate-internal, private repo only.** Don't share this repo, its prompts or its run records with labs, GDM or anyone outside the team.
 
 This repo runs a CPU-only desk pipeline on one RL-environment task, end to end, through a single installable CLI:
 
