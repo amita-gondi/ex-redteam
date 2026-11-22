@@ -1,6 +1,6 @@
 # ex-redteam (private)
 
-> **AIUC-internal. Private repo only.** Task designs, hidden task cards, desk verdicts and method drafts. Do not make the repo public, fork it publicly or share it outside the team without Amita's approval (bar F4).
+> **Extrapolate-internal. Private repo only.** Task designs, hidden task cards, desk verdicts and method drafts. Do not make the repo public, fork it publicly or share it outside the team without Amita's approval (bar F4).
 
 A **task-agnostic** desk red-team pipeline for RL research tasks. Any task that provides a `task.yaml` and its referenced files runs end to end through one installable CLI:
 
